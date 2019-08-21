@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>CHIHAYA</title>
+  <title>【算法】约瑟夫环问题与Java实现 | CHIHAYA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="CHIHAYA">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="介绍&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;约瑟夫环大概介绍如下：n个人围成一圈，第一个人从1开始报数，报m的人出局，下一个人接着从1开始报数，如此循环，直到所有人出局。官方介绍点这里。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;解决约瑟夫环问题，我觉得可以分两种情况。  只求结局，即只要求算出最后出局的人。 求全过程，即要算出每轮出局的人。   情况一：只求结果&amp;nbsp;&amp;nbsp">
+<meta name="keywords" content="约瑟夫环,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【算法】约瑟夫环问题与Java实现">
+<meta property="og:url" content="http://yoursite.com/2019/08/20/【算法】约瑟夫环问题与Java实现/index.html">
 <meta property="og:site_name" content="CHIHAYA">
+<meta property="og:description" content="介绍&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;约瑟夫环大概介绍如下：n个人围成一圈，第一个人从1开始报数，报m的人出局，下一个人接着从1开始报数，如此循环，直到所有人出局。官方介绍点这里。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;解决约瑟夫环问题，我觉得可以分两种情况。  只求结局，即只要求算出最后出局的人。 求全过程，即要算出每轮出局的人。   情况一：只求结果&amp;nbsp;&amp;nbsp">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/01-1.png">
+<meta property="og:image" content="http://yoursite.com/images/01-2.png">
+<meta property="og:updated_time" content="2019-08-21T10:41:10.544Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CHIHAYA">
+<meta name="twitter:title" content="【算法】约瑟夫环问题与Java实现">
+<meta name="twitter:description" content="介绍&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;约瑟夫环大概介绍如下：n个人围成一圈，第一个人从1开始报数，报m的人出局，下一个人接着从1开始报数，如此循环，直到所有人出局。官方介绍点这里。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;解决约瑟夫环问题，我觉得可以分两种情况。  只求结局，即只要求算出最后出局的人。 求全过程，即要算出每轮出局的人。   情况一：只求结果&amp;nbsp;&amp;nbsp">
+<meta name="twitter:image" content="http://yoursite.com/images/01-1.png">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -144,16 +152,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-【算法】约瑟夫环问题与Java实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-【算法】约瑟夫环问题与Java实现" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/20/【算法】约瑟夫环问题与Java实现/">【算法】约瑟夫环问题与Java实现</a>
+    <h1 class="article-title" itemprop="name">
+      【算法】约瑟夫环问题与Java实现
     </h1>
   
 
@@ -197,6 +203,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的赞同<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -219,16 +246,65 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/20/【算法】约瑟夫环问题与Java实现/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/20/【算法】约瑟夫环问题与Java实现/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -248,8 +324,14 @@
 
 
 
+  
+  
+  
 
   
+
+  
+
   
 
 
@@ -272,8 +354,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
