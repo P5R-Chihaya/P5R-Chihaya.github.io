@@ -5,24 +5,24 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://p5r-chihaya.github.io">
+  <link rel="dns-prefetch" href="https://p5r-chihaya.github.io">
   <title>【算法】约瑟夫环问题与Java实现 | CHIHAYA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="介绍&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;约瑟夫环大概介绍如下：n个人围成一圈，第一个人从1开始报数，报m的人出局，下一个人接着从1开始报数，如此循环，直到所有人出局。官方介绍点这里。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;解决约瑟夫环问题，我觉得可以分两种情况。  只求结果，即只要求算出最后出局的人。 求全过程，即要算出每轮出局的人。  情况一：只求结果&amp;nbsp;&amp;nbsp;">
 <meta name="keywords" content="Java,约瑟夫环">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【算法】约瑟夫环问题与Java实现">
-<meta property="og:url" content="http://p5r-chihaya.github.io/2019/08/20/【算法】约瑟夫环问题与Java实现/index.html">
+<meta property="og:url" content="https://p5r-chihaya.github.io/2019/08/20/【算法】约瑟夫环问题与Java实现/index.html">
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="介绍&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;约瑟夫环大概介绍如下：n个人围成一圈，第一个人从1开始报数，报m的人出局，下一个人接着从1开始报数，如此循环，直到所有人出局。官方介绍点这里。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;解决约瑟夫环问题，我觉得可以分两种情况。  只求结果，即只要求算出最后出局的人。 求全过程，即要算出每轮出局的人。  情况一：只求结果&amp;nbsp;&amp;nbsp;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p5r-chihaya.github.io/images/01-1.png">
-<meta property="og:image" content="http://p5r-chihaya.github.io/images/01-2.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/01-1.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/01-2.png">
 <meta property="og:updated_time" content="2019-08-23T14:04:15.572Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【算法】约瑟夫环问题与Java实现">
 <meta name="twitter:description" content="介绍&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;约瑟夫环大概介绍如下：n个人围成一圈，第一个人从1开始报数，报m的人出局，下一个人接着从1开始报数，如此循环，直到所有人出局。官方介绍点这里。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;解决约瑟夫环问题，我觉得可以分两种情况。  只求结果，即只要求算出最后出局的人。 求全过程，即要算出每轮出局的人。  情况一：只求结果&amp;nbsp;&amp;nbsp;">
-<meta name="twitter:image" content="http://p5r-chihaya.github.io/images/01-1.png">
+<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/01-1.png">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -218,7 +218,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				http://p5r-chihaya.github.io/2019/08/20/【算法】约瑟夫环问题与Java实现/
+				https://p5r-chihaya.github.io/2019/08/20/【算法】约瑟夫环问题与Java实现/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -331,7 +331,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACs0lEQVR42u3aQXLjMAwEwPz/09nrXizPAKSTVLVOW47WYutAwgN8fcXX94srufP5ns3nxy48PDy8Q0v//+ueH7lZ7vMTX60h+QY8PDy827xXO+rzw5LFJUt/PlSS1/3yczw8PLxfxttUsLM78fDw8P4WL48VZlHCDx8MeHh4eCXv7FbevqCcfTFrwcPDw4t5eRfp9/z7Sn8PDw8Pb91Vb7fdfOtPBgsOrBMPDw/vAq/dlBPqc3PrGTAb+XoTVeDh4eFd4LUBbl7yzoYP8jbYsOzGw8PDW/A2P/VPjVvlw1j5i8PDw8P7PG/TxGq373b4oFgPHh4e3gVe24ZvHzMbAmjZqzYYHh4eXslrx5hOlcL5/03CjqKkxsPDwzvEywvlfLufHTmHXzQeHh7etT28HWNqC+K2NN98/uZ4wMPDw1vz8gW1za3ZYXMqJsbDw8O7x0u+dF8E5+Fv23irExc8PDy8Na8tgm8EB22oUcQleHh4eBd4eaGcN/7b2CIfS23jYzw8PLx7vFlY0G7im9ZaPjrw5ul4eHh4a96mb9aGDpv787HXKKXAw8PDW/DyrfxUWNAGtYd/MeDh4eGtebOtvG1ZtVt/8vqileDh4eF9kLc5GPLDoI1i80I8G5nAw8PDm/PaYCLZsttAIV9JHijj4eHh3eDNwoj22JgNTrXjBXh4eHif4bU/+/O/trHsjSMHDw8P7wYviUSTUjg/WnLkqe/Ew8PDO8v7Lq+28M2D3VmM+6Zwx8PDw7vAy69ZOLspkdvYYnZE4eHh4c14+WEwG8Nqj5xZ2PHy1eDh4eFd4yXRQDsCtW+z5fcXbTA8PDy8D/LyEai8CN58EiHx8PDwfpTXtsHaY6ANL4b9PTw8PLxDvH0YMQth8xfRDjfg4eHh3ePtx6Ty7XsTMcwOHjw8PLyjvH9lpH7j1wMN5wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADIElEQVR42u3aQZKCQBAEQP//affqYdGqaYiQMee0gYgkHGqnux+PeD1f1uuR95++HmnX82Adnfm4YmFjY2PfhP18u9pzjm4o/9b7KyTnRI8MGxsbezv22k+2YdMG5NqRKOSwsbGxf5idh1byUPIgnLwebGxsbOwkkCYBNq/5YGNjY2O3BaO2kJSXjVre5bU0bGxs7K9n53Hy/X9f0t/GxsbG/mL2s1xtUWmtrdsOANUKbGxs7I3YVxSMjs4pbigpCcWfHt4VNjY29nbstkH7PqKS+Emisb1OUUjCxsbG/hl2+62kndBuNtaKSkVXBBsbG/vm7HOjqG3WtgWjdrSojjFsbGzsW7EnozBtXC2+jXH7+Z8j2NjY2Fuz1wKpbRLn8TYvb2FjY2PvzV4r1uQbmCsCrI3YD+UkbGxs7C3YyaUnG4Y2FCfbjCTYsLGxsX+NvVY2alsLbb7kYVbgsbGxsW/IXhusmYzmTB7ZWWND2NjY2PuxJ0OQayWnySNrQ+swwLCxsbG3YE+aBPOhzElMto3eE6Z+sLGxsb+SnWwYzgqPteZx20KOHiU2Njb2duy1olJeMJpH19rA5aERGxsbeyN2+299fuvvz5k3jyeFKmxsbOy92W1otY9s8ottBH6IW2xsbOwt2EkIrQ3ZrDV981bEZDuEjY2NvSu7+FrQ7s1bAvmWI9l4RC8GGxsbezv21WWdtR3S2nWiWMXGxsbeiN22e5PAmIzj5AND+cLGxsb+BXY+7JKXkObFqbZc1R7BxsbG3ol9VkTlzdr8d9tmQxFy2NjY2Juy16IoL/rPA+ysSMPGxsbeld0GWHu7bY5MvvVhS4ONjY29Hbu9XB5gecCctVGJYgwbGxt7C/azXG2JZ1LbyQeD6geEjY2NvRE7X+3AZd6EyKMuL2DVXW5sbGzsm7PPKgmttYTXWrl5gBXvARsbG/vm7DY8JqGVP7i17U1dS8PGxsb+MfZauae4oaVYTV4SNjY2NnZx0aWWQHu1tiCFjY2NvTc7iYq1YcoWMGkkXNIewMbGxv56dlugacFntR8mbYm6eYCNjY19D/Yf2Ek+2pLN5YkAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -498,11 +498,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
             
             <div class="clearfix"></div>
