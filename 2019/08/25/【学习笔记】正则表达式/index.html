@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/03-1.png">
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/03-2.png">
-<meta property="og:updated_time" content="2019-08-25T03:19:51.947Z">
+<meta property="og:updated_time" content="2019-09-02T14:48:49.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】正则表达式">
 <meta name="twitter:description" content="标准字符集   表达式 匹配内容    \n 换行符   \t 制表符   \\ \本身   \d 数字   \w 字母、数字、下划线   \s 空格、制表符、换行符等空白字符   \S 非空白字符   . 非换行符   \x 当x不是特殊字符时，匹配x自身。详细点这里">
@@ -85,13 +85,11 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/P5R-Chihaya" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="https://weibo.com/u/6003380699" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="bilibili" target="_blank" href="https://space.bilibili.com/32501063" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
 			</div>
 
@@ -127,13 +125,11 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/P5R-Chihaya" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="https://weibo.com/u/6003380699" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="bilibili" target="_blank" href="https://space.bilibili.com/32501063" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
 				</div>
 			</nav>
@@ -223,7 +219,8 @@
 <td>当x不是特殊字符时，匹配x自身。详细<a href="https://baike.baidu.com/item/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/1700215?fr=aladdin#7" target="_blank" rel="noopener">点这里</a></td>
 </tr>
 </tbody></table>
-<p><br><a id="more"></a></p>
+<a id="more"></a>
+
 <h1 id="自定义字符集"><a href="#自定义字符集" class="headerlink" title="自定义字符集"></a>自定义字符集</h1><table>
 <thead>
 <tr>
@@ -336,7 +333,7 @@
 <td>abc\b，可以匹配”abc “中的”abc”，因为’c’后面是空格；但不能匹配”abc123”中的”abc”，因为’c’后面是数字</td>
 </tr>
 </tbody></table>
-<h1 id="捕获组"><a href="#捕获组" class="headerlink" title="捕获组"></a>捕获组</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;使用括号进行分组后，再用\n进行引用；n是从1开始的数字，表示组号，若不想给分组分配组号可以使用(?:)。例子如下图所示：<br><img src="/images/03-1.png" alt="03-1"><br>[a-z]{3}表示连续3个字母，把它放进括号就对其进行了分组，\1就可以引用它，类似于申请了一个变量\1，其内容是连续3个字母。所以该表达式就是匹配两组相同的连续3个字母。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;若有多个分组，则用\1\2等(<strong>注：组号是按照<font color="red">左括号</font>的出现顺序来分配的</strong>)来引用，如下图所示：<br><img src="/images/03-2.png" alt="03-2"></p>
+<h1 id="捕获组"><a href="#捕获组" class="headerlink" title="捕获组"></a>捕获组</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;使用括号进行分组后，再用\n进行引用；n是从1开始的数字，表示组号，若不想给分组分配组号可以使用(?:)。例子如下图所示：<br><img src="/images/03-1.png" alt="03-1"><br>[a-z]{3}表示连续3个字母，把它放进括号就对其进行了分组，\1就可以引用它，类似于申请了一个变量\1，其内容是连续3个字母。所以该表达式就是匹配两组相同的连续3个字母。<br>&nbsp;&nbsp;&nbsp;&nbsp;若有多个分组，则用\1\2等(<strong>注：组号是按照<font color="red">左括号</font>的出现顺序来分配的</strong>)来引用，如下图所示：<br><img src="/images/03-2.png" alt="03-2"></p>
 <h1 id="预搜索"><a href="#预搜索" class="headerlink" title="预搜索"></a>预搜索</h1><table>
 <thead>
 <tr>
@@ -513,6 +510,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/09/02/【学习笔记】Java笔记二：注解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【学习笔记】Java笔记二：注解
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/08/23/【学习笔记】Java笔记一/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">【学习笔记】Java笔记一</div>
@@ -654,10 +660,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -666,7 +668,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">注解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
             
             <div class="clearfix"></div>

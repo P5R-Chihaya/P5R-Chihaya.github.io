@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="抽象类：  只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有字段和非抽象方法 一个类只能继承(extends)一个抽象类   接口：  接口的所有方法默认是public abstract的 接口的所有字段默认是public static final的 接口可以定义由default修饰的方法 一个类可以实现(implements)多个接口">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-23T12:26:39.772Z">
+<meta property="og:updated_time" content="2019-09-02T14:47:57.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】Java笔记一">
 <meta name="twitter:description" content="抽象类：  只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有字段和非抽象方法 一个类只能继承(extends)一个抽象类   接口：  接口的所有方法默认是public abstract的 接口的所有字段默认是public static final的 接口可以定义由default修饰的方法 一个类可以实现(implements)多个接口">
@@ -82,13 +82,11 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/P5R-Chihaya" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="weibo" target="_blank" href="https://weibo.com/u/6003380699" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="bilibili" target="_blank" href="https://space.bilibili.com/32501063" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
 			</div>
 
@@ -124,13 +122,11 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/P5R-Chihaya" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="weibo" target="_blank" href="https://weibo.com/u/6003380699" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="bilibili" target="_blank" href="https://space.bilibili.com/32501063" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
 				</div>
 			</nav>
@@ -192,10 +188,11 @@
 <li>一个类可以实现(implements)多个接口</li>
 </ul>
 <hr>
-<p><br><a id="more"></a><br>static：</p>
+<a id="more"></a>
+<p>static：</p>
 <ul>
 <li><p>static修饰的字段叫静态字段。所有实例访问该字段时，访问到的都是同一个，例子如下：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class Person  &#123;</span><br><span class="line">    public static int number = 18;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Person p1 = new Person();</span><br><span class="line">        Person p2 = new Person();</span><br><span class="line">        System.out.println(p1.number); // 输出18</span><br><span class="line">        System.out.println(p2.number); // 输出18</span><br><span class="line">        // 实际上一般用Person.number来访问</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span>  </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> number = <span class="number">18</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person p1 = <span class="keyword">new</span> Person();</span><br><span class="line">        Person p2 = <span class="keyword">new</span> Person();</span><br><span class="line">        System.out.println(p1.number); <span class="comment">// 输出18</span></span><br><span class="line">        System.out.println(p2.number); <span class="comment">// 输出18</span></span><br><span class="line">        <span class="comment">// 实际上一般用Person.number来访问</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>static修饰的方法叫静态方法。在静态方法中，无法使用this关键字，也无法访问<font color="red"><strong>非静态</strong></font>字段。</p>
 </li>
@@ -500,10 +497,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -512,7 +505,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">注解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
             
             <div class="clearfix"></div>
