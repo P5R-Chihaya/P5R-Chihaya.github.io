@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="一、简介&amp;emsp;&amp;emsp;注解(Annotation)相当于代码里的特殊标记，使被修饰的元素在编译、加载、运行时读取信息并进行处理。可看作是对一个 类/方法 的一个扩展的模版，每个 类/方法 按照注解类中的规则，来为 类/方法 注解不同的参数，在用到的地方可以得到不同的 类/方法 中注解的各种参数与值（百度百科）。 二、JDK内置注解1、@Override&amp;emsp;&amp;emsp;限定子类重写">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-06T11:03:19.331Z">
+<meta property="og:updated_time" content="2019-09-10T14:41:32.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】Java笔记二：注解">
 <meta name="twitter:description" content="一、简介&amp;emsp;&amp;emsp;注解(Annotation)相当于代码里的特殊标记，使被修饰的元素在编译、加载、运行时读取信息并进行处理。可看作是对一个 类/方法 的一个扩展的模版，每个 类/方法 按照注解类中的规则，来为 类/方法 注解不同的参数，在用到的地方可以得到不同的 类/方法 中注解的各种参数与值（百度百科）。 二、JDK内置注解1、@Override&amp;emsp;&amp;emsp;限定子类重写">
@@ -252,17 +252,17 @@
 </tr>
 <tr>
 <td>ElementType.TYPE_PARAMETER</td>
-<td>Java 8引入，可用于类型变量的声明语句中，如泛型声明</td>
+<td>Java 8 引入，可用于类型变量的声明语句中，如泛型声明</td>
 </tr>
 <tr>
 <td>ElementType.TYPE_USE</td>
-<td>Java 8引入，可用于使用类型的任何语句中</td>
+<td>Java 8 引入，可用于使用类型的任何语句中</td>
 </tr>
 </tbody></table>
 <h2 id="3、-Documented"><a href="#3、-Documented" class="headerlink" title="3、@Documented"></a>3、@Documented</h2><p>&emsp;&emsp;被修饰的注解被javadoc解析时，会保留下来。</p>
 <h2 id="4、-Inherited"><a href="#4、-Inherited" class="headerlink" title="4、@Inherited"></a>4、@Inherited</h2><p>&emsp;&emsp;被修饰的注解具有继承性。比如某个类使用了被@Inherited修饰的注解，那么这个类的子类也会具有该注解。</p>
-<h2 id="5、-Repeatable"><a href="#5、-Repeatable" class="headerlink" title="5、@Repeatable"></a>5、@Repeatable</h2><p>&emsp;&emsp;Java 8引入，声明可重复注解。</p>
-<h3 id="Java-8前的写法"><a href="#Java-8前的写法" class="headerlink" title="Java 8前的写法"></a>Java 8前的写法</h3><p>1、创建一个自定义注解MyAnnotation</p>
+<h2 id="5、-Repeatable"><a href="#5、-Repeatable" class="headerlink" title="5、@Repeatable"></a>5、@Repeatable</h2><p>&emsp;&emsp;Java 8 引入，声明可重复注解。</p>
+<h3 id="Java-8-前的写法"><a href="#Java-8-前的写法" class="headerlink" title="Java 8 前的写法"></a>Java 8 前的写法</h3><p>1、创建一个自定义注解MyAnnotation</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>2、创建一个新注解，其字段为MyAnnotation的数组</p>
@@ -271,7 +271,7 @@
 <p>3、使用注解</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MyNewAnnotation</span>(value = &#123;<span class="meta">@MyAnnotation</span>(value = <span class="string">"hello1"</span>), <span class="meta">@MyAnnotation</span>(value = <span class="string">"hello2"</span>)&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo01</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Java-8写法"><a href="#Java-8写法" class="headerlink" title="Java 8写法"></a>Java 8写法</h3><p>1、在注解MyAnnotation上使用元注解@Repeatable，值为MyNewAnnotation.class</p>
+<h3 id="Java-8-写法"><a href="#Java-8-写法" class="headerlink" title="Java 8 写法"></a>Java 8 写法</h3><p>1、在注解MyAnnotation上使用元注解@Repeatable，值为MyNewAnnotation.class</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repeatable</span>(MyNewAnnotation.class)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>2、使用重复注解</p>
@@ -461,7 +461,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、简介"><span class="toc-number">1.</span> <span class="toc-text">一、简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、JDK内置注解"><span class="toc-number">2.</span> <span class="toc-text">二、JDK内置注解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、-Override"><span class="toc-number">2.1.</span> <span class="toc-text">1、@Override</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、-Deprecated"><span class="toc-number">2.2.</span> <span class="toc-text">2、@Deprecated</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、-SuppressWarnings"><span class="toc-number">2.3.</span> <span class="toc-text">3、@SuppressWarnings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、-SafeVarargs"><span class="toc-number">2.4.</span> <span class="toc-text">4、@SafeVarargs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、-FunctionalInterface"><span class="toc-number">2.5.</span> <span class="toc-text">5、@FunctionalInterface</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、元注解"><span class="toc-number">3.</span> <span class="toc-text">三、元注解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、-Retention"><span class="toc-number">3.1.</span> <span class="toc-text">1、@Retention</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、-Target"><span class="toc-number">3.2.</span> <span class="toc-text">2、@Target</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、-Documented"><span class="toc-number">3.3.</span> <span class="toc-text">3、@Documented</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、-Inherited"><span class="toc-number">3.4.</span> <span class="toc-text">4、@Inherited</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、-Repeatable"><span class="toc-number">3.5.</span> <span class="toc-text">5、@Repeatable</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-8前的写法"><span class="toc-number">3.5.1.</span> <span class="toc-text">Java 8前的写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-8写法"><span class="toc-number">3.5.2.</span> <span class="toc-text">Java 8写法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、相关链接"><span class="toc-number">4.</span> <span class="toc-text">四、相关链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、简介"><span class="toc-number">1.</span> <span class="toc-text">一、简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、JDK内置注解"><span class="toc-number">2.</span> <span class="toc-text">二、JDK内置注解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、-Override"><span class="toc-number">2.1.</span> <span class="toc-text">1、@Override</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、-Deprecated"><span class="toc-number">2.2.</span> <span class="toc-text">2、@Deprecated</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、-SuppressWarnings"><span class="toc-number">2.3.</span> <span class="toc-text">3、@SuppressWarnings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、-SafeVarargs"><span class="toc-number">2.4.</span> <span class="toc-text">4、@SafeVarargs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、-FunctionalInterface"><span class="toc-number">2.5.</span> <span class="toc-text">5、@FunctionalInterface</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、元注解"><span class="toc-number">3.</span> <span class="toc-text">三、元注解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、-Retention"><span class="toc-number">3.1.</span> <span class="toc-text">1、@Retention</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、-Target"><span class="toc-number">3.2.</span> <span class="toc-text">2、@Target</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、-Documented"><span class="toc-number">3.3.</span> <span class="toc-text">3、@Documented</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、-Inherited"><span class="toc-number">3.4.</span> <span class="toc-text">4、@Inherited</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、-Repeatable"><span class="toc-number">3.5.</span> <span class="toc-text">5、@Repeatable</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-8-前的写法"><span class="toc-number">3.5.1.</span> <span class="toc-text">Java 8 前的写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-8-写法"><span class="toc-number">3.5.2.</span> <span class="toc-text">Java 8 写法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、相关链接"><span class="toc-number">4.</span> <span class="toc-text">四、相关链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -597,6 +597,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">String</a>
               </li>
              
@@ -606,6 +610,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">比较器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">枚举类</a>
               </li>
             
             <div class="clearfix"></div>
