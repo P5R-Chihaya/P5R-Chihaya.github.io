@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/001-1.png">
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/001-2.png">
-<meta property="og:updated_time" content="2019-09-08T12:28:33.814Z">
+<meta property="og:updated_time" content="2019-09-15T08:15:11.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【算法】约瑟夫环问题与Java实现">
 <meta name="twitter:description" content="一、介绍&amp;emsp;&amp;emsp;约瑟夫环大概介绍如下：n个人围成一圈，第一个人从1开始报数，报m的人出局，下一个人接着从1开始报数，如此循环，直到所有人出局。官方介绍点这里。 &amp;emsp;&amp;emsp;解决约瑟夫环问题，我觉得可以分两种情况。 &amp;emsp;&amp;emsp;1.只求结果，即只要求算出最后出局的人。 &amp;emsp;&amp;emsp;2.求全过程，即要算出每轮出局的人。 二、情况一：只求结果&amp;emsp">
@@ -197,10 +197,12 @@
 <h2 id="4、Java代码"><a href="#4、Java代码" class="headerlink" title="4、Java代码"></a>4、Java代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test01</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 约瑟夫环问题，只求结果</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n 该轮所剩的人数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> m 报该数的人出局</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 胜利者的下标，从0开始</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span> CHIHAYA</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">josephus</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">2</span>) &#123;       <span class="comment">// m=2时的特殊情况</span></span><br><span class="line">            <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (k &lt;= n) &#123;</span><br><span class="line">                k = k &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            k = k &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> (n - k) * <span class="number">2</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;            <span class="comment">// 普遍情况，使用递归</span></span><br><span class="line">            <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> (josephus(n-<span class="number">1</span>, m) + m) % n;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 由于函数返回的是从0开始编号的下标，所以还要再加1</span></span><br><span class="line">        System.out.println(josephus(<span class="number">7</span>, <span class="number">3</span>) + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="三、情况二：求全过程"><a href="#三、情况二：求全过程" class="headerlink" title="三、情况二：求全过程"></a>三、情况二：求全过程</h1><h2 id="1、思路"><a href="#1、思路" class="headerlink" title="1、思路"></a>1、思路</h2><p>&emsp;&emsp;解决方案是用数组模拟出局情况。大致思路如下：</p>
-<p>&emsp;&emsp;1.定义一个count变量，初始值为1，用于报数。</p>
-<p>&emsp;&emsp;2.遍历数组，每访问一个新的元素，count自增，当count等于m时，则给该元素做标记，输出该元素的位置并把count置为1。</p>
-<p>&emsp;&emsp;3.若当前访问的元素已做过标记，则跳过该元素，继续访问下一个元素。</p>
-<p>&emsp;&emsp;4.重复上述的第2步和第3步，直至数组的所有元素都做过标记。<br>&emsp;&emsp;代码如下所示。</p>
+<ul>
+<li>定义一个count变量，初始值为1，用于报数</li>
+<li>遍历数组，每访问一个新的元素，count自增，当count等于m时，则给该元素做标记，输出该元素的位置并把count置为1</li>
+<li>若当前访问的元素已做过标记，则跳过该元素，继续访问下一个元素</li>
+<li>重复上述的第2步和第3步，直至数组的所有元素都做过标记</li>
+</ul>
 <h2 id="2、Java代码"><a href="#2、Java代码" class="headerlink" title="2、Java代码"></a>2、Java代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test02</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 约瑟夫环问题，求全过程</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n 总人数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> m 报该数的人出局</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span> CHIHAYA</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">josephus</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] nums = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            nums[i] = i;</span><br><span class="line">            flag += i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (flag &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                nums[i] = count;</span><br><span class="line">                count++;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] == m) &#123;</span><br><span class="line">                    System.out.printf(i + <span class="string">" "</span>);</span><br><span class="line">                    count = <span class="number">1</span>;</span><br><span class="line">                    nums[i] = <span class="number">0</span>;    <span class="comment">// 对该元素做标记，下次遍历时跳过该元素</span></span><br><span class="line">                    flag -= i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        josephus(<span class="number">7</span>,<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="四、结束语"><a href="#四、结束语" class="headerlink" title="四、结束语"></a>四、结束语</h1><p>&emsp;&emsp;感谢您的阅读，个人认为约瑟夫环问题的一些基本情况已全部罗列出来了，需要注意的是写代码时编号的换算。笔者能力有限，代码也未必是最优的，还请各位多多包涵！</p>
@@ -498,15 +500,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">注解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">错题集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">注解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,6 +529,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">

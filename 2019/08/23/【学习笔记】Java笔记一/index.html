@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://p5r-chihaya.github.io">
   <title>【学习笔记】Java笔记一 | CHIHAYA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="抽象类：  只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有字段和非抽象方法 一个类只能继承(extends)一个抽象类   接口：  接口的所有方法默认是public abstract的 接口的所有字段默认是public static final的 接口可以定义由default修饰的方法 一个类可以实现(implements)多个接口">
+  <meta name="description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类 只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有属性和非抽象方法 一个类只能继承(extends)一个抽象类  二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstract的 接口的所有属性默认是public static final的 接口可以定义">
 <meta name="keywords" content="Java,面向对象基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】Java笔记一">
 <meta property="og:url" content="https://p5r-chihaya.github.io/2019/08/23/【学习笔记】Java笔记一/index.html">
 <meta property="og:site_name" content="CHIHAYA">
-<meta property="og:description" content="抽象类：  只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有字段和非抽象方法 一个类只能继承(extends)一个抽象类   接口：  接口的所有方法默认是public abstract的 接口的所有字段默认是public static final的 接口可以定义由default修饰的方法 一个类可以实现(implements)多个接口">
+<meta property="og:description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类 只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有属性和非抽象方法 一个类只能继承(extends)一个抽象类  二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstract的 接口的所有属性默认是public static final的 接口可以定义">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-02T14:47:57.929Z">
+<meta property="og:updated_time" content="2019-09-23T05:19:29.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】Java笔记一">
-<meta name="twitter:description" content="抽象类：  只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有字段和非抽象方法 一个类只能继承(extends)一个抽象类   接口：  接口的所有方法默认是public abstract的 接口的所有字段默认是public static final的 接口可以定义由default修饰的方法 一个类可以实现(implements)多个接口">
+<meta name="twitter:description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类 只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有属性和非抽象方法 一个类只能继承(extends)一个抽象类  二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstract的 接口的所有属性默认是public static final的 接口可以定义">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -172,41 +172,69 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>抽象类：</p>
-<ul>
+        <h1 id="一、abstract"><a href="#一、abstract" class="headerlink" title="一、abstract"></a>一、abstract</h1><ul>
+<li>修饰的方法叫抽象方法，修饰的类叫抽象类</li>
 <li>只有抽象类才能定义抽象方法</li>
 <li>抽象类的<font color="red"><strong>非抽象</strong></font>子类必须重写父类的抽象方法</li>
-<li>抽象类可以有字段和非抽象方法</li>
+<li>抽象类可以有属性和非抽象方法</li>
 <li>一个类只能继承(extends)一个抽象类</li>
 </ul>
-<hr>
-<p>接口：</p>
-<ul>
+<h1 id="二、interface"><a href="#二、interface" class="headerlink" title="二、interface"></a>二、interface</h1><ul>
+<li>一种特殊的类，比抽象类更抽象，叫做接口</li>
 <li>接口的所有方法默认是public abstract的</li>
-<li>接口的所有字段默认是public static final的</li>
+<li>接口的所有属性默认是public static final的</li>
 <li>接口可以定义由default修饰的方法</li>
 <li>一个类可以实现(implements)多个接口</li>
 </ul>
-<hr>
 <a id="more"></a>
-<p>static：</p>
-<ul>
-<li><p>static修饰的字段叫静态字段。所有实例访问该字段时，访问到的都是同一个，例子如下：</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span>  </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> number = <span class="number">18</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person p1 = <span class="keyword">new</span> Person();</span><br><span class="line">        Person p2 = <span class="keyword">new</span> Person();</span><br><span class="line">        System.out.println(p1.number); <span class="comment">// 输出18</span></span><br><span class="line">        System.out.println(p2.number); <span class="comment">// 输出18</span></span><br><span class="line">        <span class="comment">// 实际上一般用Person.number来访问</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、static"><a href="#三、static" class="headerlink" title="三、static"></a>三、static</h1><h2 id="1、相关介绍"><a href="#1、相关介绍" class="headerlink" title="1、相关介绍"></a>1、相关介绍</h2><ul>
+<li><p>static可以修饰属性、方法、代码块和内部类</p>
 </li>
-<li><p>static修饰的方法叫静态方法。在静态方法中，无法使用this关键字，也无法访问<font color="red"><strong>非静态</strong></font>字段。</p>
+<li><p>static修饰的属性叫静态属性。所有实例对象访问该属性时，访问到的都是同一个，例子如下</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span>  </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> number = <span class="number">18</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person p1 = <span class="keyword">new</span> Person();</span><br><span class="line">        Person p2 = <span class="keyword">new</span> Person();</span><br><span class="line">        System.out.println(p1.number); <span class="comment">// 输出18</span></span><br><span class="line">        System.out.println(p2.number); <span class="comment">// 输出18</span></span><br><span class="line">        <span class="comment">// 实际上一般用Person.number来访问</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p>静态属性的加载早于对象的创建，是随着类的加载而加载的，只会加载一次，保存在方法区的静态域中</p>
+</li>
+<li><p>static修饰的方法叫静态方法。在静态方法中，无法使用this和super关键字，也无法访问<font color="red"><strong>非静态</strong></font>属性</p>
 </li>
 <li><p>静态方法常用于工具类的编写</p>
 </li>
 </ul>
-<hr>
-<p>final：</p>
-<ul>
-<li>final修饰的方法不能被重写</li>
-<li>final修饰的类不能被继承</li>
-<li>final修饰的字段，必须在创建时初始化，而且不能被修改</li>
-</ul>
+<h2 id="2、经典例题"><a href="#2、经典例题" class="headerlink" title="2、经典例题"></a>2、经典例题</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"父类静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Father</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"父类构造器"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"子类静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Son</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"子类构造器"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Son son = <span class="keyword">new</span> Son(); <span class="comment">// 创建子类时会默认调用父类的无参构造</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输出结果是：</span><br><span class="line">父类静态代码块</span><br><span class="line">子类静态代码块</span><br><span class="line">父类构造器</span><br><span class="line">子类构造器</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、final"><a href="#四、final" class="headerlink" title="四、final"></a>四、final</h1><ul>
+<li>该关键字理解为”最终”的意思</li>
+<li>final可以修饰类、方法、属性、局部变量</li>
+<li>final修饰的类不能被继承，比如String、System、StringBuffer</li>
+<li>final修饰的方法不能被重写</li>
+<li>final修饰的属性，可以赋值的位置有：显式初始化、代码块中、构造器中。赋值后不能被修改</li>
+</ul>
+<h1 id="五、this"><a href="#五、this" class="headerlink" title="五、this"></a>五、this</h1><ul>
+<li>该关键字理解为当前对象的</li>
+<li>可以调用属性、方法、构造器</li>
+<li>在类的方法中，使用”this.属性”和”this.方法”来调用当前对象的属性和方法，但一般省略this关键字。在一些特殊情况下，形参名和属性名相同时，要用this来区分，比如set方法</li>
+<li>使用<font color="red"><strong>this(形参列表…)</strong></font>可以调用<font color="red"><strong>其他</strong></font>指定构造器</li>
+<li>在构造器中调用其他构造器，this()只能放在第一行</li>
+</ul>
+<h1 id="六、super"><a href="#六、super" class="headerlink" title="六、super"></a>六、super</h1><ul>
+<li>该关键字理解为父类的</li>
+<li>super可以调用属性、方法、构造器</li>
+<li>在子类的方法中，可以用过”super.属性”和”super.方法”显式调用父类的属性和方法</li>
+<li>可以在子类构造器中，可以显式使用<font color="red"><strong>super(形参列表…)</strong></font>调用父类的指定构造器，也要放在第一行。如果不写也会默认调用super()</li>
+<li></li>
+</ul>
+<h1 id="七、访问权限"><a href="#七、访问权限" class="headerlink" title="七、访问权限"></a>七、访问权限</h1>
       
 
         
@@ -385,7 +413,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    这篇文章没有加目录哦<br>Σ(っ °Д °;)っ
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、abstract"><span class="toc-number">1.</span> <span class="toc-text">一、abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、interface"><span class="toc-number">2.</span> <span class="toc-text">二、interface</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、static"><span class="toc-number">3.</span> <span class="toc-text">三、static</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关介绍"><span class="toc-number">3.1.</span> <span class="toc-text">1、相关介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、经典例题"><span class="toc-number">3.2.</span> <span class="toc-text">2、经典例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、final"><span class="toc-number">4.</span> <span class="toc-text">四、final</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、this"><span class="toc-number">5.</span> <span class="toc-text">五、this</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、super"><span class="toc-number">6.</span> <span class="toc-text">六、super</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、访问权限"><span class="toc-number">7.</span> <span class="toc-text">七、访问权限</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -505,15 +533,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">注解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">错题集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">注解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,6 +562,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
