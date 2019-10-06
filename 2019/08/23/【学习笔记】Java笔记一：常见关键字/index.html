@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://p5r-chihaya.github.io">
-  <title>【算法】约瑟夫环问题与Java实现 | CHIHAYA</title>
+  <title>【学习笔记】Java笔记一：常见关键字 | CHIHAYA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、介绍&amp;emsp;&amp;emsp;约瑟夫环大概介绍如下：n个人围成一圈，第一个人从1开始报数，报m的人出局，下一个人接着从1开始报数，如此循环，直到所有人出局。官方介绍点这里。 &amp;emsp;&amp;emsp;解决约瑟夫环问题，我觉得可以分两种情况。 &amp;emsp;&amp;emsp;1.只求结果，即只要求算出最后出局的人。 &amp;emsp;&amp;emsp;2.求全过程，即要算出每轮出局的人。 二、情况一：只求结果&amp;emsp">
-<meta name="keywords" content="Java,约瑟夫环">
+  <meta name="description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类 只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有属性和非抽象方法 一个类只能继承(extends)一个抽象类  二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstract的 接口的所有属性默认是public static final的 接口可以定义">
+<meta name="keywords" content="Java,常见关键字">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【算法】约瑟夫环问题与Java实现">
-<meta property="og:url" content="https://p5r-chihaya.github.io/2019/08/20/【算法】约瑟夫环问题与Java实现/index.html">
+<meta property="og:title" content="【学习笔记】Java笔记一：常见关键字">
+<meta property="og:url" content="https://p5r-chihaya.github.io/2019/08/23/【学习笔记】Java笔记一：常见关键字/index.html">
 <meta property="og:site_name" content="CHIHAYA">
-<meta property="og:description" content="一、介绍&amp;emsp;&amp;emsp;约瑟夫环大概介绍如下：n个人围成一圈，第一个人从1开始报数，报m的人出局，下一个人接着从1开始报数，如此循环，直到所有人出局。官方介绍点这里。 &amp;emsp;&amp;emsp;解决约瑟夫环问题，我觉得可以分两种情况。 &amp;emsp;&amp;emsp;1.只求结果，即只要求算出最后出局的人。 &amp;emsp;&amp;emsp;2.求全过程，即要算出每轮出局的人。 二、情况一：只求结果&amp;emsp">
+<meta property="og:description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类 只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有属性和非抽象方法 一个类只能继承(extends)一个抽象类  二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstract的 接口的所有属性默认是public static final的 接口可以定义">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/001-1.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/001-2.png">
-<meta property="og:updated_time" content="2019-09-15T08:15:11.324Z">
+<meta property="og:updated_time" content="2019-09-28T14:00:44.772Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【算法】约瑟夫环问题与Java实现">
-<meta name="twitter:description" content="一、介绍&amp;emsp;&amp;emsp;约瑟夫环大概介绍如下：n个人围成一圈，第一个人从1开始报数，报m的人出局，下一个人接着从1开始报数，如此循环，直到所有人出局。官方介绍点这里。 &amp;emsp;&amp;emsp;解决约瑟夫环问题，我觉得可以分两种情况。 &amp;emsp;&amp;emsp;1.只求结果，即只要求算出最后出局的人。 &amp;emsp;&amp;emsp;2.求全过程，即要算出每轮出局的人。 二、情况一：只求结果&amp;emsp">
-<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/001-1.png">
+<meta name="twitter:title" content="【学习笔记】Java笔记一：常见关键字">
+<meta name="twitter:description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类 只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有属性和非抽象方法 一个类只能继承(extends)一个抽象类  二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstract的 接口的所有属性默认是public static final的 接口可以定义">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -155,57 +152,128 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【算法】约瑟夫环问题与Java实现" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-【学习笔记】Java笔记一：常见关键字" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      【算法】约瑟夫环问题与Java实现
+      【学习笔记】Java笔记一：常见关键字
     </h1>
   
 
         
-        <a href="/2019/08/20/【算法】约瑟夫环问题与Java实现/" class="archive-article-date">
-  	<time datetime="2019-08-20T02:36:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-20</time>
+        <a href="/2019/08/23/【学习笔记】Java笔记一：常见关键字/" class="archive-article-date">
+  	<time datetime="2019-08-23T09:17:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><p>&emsp;&emsp;约瑟夫环大概介绍如下：n个人围成一圈，第一个人从1开始报数，报m的人出局，下一个人接着从1开始报数，如此循环，直到所有人出局。官方介绍<a href="https://baike.baidu.com/item/%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98/3857719" target="_blank" rel="noopener">点这里</a>。</p>
-<p>&emsp;&emsp;解决约瑟夫环问题，我觉得可以分两种情况。</p>
-<p>&emsp;&emsp;1.只求结果，即只要求算出最后出局的人。</p>
-<p>&emsp;&emsp;2.求全过程，即要算出每轮出局的人。</p>
-<h1 id="二、情况一：只求结果"><a href="#二、情况一：只求结果" class="headerlink" title="二、情况一：只求结果"></a>二、情况一：只求结果</h1><p>&emsp;&emsp;先介绍约瑟夫问题的两种特例，约定符号含义：n代表总人数，m表示报该数的人出局，给这n个人从1开始编号(<strong>注：这里从1开始编号是为了方便理解</strong>)。</p>
-<h2 id="1、特例1：n是2的次幂，m是2"><a href="#1、特例1：n是2的次幂，m是2" class="headerlink" title="1、特例1：n是2的次幂，m是2"></a>1、特例1：n是2的次幂，m是2</h2><ul>
-<li><p>当n是2时，最后出局的人(胜利者)显然是1。</p>
+        <h1 id="一、abstract"><a href="#一、abstract" class="headerlink" title="一、abstract"></a>一、abstract</h1><ul>
+<li>修饰的方法叫抽象方法，修饰的类叫抽象类</li>
+<li>只有抽象类才能定义抽象方法</li>
+<li>抽象类的<font color="red"><strong>非抽象</strong></font>子类必须重写父类的抽象方法</li>
+<li>抽象类可以有属性和非抽象方法</li>
+<li>一个类只能继承(extends)一个抽象类</li>
+</ul>
+<h1 id="二、interface"><a href="#二、interface" class="headerlink" title="二、interface"></a>二、interface</h1><ul>
+<li>一种特殊的类，比抽象类更抽象，叫做接口</li>
+<li>接口的所有方法默认是public abstract的</li>
+<li>接口的所有属性默认是public static final的</li>
+<li>接口可以定义由default修饰的方法</li>
+<li>一个类可以实现(implements)多个接口</li>
+</ul>
+<a id="more"></a>
+
+<h1 id="三、static"><a href="#三、static" class="headerlink" title="三、static"></a>三、static</h1><h2 id="1、相关介绍"><a href="#1、相关介绍" class="headerlink" title="1、相关介绍"></a>1、相关介绍</h2><ul>
+<li><p>static可以修饰属性、方法、代码块和内部类</p>
 </li>
-<li><p>当n是4时，那么出局顺序为2、4、3，胜利者是1。</p>
-</li>
-<li><p>当n是8时，那么出局顺序为2、4、6、8、3、7、5，胜利者是1。</p>
-</li>
-<li><p>……</p>
+<li><p>static修饰的属性叫静态属性。所有实例对象访问该属性时，访问到的都是同一个，例子如下</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span>  </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> number = <span class="number">18</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person p1 = <span class="keyword">new</span> Person();</span><br><span class="line">        Person p2 = <span class="keyword">new</span> Person();</span><br><span class="line">        System.out.println(p1.number); <span class="comment">// 输出18</span></span><br><span class="line">        System.out.println(p2.number); <span class="comment">// 输出18</span></span><br><span class="line">        <span class="comment">// 实际上一般用Person.number来访问</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 </li>
 </ul>
-<p>不难发现，在这种特例下，胜利者始终是1号。</p>
-  <a id="more"></a>
-<h2 id="2、特例2：n是任意数，m是2"><a href="#2、特例2：n是任意数，m是2" class="headerlink" title="2、特例2：n是任意数，m是2"></a>2、特例2：n是任意数，m是2</h2><p>&emsp;&emsp;比如当n为12，m为2时，其约瑟夫环如下图所示：<br><img src="/images/001-1.png" alt="001-1"><br>&emsp;&emsp;当8号出局后，就剩下8人了，而2^3=8，于是此时的情况就符合<strong><em>特例1</em></strong>了。那么8号的下一位9号就相当于<strong><em>特例1</em></strong>里的1号，所以9号就是最终胜利者。<br>&emsp;&emsp;综上所述，当m为2时，解决约瑟夫环问题的思路就是找出什么时候剩下的人数为2的次幂，其下一轮报1的人就是最终胜利者。</p>
-<h2 id="3、任意情况：n和m都是任意数"><a href="#3、任意情况：n和m都是任意数" class="headerlink" title="3、任意情况：n和m都是任意数"></a>3、任意情况：n和m都是任意数</h2><p>&emsp;&emsp;在这种情况下，解决问题的方法就是使用递归。<strong>为了方便计算，这里从0开始编号，即0~(n-1)</strong>。比如当n=7(<strong>即编号为0~6</strong>)，m=3时，其每次出局的情况如下图所示：<br><img src="/images/001-2.png" alt="001-2"><br>&emsp;&emsp;每出局一人，就把剩余的所有人都往<strong>左移</strong>m位(这里的m是3)，这样每次的出局情况就用黄色格子标识。显然可以看出，无论什么情况下，最后胜利者(红字)所在的位置必定是<strong>0</strong>号位，那么他在上一轮(第6轮)的位置就是(0+3)%2=1。这里”+3”的含义就是<strong>右移</strong>，因为他是通过左移来到这轮的，要想返回到上一轮就得右移，但要考虑越界的情况所以要对n求余，n是该轮所剩人数。在第5轮的位置就是(1+3)%3=1，如此循环就能得出胜利者在刚开始的位置。<br>&emsp;&emsp;至此，计算约瑟夫环结果的思路已全部给出，下面给出实现的Java代码。</p>
-<h2 id="4、Java代码"><a href="#4、Java代码" class="headerlink" title="4、Java代码"></a>4、Java代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test01</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 约瑟夫环问题，只求结果</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n 该轮所剩的人数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> m 报该数的人出局</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 胜利者的下标，从0开始</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span> CHIHAYA</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">josephus</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">2</span>) &#123;       <span class="comment">// m=2时的特殊情况</span></span><br><span class="line">            <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (k &lt;= n) &#123;</span><br><span class="line">                k = k &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            k = k &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> (n - k) * <span class="number">2</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;            <span class="comment">// 普遍情况，使用递归</span></span><br><span class="line">            <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> (josephus(n-<span class="number">1</span>, m) + m) % n;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 由于函数返回的是从0开始编号的下标，所以还要再加1</span></span><br><span class="line">        System.out.println(josephus(<span class="number">7</span>, <span class="number">3</span>) + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="三、情况二：求全过程"><a href="#三、情况二：求全过程" class="headerlink" title="三、情况二：求全过程"></a>三、情况二：求全过程</h1><h2 id="1、思路"><a href="#1、思路" class="headerlink" title="1、思路"></a>1、思路</h2><p>&emsp;&emsp;解决方案是用数组模拟出局情况。大致思路如下：</p>
 <ul>
-<li>定义一个count变量，初始值为1，用于报数</li>
-<li>遍历数组，每访问一个新的元素，count自增，当count等于m时，则给该元素做标记，输出该元素的位置并把count置为1</li>
-<li>若当前访问的元素已做过标记，则跳过该元素，继续访问下一个元素</li>
-<li>重复上述的第2步和第3步，直至数组的所有元素都做过标记</li>
+<li><p>静态属性的加载早于对象的创建，是随着类的加载而加载的，只会加载一次，保存在方法区的静态域中</p>
+</li>
+<li><p>static修饰的方法叫静态方法。在静态方法中，无法使用this和super关键字，也无法访问<font color="red"><strong>非静态</strong></font>属性</p>
+</li>
+<li><p>静态方法常用于工具类的编写</p>
+</li>
 </ul>
-<h2 id="2、Java代码"><a href="#2、Java代码" class="headerlink" title="2、Java代码"></a>2、Java代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test02</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 约瑟夫环问题，求全过程</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> n 总人数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> m 报该数的人出局</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span> CHIHAYA</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">josephus</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] nums = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            nums[i] = i;</span><br><span class="line">            flag += i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (flag &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                nums[i] = count;</span><br><span class="line">                count++;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] == m) &#123;</span><br><span class="line">                    System.out.printf(i + <span class="string">" "</span>);</span><br><span class="line">                    count = <span class="number">1</span>;</span><br><span class="line">                    nums[i] = <span class="number">0</span>;    <span class="comment">// 对该元素做标记，下次遍历时跳过该元素</span></span><br><span class="line">                    flag -= i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        josephus(<span class="number">7</span>,<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2、经典例题"><a href="#2、经典例题" class="headerlink" title="2、经典例题"></a>2、经典例题</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"父类静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Father</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"父类构造器"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="四、结束语"><a href="#四、结束语" class="headerlink" title="四、结束语"></a>四、结束语</h1><p>&emsp;&emsp;感谢您的阅读，个人认为约瑟夫环问题的一些基本情况已全部罗列出来了，需要注意的是写代码时编号的换算。笔者能力有限，代码也未必是最优的，还请各位多多包涵！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"子类静态代码块"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Son</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"子类构造器"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Son son = <span class="keyword">new</span> Son(); <span class="comment">// 创建子类时会默认调用父类的无参构造</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输出结果是：</span><br><span class="line">父类静态代码块</span><br><span class="line">子类静态代码块</span><br><span class="line">父类构造器</span><br><span class="line">子类构造器</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、final"><a href="#四、final" class="headerlink" title="四、final"></a>四、final</h1><ul>
+<li>该关键字理解为”最终”的意思</li>
+<li>final可以修饰类、方法、属性、局部变量</li>
+<li>final修饰的类不能被继承，比如String、System、StringBuffer</li>
+<li>final修饰的方法不能被重写</li>
+<li>final修饰的属性，可以赋值的位置有：显式初始化、代码块中、构造器中。赋值后不能被修改</li>
+</ul>
+<h1 id="五、this"><a href="#五、this" class="headerlink" title="五、this"></a>五、this</h1><ul>
+<li>该关键字理解为当前对象的</li>
+<li>可以调用属性、方法、构造器</li>
+<li>在类的方法中，使用”this.属性”和”this.方法”来调用当前对象的属性和方法，但一般省略this关键字。在一些特殊情况下，形参名和属性名相同时，要用this来区分，比如set方法</li>
+<li>使用<font color="red"><strong>this(形参列表…)</strong></font>可以调用<font color="red"><strong>其他</strong></font>指定构造器</li>
+<li>在构造器中调用其他构造器，this()只能放在第一行</li>
+</ul>
+<h1 id="六、super"><a href="#六、super" class="headerlink" title="六、super"></a>六、super</h1><ul>
+<li>该关键字理解为父类的</li>
+<li>super可以调用属性、方法、构造器</li>
+<li>在子类的方法中，可以用过”super.属性”和”super.方法”显式调用父类的属性和方法</li>
+<li>可以在子类构造器中，可以显式使用<font color="red"><strong>super(形参列表…)</strong></font>调用父类的指定构造器，也要放在第一行。如果不写也会默认调用super()</li>
+<li>new一个子类只是创建了一个对象，虽然创建子类时会调用父类的构造器，但始终只创建过一个对象</li>
+</ul>
+<h1 id="七、访问权限"><a href="#七、访问权限" class="headerlink" title="七、访问权限"></a>七、访问权限</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>public</th>
+<th>protected</th>
+<th>缺省</th>
+<th>private</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>当前类</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>同一个包</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>不同包的子类</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>同一个工程</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>(注：修饰类时只能是public或缺省)</p>
 
       
 
@@ -220,7 +288,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				https://p5r-chihaya.github.io/2019/08/20/【算法】约瑟夫环问题与Java实现/
+				https://p5r-chihaya.github.io/2019/08/23/【学习笔记】Java笔记一：常见关键字/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -277,7 +345,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">约瑟夫环</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">常见关键字</a>
         		</li>
       		
 		</ul>
@@ -333,7 +401,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADIElEQVR42u3aQZKCQBAEQP//affqYdGqaYiQMee0gYgkHGqnux+PeD1f1uuR95++HmnX82Adnfm4YmFjY2PfhP18u9pzjm4o/9b7KyTnRI8MGxsbezv22k+2YdMG5NqRKOSwsbGxf5idh1byUPIgnLwebGxsbOwkkCYBNq/5YGNjY2O3BaO2kJSXjVre5bU0bGxs7K9n53Hy/X9f0t/GxsbG/mL2s1xtUWmtrdsOANUKbGxs7I3YVxSMjs4pbigpCcWfHt4VNjY29nbstkH7PqKS+Emisb1OUUjCxsbG/hl2+62kndBuNtaKSkVXBBsbG/vm7HOjqG3WtgWjdrSojjFsbGzsW7EnozBtXC2+jXH7+Z8j2NjY2Fuz1wKpbRLn8TYvb2FjY2PvzV4r1uQbmCsCrI3YD+UkbGxs7C3YyaUnG4Y2FCfbjCTYsLGxsX+NvVY2alsLbb7kYVbgsbGxsW/IXhusmYzmTB7ZWWND2NjY2PuxJ0OQayWnySNrQ+swwLCxsbG3YE+aBPOhzElMto3eE6Z+sLGxsb+SnWwYzgqPteZx20KOHiU2Njb2duy1olJeMJpH19rA5aERGxsbeyN2+299fuvvz5k3jyeFKmxsbOy92W1otY9s8ottBH6IW2xsbOwt2EkIrQ3ZrDV981bEZDuEjY2NvSu7+FrQ7s1bAvmWI9l4RC8GGxsbezv21WWdtR3S2nWiWMXGxsbeiN22e5PAmIzj5AND+cLGxsb+BXY+7JKXkObFqbZc1R7BxsbG3ol9VkTlzdr8d9tmQxFy2NjY2Juy16IoL/rPA+ysSMPGxsbeld0GWHu7bY5MvvVhS4ONjY29Hbu9XB5gecCctVGJYgwbGxt7C/azXG2JZ1LbyQeD6geEjY2NvRE7X+3AZd6EyKMuL2DVXW5sbGzsm7PPKgmttYTXWrl5gBXvARsbG/vm7DY8JqGVP7i17U1dS8PGxsb+MfZauae4oaVYTV4SNjY2NnZx0aWWQHu1tiCFjY2NvTc7iYq1YcoWMGkkXNIewMbGxv56dlugacFntR8mbYm6eYCNjY19D/Yf2Ek+2pLN5YkAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADK0lEQVR42u3aQZbaQAwE0Ln/pckBEqBK8uTh5nvFIx67f7OoSOqfn/h6vLz+vvPZE9rPz96SvPGCCxsbG/sm7ITUImfUdm2v1/lm47CxsbGPY7eLfv1X7b++/ub1NiWbiI2NjY397GVt/CSbmBQkbRxiY2NjY+fFw1X9rVmBhI2Njf3N7OQFs9KiLTPaZ/56Lw0bGxv749l5nHz+51+Zb2NjY2N/MPtRXnnMzAbG+RpWCmxsbOyD2G2TqN2CdnGzFlW7fmxsbOyT2G0UJRGVH/GZDYDb8Ct+Q2xsbOybs9tHXxt1bYzlw+mniY2NjY19EPv1ODYf/bbx0w6SZ/c87aVhY2NjH8FuF90WEnnA7MfPw++xsbGxb87etIcS8Gyg2743j9gombGxsbFvxW4HpbMRbBtym3Fv/ZtjY2NjH8HeFCTt921YtqvKn4mNjY19Bjv5L34bS20TKm8/JaPoqF2FjY2NfRA7edDsNVeNFjbxGZUf2NjY2Eew8xBKvk9GDrPn5D9SEWnY2NjYR7A3hxo3Qdg29NvtGA56sbGxsW/IbhtJOa9tJG3uaX8kbGxs7JPYm+FuftxnFl35Rv/XmTY2Njb2x7M3ffW2DTTbpva4z5umEjY2NvZt2bNRaxtFm2bQY3S9+TmxsbGxv4A9C7DN2Zh8JLzZUGxsbOxT2cMzPnHA5NvxG5XWPz5jY2NjH8qeBcnsqM3safsCKepaYWNjY9+KnRQV7YGbfOi7ibp88BzVYdjY2Ni3Zeft9f0IYTbKzQM1H0JjY2Njn8S+NmzaAcBVR3w2QwtsbGzsM9jJC4oDMUFbJ7m/PohTirCxsbHPY7ekfZsp2ZpNjL0pirCxsbG/ht2WDW3R0kZdu63RkAAbGxv7tuxHebUbce2i242LTiphY2Nj35w9Kxtmd7aNoTZcZyNnbGxs7DPYs6Z8+1eb8UOyoXVcYWNjYx/HbouB/QDg9SZuYi8a92JjY2N/MXt2yLJYULkdeUGCjY2NjR3NjUftnraBlQcqNjY29vewk8CYNX1mnZx2plEHJzY2NvZB7LaXftVRnnyQ0BYqm0E1NjY29q3YfwBTis5KTZkpKAAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -347,15 +415,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/23/【学习笔记】Java笔记一：常见关键字/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/25/【学习笔记】正则表达式/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          【学习笔记】Java笔记一：常见关键字
+          【学习笔记】正则表达式
         
       </div>
     </a>
   
+  
+    <a href="/2019/08/20/【算法】约瑟夫环问题与Java实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【算法】约瑟夫环问题与Java实现</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -380,7 +453,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、介绍"><span class="toc-number">1.</span> <span class="toc-text">一、介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、情况一：只求结果"><span class="toc-number">2.</span> <span class="toc-text">二、情况一：只求结果</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、特例1：n是2的次幂，m是2"><span class="toc-number">2.1.</span> <span class="toc-text">1、特例1：n是2的次幂，m是2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、特例2：n是任意数，m是2"><span class="toc-number">2.2.</span> <span class="toc-text">2、特例2：n是任意数，m是2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、任意情况：n和m都是任意数"><span class="toc-number">2.3.</span> <span class="toc-text">3、任意情况：n和m都是任意数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、Java代码"><span class="toc-number">2.4.</span> <span class="toc-text">4、Java代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、情况二：求全过程"><span class="toc-number">3.</span> <span class="toc-text">三、情况二：求全过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、思路"><span class="toc-number">3.1.</span> <span class="toc-text">1、思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、Java代码"><span class="toc-number">3.2.</span> <span class="toc-text">2、Java代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、结束语"><span class="toc-number">4.</span> <span class="toc-text">四、结束语</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、abstract"><span class="toc-number">1.</span> <span class="toc-text">一、abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、interface"><span class="toc-number">2.</span> <span class="toc-text">二、interface</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、static"><span class="toc-number">3.</span> <span class="toc-text">三、static</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关介绍"><span class="toc-number">3.1.</span> <span class="toc-text">1、相关介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、经典例题"><span class="toc-number">3.2.</span> <span class="toc-text">2、经典例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、final"><span class="toc-number">4.</span> <span class="toc-text">四、final</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、this"><span class="toc-number">5.</span> <span class="toc-text">五、this</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、super"><span class="toc-number">6.</span> <span class="toc-text">六、super</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、访问权限"><span class="toc-number">7.</span> <span class="toc-text">七、访问权限</span></a></li></ol>
                     </div>
                 </span>
             </div>
