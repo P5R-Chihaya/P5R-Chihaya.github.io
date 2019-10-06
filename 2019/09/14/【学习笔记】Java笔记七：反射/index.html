@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="一、相关介绍1、什么是反射&amp;emsp;&amp;emsp;Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为Java语言的反射机制。 2、反射的作用 运行时判断任意对象所属的类 运行时构造任意类的对象 运行时判断任意类所具有的成员变量和方法 运行时获取泛型信息 运行时调用任意对象的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-15T06:45:15.887Z">
+<meta property="og:updated_time" content="2019-10-06T11:33:56.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】Java笔记七：反射">
 <meta name="twitter:description" content="一、相关介绍1、什么是反射&amp;emsp;&amp;emsp;Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为Java语言的反射机制。 2、反射的作用 运行时判断任意对象所属的类 运行时构造任意类的对象 运行时判断任意类所具有的成员变量和方法 运行时获取泛型信息 运行时调用任意对象的">
@@ -182,6 +182,8 @@
 <li>运行时处理注解</li>
 <li>生成代理对象</li>
 </ul>
+<a id="more"></a>
+
 <h1 id="二、java-lang-Class"><a href="#二、java-lang-Class" class="headerlink" title="二、java.lang.Class"></a>二、java.lang.Class</h1><p>&emsp;&emsp;程序经过javac.exe命令后，会生成字节码(.class)文件，然后java.exe命令对字节码文件进行解释运行，相当于把字节码文件加载到内存中，充当一个运行时类，作为Class的一个实例。即Class的实例就是一个运行时类，一个具体类的Class实例只有一个。</p>
 <h2 id="1、获取运行时类的实例"><a href="#1、获取运行时类的实例" class="headerlink" title="1、获取运行时类的实例"></a>1、获取运行时类的实例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</span><br><span class="line">        <span class="comment">// 方法一</span></span><br><span class="line">        Class clazz1 = People.class;</span><br><span class="line">        System.out.println(clazz1);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 方法二：调用对象的getClass()方法</span></span><br><span class="line">        People people = <span class="keyword">new</span> People();</span><br><span class="line">        Class clazz2 = people.getClass();</span><br><span class="line">        System.out.println(clazz2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 方法三：调用Class的静态方法forName()，要写全类名。会抛异常</span></span><br><span class="line">        <span class="comment">// 常用</span></span><br><span class="line">        Class clazz3 = Class.forName(<span class="string">"pers.ljc.test.People"</span>);</span><br><span class="line">        System.out.println(clazz3);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 方法四：使用类加载器</span></span><br><span class="line">        ClassLoader classLoader = Test.class.getClassLoader();</span><br><span class="line">        Class clazz4 = classLoader.loadClass(<span class="string">"pers.ljc.test.People"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 这四个指向的是同一个</span></span><br><span class="line">        System.out.println(clazz1 == clazz2); <span class="comment">// true</span></span><br><span class="line">        System.out.println(clazz1 == clazz3); <span class="comment">// true</span></span><br><span class="line">        System.out.println(clazz1 == clazz4); <span class="comment">// true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -533,7 +535,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,18 +560,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
