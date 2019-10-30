@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="一、介绍&amp;emsp;&amp;emsp;负载均衡就是指将负载(工作任务)进行平衡、分摊到多个操作单元上进行运行。比如对于某个请求，使用负载均衡能选择合适的服务器去响应。 二、算法实现&amp;emsp;&amp;emsp;自定义一个Server类 12345678910111213141516171819202122232425262728293031323334public class Server &amp;#123;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-06T11:33:38.001Z">
+<meta property="og:updated_time" content="2019-10-30T11:35:06.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【算法】负载均衡">
 <meta name="twitter:description" content="一、介绍&amp;emsp;&amp;emsp;负载均衡就是指将负载(工作任务)进行平衡、分摊到多个操作单元上进行运行。比如对于某个请求，使用负载均衡能选择合适的服务器去响应。 二、算法实现&amp;emsp;&amp;emsp;自定义一个Server类 12345678910111213141516171819202122232425262728293031323334public class Server &amp;#123;">
@@ -190,7 +190,7 @@
 
 <h3 id="2）有权重-1"><a href="#2）有权重-1" class="headerlink" title="2）有权重"></a>2）有权重</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Server <span class="title">roundRobinWithWeight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1.所有服务器的currentWeight都加上各自的weight</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; IP_WITH_WEIGHT.length; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> currentWeight = IP_WITH_WEIGHT[i].getCurrentWeight();</span><br><span class="line">        <span class="keyword">int</span> weight = IP_WITH_WEIGHT[i].getWeight();</span><br><span class="line">        IP_WITH_WEIGHT[i].setCurrentWeight(currentWeight + weight);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.找出currentWeight最大的那个服务器，并将其currentWeight减去所有weight的和</span></span><br><span class="line">    Server max = IP_WITH_WEIGHT[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; IP_WITH_WEIGHT.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (max.getCurrentWeight() &lt; IP_WITH_WEIGHT[i].getCurrentWeight()) &#123;</span><br><span class="line">            max = IP_WITH_WEIGHT[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    max.setCurrentWeight(max.getCurrentWeight() - TOTAL_WEIGHT);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>未完…</p>
+<p>(未完…)</p>
 
       
 
@@ -486,27 +486,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">常见关键字</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">注解</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color1">常见关键字</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,7 +510,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -526,7 +526,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
