@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://p5r-chihaya.github.io">
   <title>【学习笔记】Java笔记一：常见关键字 | CHIHAYA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类 只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有属性和非抽象方法 一个类只能继承(extends)一个抽象类  二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstract的 接口的所有属性默认是public static final的 接口可以定义">
+  <meta name="description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类  只有抽象类才能定义抽象方法  抽象类的非抽象子类必须重写父类的抽象方法  抽象类可以有属性和非抽象方法  一个类只能继承(extends)一个抽象类  私有属性和方法也是能继承到的，但是要通过其他方法来访问，不能直接调用    二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstr">
 <meta name="keywords" content="Java,常见关键字">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】Java笔记一：常见关键字">
 <meta property="og:url" content="https://p5r-chihaya.github.io/2019/08/23/【学习笔记】Java笔记一：常见关键字/index.html">
 <meta property="og:site_name" content="CHIHAYA">
-<meta property="og:description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类 只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有属性和非抽象方法 一个类只能继承(extends)一个抽象类  二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstract的 接口的所有属性默认是public static final的 接口可以定义">
+<meta property="og:description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类  只有抽象类才能定义抽象方法  抽象类的非抽象子类必须重写父类的抽象方法  抽象类可以有属性和非抽象方法  一个类只能继承(extends)一个抽象类  私有属性和方法也是能继承到的，但是要通过其他方法来访问，不能直接调用    二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-28T14:00:44.772Z">
+<meta property="og:updated_time" content="2019-11-07T07:38:57.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】Java笔记一：常见关键字">
-<meta name="twitter:description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类 只有抽象类才能定义抽象方法 抽象类的非抽象子类必须重写父类的抽象方法 抽象类可以有属性和非抽象方法 一个类只能继承(extends)一个抽象类  二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstract的 接口的所有属性默认是public static final的 接口可以定义">
+<meta name="twitter:description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类  只有抽象类才能定义抽象方法  抽象类的非抽象子类必须重写父类的抽象方法  抽象类可以有属性和非抽象方法  一个类只能继承(extends)一个抽象类  私有属性和方法也是能继承到的，但是要通过其他方法来访问，不能直接调用    二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstr">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -173,11 +173,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="一、abstract"><a href="#一、abstract" class="headerlink" title="一、abstract"></a>一、abstract</h1><ul>
-<li>修饰的方法叫抽象方法，修饰的类叫抽象类</li>
-<li>只有抽象类才能定义抽象方法</li>
-<li>抽象类的<font color="red"><strong>非抽象</strong></font>子类必须重写父类的抽象方法</li>
-<li>抽象类可以有属性和非抽象方法</li>
-<li>一个类只能继承(extends)一个抽象类</li>
+<li><p>修饰的方法叫抽象方法，修饰的类叫抽象类</p>
+</li>
+<li><p>只有抽象类才能定义抽象方法</p>
+</li>
+<li><p>抽象类的<font color="red"><strong>非抽象</strong></font>子类必须重写父类的抽象方法</p>
+</li>
+<li><p>抽象类可以有属性和非抽象方法</p>
+</li>
+<li><p>一个类只能继承(extends)一个抽象类</p>
+<blockquote>
+<p>私有属性和方法也是能继承到的，但是要通过其他方法来访问，不能直接调用</p>
+</blockquote>
+</li>
 </ul>
 <h1 id="二、interface"><a href="#二、interface" class="headerlink" title="二、interface"></a>二、interface</h1><ul>
 <li>一种特殊的类，比抽象类更抽象，叫做接口</li>
@@ -218,7 +226,7 @@
 <li>final可以修饰类、方法、属性、局部变量</li>
 <li>final修饰的类不能被继承，比如String、System、StringBuffer</li>
 <li>final修饰的方法不能被重写</li>
-<li>final修饰的属性，可以赋值的位置有：显式初始化、代码块中、构造器中。赋值后不能被修改</li>
+<li>final修饰的属性，可以赋值的位置有：显式地初始化、代码块中、构造器中。赋值后不能被修改</li>
 </ul>
 <h1 id="五、this"><a href="#五、this" class="headerlink" title="五、this"></a>五、this</h1><ul>
 <li>该关键字理解为当前对象的</li>
@@ -565,11 +573,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">注解</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,11 +589,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">注解</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,7 +605,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">设计模式原则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">UML类图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,10 +633,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
@@ -613,11 +641,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">

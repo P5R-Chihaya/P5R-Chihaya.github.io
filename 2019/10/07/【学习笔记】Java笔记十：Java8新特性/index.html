@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="一、Lambda表达式1、相关说明 创建函数式接口的匿名对象时，可以使用Lambda表达式来减少代码量  语法格式：(参数列表) -&amp;gt; {代码体}  函数式接口：只有一个抽象方法的接口，可以使用注解@FunctionalInterface来标记对应接口  Java内置的4个基本函数式接口如下    接口名 方法    Consumer&amp;lt;T&amp;gt; void accept(T t)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-08T04:43:51.925Z">
+<meta property="og:updated_time" content="2019-11-08T01:21:11.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】Java笔记十：Java8新特性">
 <meta name="twitter:description" content="一、Lambda表达式1、相关说明 创建函数式接口的匿名对象时，可以使用Lambda表达式来减少代码量  语法格式：(参数列表) -&amp;gt; {代码体}  函数式接口：只有一个抽象方法的接口，可以使用注解@FunctionalInterface来标记对应接口  Java内置的4个基本函数式接口如下    接口名 方法    Consumer&amp;lt;T&amp;gt; void accept(T t)">
@@ -173,7 +173,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="一、Lambda表达式"><a href="#一、Lambda表达式" class="headerlink" title="一、Lambda表达式"></a>一、Lambda表达式</h1><h2 id="1、相关说明"><a href="#1、相关说明" class="headerlink" title="1、相关说明"></a>1、相关说明</h2><ul>
-<li><p>创建函数式接口的匿名对象时，可以使用Lambda表达式来减少代码量</p>
+<li><p>创建<strong>函数式接口</strong>的匿名对象时，可以使用Lambda表达式来减少代码量</p>
 </li>
 <li><p>语法格式：(参数列表) -&gt; {代码体}</p>
 </li>
@@ -235,7 +235,7 @@
 <h1 id="四、Stream-API"><a href="#四、Stream-API" class="headerlink" title="四、Stream API"></a>四、Stream API</h1><h2 id="1、相关说明-2"><a href="#1、相关说明-2" class="headerlink" title="1、相关说明"></a>1、相关说明</h2><ul>
 <li><p>Stream操作有点类似于复杂的SQL语句，可以对集合数据进行过滤、截取等操作</p>
 </li>
-<li><p>Stream关注的是对数据的运算，与CPU打交道；集合关注的是数据的存储，与内容打交道</p>
+<li><p>Stream关注的是对数据的运算，与CPU打交道；集合关注的是数据的存储，与内存打交道</p>
 </li>
 <li><p>Stream本身不会存储元素</p>
 </li>
@@ -365,7 +365,7 @@
 <td>返回Optional的内容，如果为空则抛出Supplier代码中抛出的异常</td>
 </tr>
 </tbody></table>
-<h1 id="六、相关连接"><a href="#六、相关连接" class="headerlink" title="六、相关连接"></a>六、相关连接</h1><ul>
+<h1 id="六、相关链接"><a href="#六、相关链接" class="headerlink" title="六、相关链接"></a>六、相关链接</h1><ul>
 <li><a href="https://www.bilibili.com/video/av48144058/?p=664" target="_blank" rel="noopener">参考资料</a></li>
 </ul>
 
@@ -509,11 +509,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/18/【学习笔记】设计模式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/10/18/【学习笔记】设计模式原则与UML类图/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          【学习笔记】设计模式
+          【学习笔记】设计模式原则与UML类图
         
       </div>
     </a>
@@ -547,7 +547,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Lambda表达式"><span class="toc-number">1.</span> <span class="toc-text">一、Lambda表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关说明"><span class="toc-number">1.1.</span> <span class="toc-text">1、相关说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、例子"><span class="toc-number">1.2.</span> <span class="toc-text">2、例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）Consumer-lt-T-gt"><span class="toc-number">1.2.1.</span> <span class="toc-text">1）Consumer&lt;T&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）Predicate-lt-T-gt"><span class="toc-number">1.2.2.</span> <span class="toc-text">2）Predicate&lt;T&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、方法引用"><span class="toc-number">2.</span> <span class="toc-text">二、方法引用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关说明-1"><span class="toc-number">2.1.</span> <span class="toc-text">1、相关说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、例子-1"><span class="toc-number">2.2.</span> <span class="toc-text">2、例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）对象-非静态方法"><span class="toc-number">2.2.1.</span> <span class="toc-text">1）对象::非静态方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）类-非静态方法"><span class="toc-number">2.2.2.</span> <span class="toc-text">2）类::非静态方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、构造器引用"><span class="toc-number">3.</span> <span class="toc-text">三、构造器引用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Stream-API"><span class="toc-number">4.</span> <span class="toc-text">四、Stream API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关说明-2"><span class="toc-number">4.1.</span> <span class="toc-text">1、相关说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、操作"><span class="toc-number">4.2.</span> <span class="toc-text">2、操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）实例化"><span class="toc-number">4.2.1.</span> <span class="toc-text">1）实例化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）筛选与切片"><span class="toc-number">4.2.2.</span> <span class="toc-text">2）筛选与切片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3）映射"><span class="toc-number">4.2.3.</span> <span class="toc-text">3）映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4）排序"><span class="toc-number">4.2.4.</span> <span class="toc-text">4）排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5）终止之查找与匹配"><span class="toc-number">4.2.5.</span> <span class="toc-text">5）终止之查找与匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6）终止之归约"><span class="toc-number">4.2.6.</span> <span class="toc-text">6）终止之归约</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7）终止之收集"><span class="toc-number">4.2.7.</span> <span class="toc-text">7）终止之收集</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、Optional类"><span class="toc-number">5.</span> <span class="toc-text">五、Optional类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、实例化"><span class="toc-number">5.1.</span> <span class="toc-text">1、实例化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、相关方法"><span class="toc-number">5.2.</span> <span class="toc-text">2、相关方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、相关连接"><span class="toc-number">6.</span> <span class="toc-text">六、相关连接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Lambda表达式"><span class="toc-number">1.</span> <span class="toc-text">一、Lambda表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关说明"><span class="toc-number">1.1.</span> <span class="toc-text">1、相关说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、例子"><span class="toc-number">1.2.</span> <span class="toc-text">2、例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）Consumer-lt-T-gt"><span class="toc-number">1.2.1.</span> <span class="toc-text">1）Consumer&lt;T&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）Predicate-lt-T-gt"><span class="toc-number">1.2.2.</span> <span class="toc-text">2）Predicate&lt;T&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、方法引用"><span class="toc-number">2.</span> <span class="toc-text">二、方法引用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关说明-1"><span class="toc-number">2.1.</span> <span class="toc-text">1、相关说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、例子-1"><span class="toc-number">2.2.</span> <span class="toc-text">2、例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）对象-非静态方法"><span class="toc-number">2.2.1.</span> <span class="toc-text">1）对象::非静态方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）类-非静态方法"><span class="toc-number">2.2.2.</span> <span class="toc-text">2）类::非静态方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、构造器引用"><span class="toc-number">3.</span> <span class="toc-text">三、构造器引用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Stream-API"><span class="toc-number">4.</span> <span class="toc-text">四、Stream API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关说明-2"><span class="toc-number">4.1.</span> <span class="toc-text">1、相关说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、操作"><span class="toc-number">4.2.</span> <span class="toc-text">2、操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）实例化"><span class="toc-number">4.2.1.</span> <span class="toc-text">1）实例化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）筛选与切片"><span class="toc-number">4.2.2.</span> <span class="toc-text">2）筛选与切片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3）映射"><span class="toc-number">4.2.3.</span> <span class="toc-text">3）映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4）排序"><span class="toc-number">4.2.4.</span> <span class="toc-text">4）排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5）终止之查找与匹配"><span class="toc-number">4.2.5.</span> <span class="toc-text">5）终止之查找与匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6）终止之归约"><span class="toc-number">4.2.6.</span> <span class="toc-text">6）终止之归约</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7）终止之收集"><span class="toc-number">4.2.7.</span> <span class="toc-text">7）终止之收集</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、Optional类"><span class="toc-number">5.</span> <span class="toc-text">五、Optional类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、实例化"><span class="toc-number">5.1.</span> <span class="toc-text">1、实例化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、相关方法"><span class="toc-number">5.2.</span> <span class="toc-text">2、相关方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、相关链接"><span class="toc-number">6.</span> <span class="toc-text">六、相关链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -659,11 +659,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">注解</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -671,11 +675,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">注解</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,7 +691,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">设计模式原则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">UML类图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -695,10 +719,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
@@ -707,11 +727,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="一、File类&amp;emsp;&amp;emsp;该类的一个对象代表一个文件或目录(文件夹) 1、创建File类实例   构造器 说明    File(String pathname) 1、使用相对路径创建时，对于IDEA是相对于当前工程下的2、使用绝对路径时，Windows和DOS系统使用”\“来隔开，为了区别转义符，Java代码层面则使用”\\“；UNIX和URL使用”/“来隔开；也可以用常量File.s">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-06T07:02:18.966Z">
+<meta property="og:updated_time" content="2019-11-01T03:13:51.423Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】Java笔记八：IO流">
 <meta name="twitter:description" content="一、File类&amp;emsp;&amp;emsp;该类的一个对象代表一个文件或目录(文件夹) 1、创建File类实例   构造器 说明    File(String pathname) 1、使用相对路径创建时，对于IDEA是相对于当前工程下的2、使用绝对路径时，Windows和DOS系统使用”\“来隔开，为了区别转义符，Java代码层面则使用”\\“；UNIX和URL使用”/“来隔开；也可以用常量File.s">
@@ -392,7 +392,7 @@
 <h2 id="2、例题"><a href="#2、例题" class="headerlink" title="2、例题"></a>2、例题</h2><p>&emsp;&emsp;需求：以追加的形式修改文本文件内容，从”123456789”修改为”123abc456789”</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">// 原文件内容为"123456789"</span></span><br><span class="line">    RandomAccessFile raf = <span class="keyword">new</span> RandomAccessFile(<span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\hello.txt"</span>), <span class="string">"rw"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把指针移到下标为3的位置</span></span><br><span class="line">    raf.seek(<span class="number">3</span>);</span><br><span class="line">    <span class="comment">// 保存下标3后面的字符</span></span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder((<span class="keyword">int</span>) <span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\hello.txt"</span>).length());</span><br><span class="line">    <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> len;</span><br><span class="line">    <span class="keyword">while</span> (-<span class="number">1</span> != (len = raf.read(buff))) &#123;</span><br><span class="line">        sb.append(<span class="keyword">new</span> String(buff, <span class="number">0</span>, len));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 追加"abc"</span></span><br><span class="line">    raf.seek(<span class="number">3</span>);</span><br><span class="line">    raf.write(<span class="string">"abc"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 再添加原来的字符</span></span><br><span class="line">    raf.write(sb.toString().getBytes());</span><br><span class="line">    raf.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="四、相关连接"><a href="#四、相关连接" class="headerlink" title="四、相关连接"></a>四、相关连接</h1><ul>
+<h1 id="四、相关链接"><a href="#四、相关链接" class="headerlink" title="四、相关链接"></a>四、相关链接</h1><ul>
 <li><a href="https://www.bilibili.com/video/av48144058/?p=575" target="_blank" rel="noopener">参考资料</a></li>
 </ul>
 
@@ -574,7 +574,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、File类"><span class="toc-number">1.</span> <span class="toc-text">一、File类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、创建File类实例"><span class="toc-number">1.1.</span> <span class="toc-text">1、创建File类实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、需要注意的方法"><span class="toc-number">1.2.</span> <span class="toc-text">2、需要注意的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、IO流"><span class="toc-number">2.</span> <span class="toc-text">二、IO流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、FileReader"><span class="toc-number">2.1.</span> <span class="toc-text">1、FileReader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、FileWriter"><span class="toc-number">2.2.</span> <span class="toc-text">2、FileWriter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、复制文本文件"><span class="toc-number">2.3.</span> <span class="toc-text">3、复制文本文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、FileInputStream-FileOutputStream"><span class="toc-number">2.4.</span> <span class="toc-text">4、FileInputStream/FileOutputStream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、缓冲流"><span class="toc-number">2.5.</span> <span class="toc-text">5、缓冲流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、转换流"><span class="toc-number">2.6.</span> <span class="toc-text">6、转换流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、数据流"><span class="toc-number">2.7.</span> <span class="toc-text">7、数据流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、对象流"><span class="toc-number">2.8.</span> <span class="toc-text">8、对象流</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、RandomAccessFile"><span class="toc-number">3.</span> <span class="toc-text">三、RandomAccessFile</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关说明"><span class="toc-number">3.1.</span> <span class="toc-text">1、相关说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、例题"><span class="toc-number">3.2.</span> <span class="toc-text">2、例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、相关连接"><span class="toc-number">4.</span> <span class="toc-text">四、相关连接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、File类"><span class="toc-number">1.</span> <span class="toc-text">一、File类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、创建File类实例"><span class="toc-number">1.1.</span> <span class="toc-text">1、创建File类实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、需要注意的方法"><span class="toc-number">1.2.</span> <span class="toc-text">2、需要注意的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、IO流"><span class="toc-number">2.</span> <span class="toc-text">二、IO流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、FileReader"><span class="toc-number">2.1.</span> <span class="toc-text">1、FileReader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、FileWriter"><span class="toc-number">2.2.</span> <span class="toc-text">2、FileWriter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、复制文本文件"><span class="toc-number">2.3.</span> <span class="toc-text">3、复制文本文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、FileInputStream-FileOutputStream"><span class="toc-number">2.4.</span> <span class="toc-text">4、FileInputStream/FileOutputStream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、缓冲流"><span class="toc-number">2.5.</span> <span class="toc-text">5、缓冲流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、转换流"><span class="toc-number">2.6.</span> <span class="toc-text">6、转换流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、数据流"><span class="toc-number">2.7.</span> <span class="toc-text">7、数据流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、对象流"><span class="toc-number">2.8.</span> <span class="toc-text">8、对象流</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、RandomAccessFile"><span class="toc-number">3.</span> <span class="toc-text">三、RandomAccessFile</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关说明"><span class="toc-number">3.1.</span> <span class="toc-text">1、相关说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、例题"><span class="toc-number">3.2.</span> <span class="toc-text">2、例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、相关链接"><span class="toc-number">4.</span> <span class="toc-text">四、相关链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -686,11 +686,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">注解</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -698,11 +702,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color3">注解</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -710,7 +718,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">设计模式原则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">UML类图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -722,10 +746,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
@@ -734,11 +754,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
