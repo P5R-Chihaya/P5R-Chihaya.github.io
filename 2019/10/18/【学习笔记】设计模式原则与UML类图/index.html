@@ -17,7 +17,7 @@
 <meta property="og:description" content="一、设计模式原则1、单一职责原则&amp;emsp;&amp;emsp;一个类只负责一项职责。有时当类的方法较少，可以在方法级别上体现单一职责原则。 2、接口隔离原则&amp;emsp;&amp;emsp;一个类对另外一个类的依赖应该是建立在最小的接口上。 &amp;emsp;&amp;emsp;比如接口Interface有5个方法，B类和D类实现该接口。A类通过接口依赖B，但只会使用1，2，3这三个方法；C类通过接口依赖D，但只会使用1，4，">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/014-01.png">
-<meta property="og:updated_time" content="2019-11-07T02:18:59.026Z">
+<meta property="og:updated_time" content="2019-11-09T02:37:54.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】设计模式原则与UML类图">
 <meta name="twitter:description" content="一、设计模式原则1、单一职责原则&amp;emsp;&amp;emsp;一个类只负责一项职责。有时当类的方法较少，可以在方法级别上体现单一职责原则。 2、接口隔离原则&amp;emsp;&amp;emsp;一个类对另外一个类的依赖应该是建立在最小的接口上。 &amp;emsp;&amp;emsp;比如接口Interface有5个方法，B类和D类实现该接口。A类通过接口依赖B，但只会使用1，2，3这三个方法；C类通过接口依赖D，但只会使用1，4，">
@@ -255,16 +255,16 @@
 <td>实现类指向接口</td>
 </tr>
 <tr>
-<td>关联</td>
-<td>实线+箭头</td>
-<td>拥有关系；A类拥有B类属性，则A类关联B类；代码体现在成员变量</td>
-<td>A类关联B类，则A指向B</td>
-</tr>
-<tr>
 <td>依赖</td>
 <td>虚线+箭头</td>
 <td>使用关系；代码体现在局部变量、方法参数、静态方法的调用</td>
 <td>指向被使用者</td>
+</tr>
+<tr>
+<td>关联</td>
+<td>实线+箭头</td>
+<td>拥有关系；A类拥有B类属性，则A类关联B类；代码体现在成员变量</td>
+<td>A类关联B类，则A指向B</td>
 </tr>
 <tr>
 <td>聚合</td>
@@ -279,6 +279,8 @@
 <td>实心菱形在整体那边，箭头在部分那边</td>
 </tr>
 </tbody></table>
+</li>
+<li><p>耦合度：依赖 &lt; 关联 &lt; 聚合 &lt; 合成/组合</p>
 </li>
 </ul>
 <p>例图如下所示(《大话设计模式》)</p>
@@ -591,11 +593,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">常见关键字</a>
+                <a href="javascript:void(0)" class="js-tag color3">注解</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">注解</a>
+                <a href="javascript:void(0)" class="js-tag color1">常见关键字</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,11 +625,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,19 +637,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,7 +645,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
