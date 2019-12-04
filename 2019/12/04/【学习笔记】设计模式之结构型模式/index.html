@@ -6,15 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://p5r-chihaya.github.io">
-  <title>Tag: Java | CHIHAYA</title>
+  <title>【学习笔记】设计模式之结构型模式 | CHIHAYA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="CHIHAYA">
-<meta property="og:url" content="https://p5r-chihaya.github.io/tags/Java/index.html">
+  <meta name="description" content="本文内容包含：装饰者模式、适配器模式、桥接模式、组合模式、外观模式、享元模式、代理模式 一、装饰者模式&amp;emsp;&amp;emsp;该模式的4个基本角色：  基本抽象组件(Component)：一个抽象类或者接口，由具体构件和抽象装饰者继承或实现 具体构件(ConcreteComponent)：被装饰者 抽象装饰者(Decorator)：装饰者的抽象类，属性中包含Component对象 具体装饰者(Co">
+<meta name="keywords" content="设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学习笔记】设计模式之结构型模式">
+<meta property="og:url" content="https://p5r-chihaya.github.io/2019/12/04/【学习笔记】设计模式之结构型模式/index.html">
 <meta property="og:site_name" content="CHIHAYA">
+<meta property="og:description" content="本文内容包含：装饰者模式、适配器模式、桥接模式、组合模式、外观模式、享元模式、代理模式 一、装饰者模式&amp;emsp;&amp;emsp;该模式的4个基本角色：  基本抽象组件(Component)：一个抽象类或者接口，由具体构件和抽象装饰者继承或实现 具体构件(ConcreteComponent)：被装饰者 抽象装饰者(Decorator)：装饰者的抽象类，属性中包含Component对象 具体装饰者(Co">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/020-01.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/020-02.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/020-03.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/020-04.png">
+<meta property="og:updated_time" content="2019-12-04T01:05:37.521Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CHIHAYA">
+<meta name="twitter:title" content="【学习笔记】设计模式之结构型模式">
+<meta name="twitter:description" content="本文内容包含：装饰者模式、适配器模式、桥接模式、组合模式、外观模式、享元模式、代理模式 一、装饰者模式&amp;emsp;&amp;emsp;该模式的4个基本角色：  基本抽象组件(Component)：一个抽象类或者接口，由具体构件和抽象装饰者继承或实现 具体构件(ConcreteComponent)：被装饰者 抽象装饰者(Decorator)：装饰者的抽象类，属性中包含Component对象 具体装饰者(Co">
+<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/020-01.png">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -147,235 +157,415 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-【学习笔记】设计模式之结构型模式" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【学习笔记】设计模式之结构型模式
+    </h1>
+  
+
+        
+        <a href="/2019/12/04/【学习笔记】设计模式之结构型模式/" class="archive-article-date">
+  	<time datetime="2019-12-04T00:55:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>本文内容包含：装饰者模式、适配器模式、桥接模式、组合模式、外观模式、享元模式、代理模式</strong></p>
+<h1 id="一、装饰者模式"><a href="#一、装饰者模式" class="headerlink" title="一、装饰者模式"></a>一、装饰者模式</h1><p>&emsp;&emsp;该模式的4个基本角色：</p>
+<ul>
+<li>基本抽象组件(Component)：一个抽象类或者接口，由<strong>具体构件</strong>和<strong>抽象装饰者</strong>继承或实现</li>
+<li>具体构件(ConcreteComponent)：被装饰者</li>
+<li>抽象装饰者(Decorator)：装饰者的抽象类，属性中包含Component对象</li>
+<li>具体装饰者(ConcreteDecorator)：动态地为被装饰者添加额外功能</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="1、例子"><a href="#1、例子" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;需求：咖啡店的主要卖咖啡，但客户可以动态添加调料品(牛奶、糖等)</p>
+<p>1、编写基本抽象组件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、编写被装饰者，即咖啡类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Coffee</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"咖啡"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、编写抽象装饰者和具体装饰者(牛奶、糖)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Decorator</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Component component;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Component <span class="title">getComponent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> component;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setComponent</span><span class="params">(Component component)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.component = component;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Milk</span> <span class="keyword">extends</span> <span class="title">Decorator</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Milk</span><span class="params">(Component component)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setComponent(component);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getComponent().show() + <span class="string">" 牛奶"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sugar</span> <span class="keyword">extends</span> <span class="title">Decorator</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Sugar</span><span class="params">(Component component)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setComponent(component);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getComponent().show() + <span class="string">" 糖"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4、编写测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Coffee coffee = <span class="keyword">new</span> Coffee();</span><br><span class="line">        Milk milk = <span class="keyword">new</span> Milk(coffee);</span><br><span class="line">        Milk milk2 = <span class="keyword">new</span> Milk(milk);</span><br><span class="line">        Sugar sugar = <span class="keyword">new</span> Sugar(milk2);</span><br><span class="line">        System.out.println(sugar.show());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、总结"><a href="#2、总结" class="headerlink" title="2、总结"></a>2、总结</h2><p>&emsp;&emsp;装饰者模式，可以不改动原有业务，在原有业务的基础上去扩展相关功能，达到开闭原则。Java中的IO流对象也使用了装饰者模式。UML类图如下所示：</p>
+<p><img src="/images/020-01.png" alt="020-01"></p>
+<h1 id="二、适配器模式"><a href="#二、适配器模式" class="headerlink" title="二、适配器模式"></a>二、适配器模式</h1><ul>
+<li>将一个类的接口转换成另一种接口，让原来接口不兼容的类可以兼容</li>
+<li>用户是看不到<strong>被适配者</strong>(Source)</li>
+<li>用户是调用<strong>适配器</strong>(Adapter)转换出来的<strong>目标</strong>(Dest)接口方法，适配器再调用被适配者的相关方法</li>
+<li>可分为类适配器模式、对象适配器模式、接口(缺省)适配器模式</li>
+</ul>
+<h2 id="1、类适配器模式"><a href="#1、类适配器模式" class="headerlink" title="1、类适配器模式"></a>1、类适配器模式</h2><h3 id="1）例子"><a href="#1）例子" class="headerlink" title="1）例子"></a>1）例子</h3><p>&emsp;&emsp;需求：一般家用电压为220V，但假设某个手机的充电电压为5V，则需要适配器来转换</p>
+<p>1、编写目标接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IVoltage5V</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 目标接口方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">output5V</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、编写被适配者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Voltage220V</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">output220V</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"适配前电压为220V"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">220</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、编写适配器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Adapter</span> <span class="keyword">extends</span> <span class="title">Voltage220V</span> <span class="keyword">implements</span> <span class="title">IVoltage5V</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">output5V</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> srcV = output220V();</span><br><span class="line">        <span class="comment">// 这里就相当于在做适配工作</span></span><br><span class="line">        <span class="keyword">int</span> destV = srcV / <span class="number">44</span>;</span><br><span class="line">        <span class="keyword">return</span> destV;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4、编写用户，即手机</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">charge</span><span class="params">(IVoltage5V iVoltage5V)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">5</span> == iVoltage5V.output5V()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"适配后电压为5V，可以充电"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"适配后电压不为5V，不可以充电"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>5、测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Phone phone = <span class="keyword">new</span> Phone();</span><br><span class="line">        phone.charge(<span class="keyword">new</span> Adapter());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2）总结"><a href="#2）总结" class="headerlink" title="2）总结"></a>2）总结</h3><ul>
+<li>该模式中适配器需要继承Source类，且目标是接口，有一定的局限性</li>
+<li>Source类的方法会在Adapter中暴露出来，增加了使用成本</li>
+</ul>
+<h2 id="2、对象适配器模式"><a href="#2、对象适配器模式" class="headerlink" title="2、对象适配器模式"></a>2、对象适配器模式</h2><p>&emsp;&emsp;基本思路与类适配器相同，只是修改Adapter类，让它不再继承Source类，而是在属性中拥有Source类。</p>
+<p>&emsp;&emsp;在上述例子的基础下进行修改：</p>
+<p>1、修改适配器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Adapter</span> <span class="keyword">implements</span> <span class="title">IVoltage5V</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Voltage220V voltage220V;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Adapter</span><span class="params">(Voltage220V voltage220V)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.voltage220V = voltage220V;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">output5V</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != voltage220V) &#123;</span><br><span class="line">            <span class="keyword">int</span> srcV = voltage220V.output220V();</span><br><span class="line">            <span class="comment">// 这里就相当于在做适配工作</span></span><br><span class="line">            <span class="keyword">int</span> destV = srcV / <span class="number">44</span>;</span><br><span class="line">            <span class="keyword">return</span> destV;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、修改测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Phone phone = <span class="keyword">new</span> Phone();</span><br><span class="line">        phone.charge(<span class="keyword">new</span> Adapter(<span class="keyword">new</span> Voltage220V()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、接口适配器模式"><a href="#3、接口适配器模式" class="headerlink" title="3、接口适配器模式"></a>3、接口适配器模式</h2><ul>
+<li>目标接口中不只一个方法</li>
+<li>适配器是一个抽象类，实现目标接口，并重写所有接口方法，但都是空处理或简单处理</li>
+<li>使用适配器时，需要哪个方法才具体重写那个方法</li>
+</ul>
+<p>&emsp;&emsp;例子改进：</p>
+<p>1、目标接口类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IVoltage</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">output5V</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">output10V</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">output15V</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、被适配者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">VoltageSource</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">output</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Voltage220V</span> <span class="keyword">extends</span> <span class="title">VoltageSource</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">output</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"适配前电压为220V"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">220</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、适配器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Adapter</span> <span class="keyword">implements</span> <span class="title">IVoltage</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> VoltageSource voltageSource;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Adapter</span><span class="params">(VoltageSource voltageSource)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.voltageSource = voltageSource;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> VoltageSource <span class="title">getVoltageSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> voltageSource;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">output5V</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> -<span class="number">1</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">output10V</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> -<span class="number">1</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">output15V</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> -<span class="number">1</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4、手机类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">charge</span><span class="params">(IVoltage iVoltage)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">5</span> == iVoltage.output5V()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"适配后电压为5V，可以充电"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"适配后电压不为5V，不可以充电"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>5、测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Phone phone = <span class="keyword">new</span> Phone();</span><br><span class="line">        phone.charge(<span class="keyword">new</span> Adapter(<span class="keyword">new</span> Voltage220V()) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">output5V</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">int</span> srcV = <span class="keyword">this</span>.getVoltageSource().output();</span><br><span class="line">                <span class="keyword">return</span> srcV / <span class="number">44</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>UML类图如下所示：</p>
+<p><img src="/images/020-02.png" alt="020-02"></p>
+<h1 id="三、桥接模式"><a href="#三、桥接模式" class="headerlink" title="三、桥接模式"></a>三、桥接模式</h1><p>&emsp;&emsp; 当一个类需要在<strong>两个以上维度</strong>进行扩展时，如果采用继承方式会导致子类数量过多，于是引进桥接模式。该模式涉及的角色有：</p>
+<ul>
+<li><strong>抽象化</strong>(Abstraction)角色：抽象化给出的定义，并保存一个对实现化对象的引用。充当“桥”，把抽象化和实现化结合起来</li>
+<li><strong>修正抽象化</strong>(RefinedAbstraction)角色：扩展抽象化角色，改变和修正父类对抽象化的定义</li>
+<li><strong>实现化</strong>(Implementor)角色：这个角色给出实现化角色的接口，但不给出具体的实现。必须指出的是，这个接口不一定和抽象化角色的接口定义相同，实际上，这两个接口可以非常不一样。实现化角色应当只给出底层操作，而抽象化角色应当只给出基于底层操作的更高一层的操作</li>
+<li><strong>具体实现化</strong>(ConcreteImplementor)角色：这个角色给出实现化角色接口的具体实现</li>
+</ul>
+<h2 id="1、例子-1"><a href="#1、例子-1" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;需求：吃烧烤，可以分成食物和风味两个维度，如食物有鸡翅、鸡腿等；风味有微辣、特辣等。</p>
+<p>1、编写实现化部分</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Taste</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">taste</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExtraSpicy</span> <span class="keyword">implements</span> <span class="title">Taste</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">taste</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"特辣"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SlightlySpicy</span> <span class="keyword">implements</span> <span class="title">Taste</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">taste</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"微辣"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、编写抽象化部分</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Food</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> Taste taste;</span><br><span class="line">    <span class="comment">// 通过这个构造方法，把抽象化和实例化组合起来</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Food</span><span class="params">(Taste taste)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.taste = taste;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChickenWings</span> <span class="keyword">extends</span> <span class="title">Food</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ChickenWings</span><span class="params">(Taste taste)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(taste);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="keyword">super</span>.taste.taste() + <span class="string">"鸡翅"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Drumsticks</span> <span class="keyword">extends</span> <span class="title">Food</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Drumsticks</span><span class="params">(Taste taste)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(taste);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="keyword">super</span>.taste.taste() + <span class="string">"鸡腿"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> ChickenWings(<span class="keyword">new</span> ExtraSpicy()).eat();</span><br><span class="line">        <span class="keyword">new</span> Drumsticks(<span class="keyword">new</span> SlightlySpicy()).eat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、总结-1"><a href="#2、总结-1" class="headerlink" title="2、总结"></a>2、总结</h2><p>&emsp;&emsp;UML类图如下所示：</p>
+<p><img src="/images/020-03.png" alt="020-03"></p>
+<h1 id="四、组合模式"><a href="#四、组合模式" class="headerlink" title="四、组合模式"></a>四、组合模式</h1><p>&emsp;&emsp;组合模式在<strong>树型结构</strong>的问题中，模糊了简单元素和复杂元素的概念，客户程序可以像处理简单元素一样来处理复杂元素，从而使得客户程序与复杂元素的内部结构解耦。主要有以下角色：</p>
+<ul>
+<li><strong>抽象构件</strong>(Component)：可以是接口或者抽象类，是叶子构件和容器构件的接口，包含子类行为的声明和实现</li>
+<li><strong>叶子构件</strong>(Leaf)：叶子节点没有子节点，是最低级的节点</li>
+<li><strong>容器构件</strong>(Composite)：容器构件中含所有子节点，节点可以是子节点，也可以是容器节点，是一个集合，用来存储节点的。好比一个文件夹，文件夹好比一个容器，用来提供一个容器，它实现了抽象构件定义的行为方法，也可以调用子节点的方法</li>
+</ul>
+<h2 id="1、例子-2"><a href="#1、例子-2" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;需求：一个学校有多个学院，一个学院又有多个专业，用组合模式来管理</p>
+<p>1、编写抽象构件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Component component)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 叶子节点没有对子节点的操作，所以不写成抽象方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 叶子节点没有对子节点的操作，所以不写成抽象方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、编写大学类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">University</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;Component&gt; colleges = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">University</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setName(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Component component)</span> </span>&#123;</span><br><span class="line">        colleges.add(component);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        colleges.remove(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"-----"</span> + getName() + <span class="string">"-----"</span>);</span><br><span class="line">        <span class="keyword">for</span> (Component c : colleges) &#123;</span><br><span class="line">            c.show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、编写学院类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">College</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Component&gt; majors = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">College</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setName(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Component component)</span> </span>&#123;</span><br><span class="line">        majors.add(component);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        majors.remove(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"--"</span> + getName() + <span class="string">"--"</span>);</span><br><span class="line">        <span class="keyword">for</span> (Component c : majors) &#123;</span><br><span class="line">            c.show();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、编写专业类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Major</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Major</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setName(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4、编写客户端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        University university = <span class="keyword">new</span> University(<span class="string">"XX大学"</span>);</span><br><span class="line"></span><br><span class="line">        College college1 = <span class="keyword">new</span> College(<span class="string">"计通学院"</span>);</span><br><span class="line">        college1.add(<span class="keyword">new</span> Major(<span class="string">"计科专业"</span>));</span><br><span class="line">        college1.add(<span class="keyword">new</span> Major(<span class="string">"网络专业"</span>));</span><br><span class="line">        college1.add(<span class="keyword">new</span> Major(<span class="string">"软件专业"</span>));</span><br><span class="line"></span><br><span class="line">        College college2 = <span class="keyword">new</span> College(<span class="string">"土木学院"</span>);</span><br><span class="line">        college2.add(<span class="keyword">new</span> Major(<span class="string">"土木专业"</span>));</span><br><span class="line">        college2.add(<span class="keyword">new</span> Major(<span class="string">"材料专业"</span>));</span><br><span class="line">        college2.add(<span class="keyword">new</span> Major(<span class="string">"建筑专业"</span>));</span><br><span class="line"></span><br><span class="line">        university.add(college1);</span><br><span class="line">        university.add(college2);</span><br><span class="line">        university.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、总结-2"><a href="#2、总结-2" class="headerlink" title="2、总结"></a>2、总结</h2><p>&emsp;&emsp;组合模式的使用场景：</p>
+<ul>
+<li>想表示对象的部分-整体层次结构(<strong>树形结构</strong>)</li>
+<li>用户忽略组合对象与单个对象的不同，可以统一地使用组合结构中的所有对象</li>
+</ul>
+<p>UML类图如下所示：</p>
+<p><img src="/images/020-04.png" alt="020-04"></p>
+<h1 id="五、外观模式"><a href="#五、外观模式" class="headerlink" title="五、外观模式"></a>五、外观模式</h1><p>&emsp;&emsp;外观模式(Facade Pattern)隐藏系统的复杂性，并向客户端提供了一个客户端可以访问系统的接口。这种类型的设计模式属于结构型模式，它向现有的系统添加一个接口，来隐藏系统的复杂性。</p>
+<h2 id="1、例子-3"><a href="#1、例子-3" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;电脑开机其实是复杂的过程，启动CPU、内存、硬盘等等，但是用户不需要知道，用户只需简单按一下电源键即可，这其实就是外观模式。</p>
+<p>1、电脑组件类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">open</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CPU</span> <span class="keyword">implements</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"启动CPU"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Memory</span> <span class="keyword">implements</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"启动内存"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SSD</span> <span class="keyword">implements</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"启动固体硬盘"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、电脑类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Computer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> CPU cpu = <span class="keyword">new</span> CPU();</span><br><span class="line">    <span class="keyword">private</span> Memory memory = <span class="keyword">new</span> Memory();</span><br><span class="line">    <span class="keyword">private</span> SSD ssd = <span class="keyword">new</span> SSD();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        cpu.open();</span><br><span class="line">        memory.open();</span><br><span class="line">        ssd.open();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、客户端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Computer computer = <span class="keyword">new</span> Computer();</span><br><span class="line">        computer.open();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、总结-3"><a href="#2、总结-3" class="headerlink" title="2、总结"></a>2、总结</h2><ul>
+<li>客户端不需要知道系统内部的复杂联系，整个系统只需提供一个”接待员”即可</li>
+<li>web开发的MVC架构其实就使用了外观模式</li>
+</ul>
+<h1 id="六、享元模式"><a href="#六、享元模式" class="headerlink" title="六、享元模式"></a>六、享元模式</h1><p>&emsp;&emsp;享元模式是<strong>对象池</strong>的一种实现。将多个对同一对象的访问集中起来，不必为每个访问者创建一个单独的对象，以此来降低内存的消耗。</p>
+<p>&emsp;&emsp;享元模式把一个对象的状态分成内部状态和外部状态，内部状态即是不变的，外部状态是变化的；然后通过共享不变的部分，达到减少对象数量并节约内存的目的。</p>
+<h2 id="1、例子-4"><a href="#1、例子-4" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;模拟车站买票，买票前，很多人都会查是否有票，而这些票的信息(出发地、目的地等)都相同，若频繁地创建相似对象会浪费资源，这时就可以使用享元模式。</p>
+<p>1、票类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Ticket</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TrainTicket</span> <span class="keyword">implements</span> <span class="title">Ticket</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String from;</span><br><span class="line">    <span class="keyword">private</span> String to;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TrainTicket</span><span class="params">(String from, String to)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.from = from;</span><br><span class="line">        <span class="keyword">this</span>.to = to;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"出发地："</span> + from + <span class="string">" 目的地："</span> + to);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、车站类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Station</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, Ticket&gt; tickets;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Station instance;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Station</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.tickets = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Station <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == instance) &#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Station();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Ticket <span class="title">getTicket</span><span class="params">(String from, String to)</span> </span>&#123;</span><br><span class="line">        String key = from + <span class="string">":"</span> + to;</span><br><span class="line">        <span class="keyword">if</span> (tickets.containsKey(key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> tickets.get(key);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            Ticket ticket = <span class="keyword">new</span> TrainTicket(from, to);</span><br><span class="line">            tickets.put(key, ticket);</span><br><span class="line">            <span class="keyword">return</span> ticket;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、用户</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Station station = Station.getInstance();</span><br><span class="line">        Ticket ticket1 = station.getTicket(<span class="string">"深圳"</span>, <span class="string">"广州"</span>);</span><br><span class="line">        Ticket ticket2 = station.getTicket(<span class="string">"深圳"</span>, <span class="string">"广州"</span>);</span><br><span class="line">        ticket1.show();</span><br><span class="line">        System.out.println(ticket1 == ticket2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、总结-4"><a href="#2、总结-4" class="headerlink" title="2、总结"></a>2、总结</h2><ul>
+<li>享元模式可以极大减少内存中对象的数量，使得相同对象或相似对象在内存中只保存一份，降低内存占用，增强程序的性能</li>
+<li>享元模式的外部状态相对独立，而且不会影响其内部状态，从而使得享元对象可以在不同的环境中被共享</li>
+</ul>
+<h1 id="七、代理模式"><a href="#七、代理模式" class="headerlink" title="七、代理模式"></a>七、代理模式</h1><p>&emsp;&emsp;为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用，且代理对象可以在<strong>不修改目标对象方法</strong>的前提下对其方法进行扩展。可分为静态代理、动态代理、Cglib代理。</p>
+<p>&emsp;&emsp;比如：我们想听明星唱歌，一般是不能接触到明星请他唱的，经常是通过他的经理来进行预约的，这里的经理就起到代理的作用。</p>
+<h2 id="1、静态代理"><a href="#1、静态代理" class="headerlink" title="1、静态代理"></a>1、静态代理</h2><p> 1、目标类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  这个接口是目标对象和代理对象都要实现的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Singer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JayChou</span> <span class="keyword">implements</span> <span class="title">Singer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"周杰伦唱歌..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、代理类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingerProxy</span> <span class="keyword">implements</span> <span class="title">Singer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Singer singer;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SingerProxy</span><span class="params">(Singer singer)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.singer = singer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"演唱前的预约工作..."</span>);</span><br><span class="line">        singer.sing();</span><br><span class="line">        System.out.println(<span class="string">"演唱后的收尾工作..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SingerProxy singerProxy = <span class="keyword">new</span> SingerProxy(<span class="keyword">new</span> JayChou());</span><br><span class="line">        singerProxy.sing();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、动态代理"><a href="#2、动态代理" class="headerlink" title="2、动态代理"></a>2、动态代理</h2><p>1、目标类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Star</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">act</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JackyCheung</span> <span class="keyword">implements</span> <span class="title">Star</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"张学友唱歌..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">act</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"张学友拍戏..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、自定义事件处理器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Star star;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyInvocationHandler</span><span class="params">(Star star)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.star = star;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (method.getName().equals(<span class="string">"sing"</span>)) &#123;</span><br><span class="line">            System.out.println(<span class="string">"预约明星唱歌.."</span>);</span><br><span class="line">            Object returnValue = method.invoke(star, args);</span><br><span class="line">            System.out.println(<span class="string">"收尾工作..."</span>);</span><br><span class="line">            <span class="keyword">return</span> returnValue;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"预约明星拍戏.."</span>);</span><br><span class="line">            Object returnValue = method.invoke(star, args);</span><br><span class="line">            System.out.println(<span class="string">"收尾工作..."</span>);</span><br><span class="line">            <span class="keyword">return</span> returnValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、客户端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyInvocationHandler myInvocationHandler = <span class="keyword">new</span> MyInvocationHandler(<span class="keyword">new</span> JackyCheung());</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">            Proxy.newProxyInstance的三个参数</span></span><br><span class="line"><span class="comment">             1.ClassLoader loader：目标对象使用的类加载器，获取加载器的方法是固定的</span></span><br><span class="line"><span class="comment">             2.Class&lt;?&gt;[] interfaces：目标对象实现的接口的类型</span></span><br><span class="line"><span class="comment">             3.InvocationHandler h：事件处理器，当执行目标对象的方法时，会触发事件处理器的方法</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        Star starProxy = (Star) Proxy.newProxyInstance(Star.class.getClassLoader(),</span><br><span class="line">                <span class="keyword">new</span> Class[]&#123;Star.class&#125;,</span><br><span class="line">                myInvocationHandler);</span><br><span class="line">        starProxy.sing();</span><br><span class="line">        starProxy.act();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、Cglib代理"><a href="#3、Cglib代理" class="headerlink" title="3、Cglib代理"></a>3、Cglib代理</h2><p>&emsp;&emsp;Cglib代理可以算作是动态代理的一种，但是它的目标对象<strong>不需要</strong>实现接口。</p>
+<p>1、导入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cglib<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cglib<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2、目标类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JackyCheung</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"张学友唱歌..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">act</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"张学友拍戏..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、代理工厂</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyFactory</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Object target;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProxyFactory</span><span class="params">(Object target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.target = target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object o, Method method, Object[] args, MethodProxy methodProxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"cglib代理开始..."</span>);</span><br><span class="line"></span><br><span class="line">        Object returnValue = method.invoke(target, args);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"cglib代理结束..."</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> returnValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回target的代理对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getProxyInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 1.创建工具类</span></span><br><span class="line">        Enhancer enhancer = <span class="keyword">new</span> Enhancer();</span><br><span class="line">        <span class="comment">// 2.设置父类</span></span><br><span class="line">        enhancer.setSuperclass(target.getClass());</span><br><span class="line">        <span class="comment">// 3.设置回调函数</span></span><br><span class="line">        enhancer.setCallback(<span class="keyword">this</span>);</span><br><span class="line">        <span class="comment">// 4.创建子类对象，即代理对象</span></span><br><span class="line">        <span class="keyword">return</span> enhancer.create();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4、客户端</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ProxyFactory proxyFactory = <span class="keyword">new</span> ProxyFactory(<span class="keyword">new</span> JackyCheung());</span><br><span class="line">        JackyCheung proxyInstance = (JackyCheung) proxyFactory.getProxyInstance();</span><br><span class="line">        proxyInstance.act();</span><br><span class="line">        proxyInstance.sing();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="八、相关链接"><a href="#八、相关链接" class="headerlink" title="八、相关链接"></a>八、相关链接</h1><ul>
+<li><p><a href="https://www.jianshu.com/p/a2aa75939766" target="_blank" rel="noopener">参考资料1</a></p>
+</li>
+<li><p><a href="https://www.runoob.com/design-pattern/design-pattern-tutorial.html" target="_blank" rel="noopener">参考资料2</a></p>
+</li>
+<li><p><a href="https://www.bilibili.com/video/av57936239?p=91" target="_blank" rel="noopener">参考资料3</a></p>
+</li>
+</ul>
+
+      
+
+        
+		
+		
+		  <div>
+			<blockquote>
+				<strong>本文作者：</strong>
+				
+				  CHIHAYA
+				
+				<br>
+				<strong>本文链接：</strong>
+				https://p5r-chihaya.github.io/2019/12/04/【学习笔记】设计模式之结构型模式/
+				<br>
+				<strong>版权声明：</strong>
+				本作品采用
+				<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+				进行许可。转载请注明出处！
+				
+			</blockquote>
+			
+			
+			<hr>
+				<center><strong>感谢有你，伴我成长。</strong></center>
+			<hr>
+		  </div>
+		
+
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢您的认可<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/02/【框架】SpringMVC的使用/" class="archive-article-date">
-  	<time datetime="2019-11-02T08:05:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/02/【框架】SpringMVC的使用/">【框架】SpringMVC的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADPElEQVR42u3a0WrjQAwF0P7/T6ewT4XW9pXkhVg5fgpJdzpnAtXqar6+4uf17/n5+ueT/8zRmr/fT1Y4X+eGBxsbG/sh7Nfpk5COPj0/uPM9HH1a/UoO/y02Njb2Ona+XL7RZJ3qHvLXF+tjY2NjfyQ7OYKkXUmOqdeKYGNjY2PnBayX0kyan/M2BhsbGxs7j4qq5aQQ9JwGSZPih42Njb2b3Rv0vufr/z7fxsbGxn4z9qv4JMPXahRVDYmqBfIPBTY2NvYidrJ08n7SSJyvk0RLyfHlh4uNjY29g50vmpexahg0GSf3QjFsbGzsTey8LPUaj0kYVEXmB4qNjY29iT0pIaMBapFRPcrCZBsbGxt7ETu/iDMBJA1D/tt7oRU2Njb2VnYe3FfjnnwAkHyaD4MvRrzY2NjYi9i9cW+vIakOdHtfwMU+sbGxsVez8yApbzyS9mbSbOTHh42Njb2bPUnO88ip2pb0vpILCzY2NvYidt48TMpGfh2n+mlvRI2NjY29iV0N+qvFZtJUzH8vNjY2NnY1QqqWq2ozUy1m5fk2NjY29gPZ1QYjHwBX46TecDcvb3+8g42Njb2C3YvsJ4H+5IDyRuWiHGJjY2MvYufxTR4eVYOkvKlICltVhI2Njb2PnRe5fBOTwtMbJ+clExsbG/vp7Hyj1ZKWB0b5NZ3RcLd66wcbGxv7Uex8gNrbbnUQWx36Jj9/OA/BxsbGfjh70hj0Ckyez1cbm3wEgo2Njb2JXf3T3xsM51dweoWqWm6xsbGxN7Gb11yK4U5yHNXGJi9m2NjY2LvZ+ZWXvHj0SlH1gmb+FAa92NjY2A9kV8e6vW3dFV1NhgHNO0rY2NjYb8++6zJlXop61yWrheqiWcLGxsZex54Xs95NmGTkUC1v5TwMGxsbewV7HtBUhwG9IpQf1sVxY2NjYy9i31XqJld/Ju1K0n6MjgAbGxv7IexeWNNrYyak6pFhY2Njfxr73v/uT0YLyZo3RGbY2NjYH8nujQ2Si5uTpqIZfmFjY2N/MDspLb2t5CtMRsvY2NjYW9n5cHdyZXPe9uRXhS6+YGxsbOxF7BsCmrg45du669CrA2lsbGzsR7G/ARTiv4NwKVKcAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/31/【框架】SpringBoot/" class="archive-article-date">
-  	<time datetime="2019-10-31T00:50:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-31</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/08/【学习笔记】设计模式之创建型模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【学习笔记】设计模式之创建型模式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/31/【框架】SpringBoot/">【框架】SpringBoot</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、装饰者模式"><span class="toc-number">1.</span> <span class="toc-text">一、装饰者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、例子"><span class="toc-number">1.1.</span> <span class="toc-text">1、例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、总结"><span class="toc-number">1.2.</span> <span class="toc-text">2、总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、适配器模式"><span class="toc-number">2.</span> <span class="toc-text">二、适配器模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、类适配器模式"><span class="toc-number">2.1.</span> <span class="toc-text">1、类适配器模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）例子"><span class="toc-number">2.1.1.</span> <span class="toc-text">1）例子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）总结"><span class="toc-number">2.1.2.</span> <span class="toc-text">2）总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、对象适配器模式"><span class="toc-number">2.2.</span> <span class="toc-text">2、对象适配器模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、接口适配器模式"><span class="toc-number">2.3.</span> <span class="toc-text">3、接口适配器模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、桥接模式"><span class="toc-number">3.</span> <span class="toc-text">三、桥接模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、例子-1"><span class="toc-number">3.1.</span> <span class="toc-text">1、例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、总结-1"><span class="toc-number">3.2.</span> <span class="toc-text">2、总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、组合模式"><span class="toc-number">4.</span> <span class="toc-text">四、组合模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、例子-2"><span class="toc-number">4.1.</span> <span class="toc-text">1、例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、总结-2"><span class="toc-number">4.2.</span> <span class="toc-text">2、总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、外观模式"><span class="toc-number">5.</span> <span class="toc-text">五、外观模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、例子-3"><span class="toc-number">5.1.</span> <span class="toc-text">1、例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、总结-3"><span class="toc-number">5.2.</span> <span class="toc-text">2、总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、享元模式"><span class="toc-number">6.</span> <span class="toc-text">六、享元模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、例子-4"><span class="toc-number">6.1.</span> <span class="toc-text">1、例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、总结-4"><span class="toc-number">6.2.</span> <span class="toc-text">2、总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、代理模式"><span class="toc-number">7.</span> <span class="toc-text">七、代理模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、静态代理"><span class="toc-number">7.1.</span> <span class="toc-text">1、静态代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、动态代理"><span class="toc-number">7.2.</span> <span class="toc-text">2、动态代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、Cglib代理"><span class="toc-number">7.3.</span> <span class="toc-text">3、Cglib代理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、相关链接"><span class="toc-number">8.</span> <span class="toc-text">八、相关链接</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/07/【学习笔记】Java笔记十：Java8新特性/" class="archive-article-date">
-  	<time datetime="2019-10-07T06:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/07/【学习笔记】Java笔记十：Java8新特性/">【学习笔记】Java笔记十：Java8新特性</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java8新特性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/06/【学习笔记】Java笔记九：网络编程/" class="archive-article-date">
-  	<time datetime="2019-10-06T02:56:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/06/【学习笔记】Java笔记九：网络编程/">【学习笔记】Java笔记九：网络编程</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/04/【学习笔记】Java笔记八：IO流/" class="archive-article-date">
-  	<time datetime="2019-10-04T06:13:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/04/【学习笔记】Java笔记八：IO流/">【学习笔记】Java笔记八：IO流</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IO流</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/Java/page/2/">2</a><a class="page-number" href="/tags/Java/page/3/">3</a><a class="extend next" rel="next" href="/tags/Java/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -399,9 +589,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
