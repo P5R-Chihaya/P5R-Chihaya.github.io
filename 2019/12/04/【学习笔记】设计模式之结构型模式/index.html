@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/020-02.png">
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/020-03.png">
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/020-04.png">
-<meta property="og:updated_time" content="2019-12-04T01:05:37.521Z">
+<meta property="og:updated_time" content="2020-01-31T10:01:25.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】设计模式之结构型模式">
 <meta name="twitter:description" content="本文内容包含：装饰者模式、适配器模式、桥接模式、组合模式、外观模式、享元模式、代理模式 一、装饰者模式&amp;emsp;&amp;emsp;该模式的4个基本角色：  基本抽象组件(Component)：一个抽象类或者接口，由具体构件和抽象装饰者继承或实现 具体构件(ConcreteComponent)：被装饰者 抽象装饰者(Decorator)：装饰者的抽象类，属性中包含Component对象 具体装饰者(Co">
@@ -185,6 +185,8 @@
 <li>抽象装饰者(Decorator)：装饰者的抽象类，属性中包含Component对象</li>
 <li>具体装饰者(ConcreteDecorator)：动态地为被装饰者添加额外功能</li>
 </ul>
+<p>&emsp;&emsp;UML类图如下所示：</p>
+<p><img src="/images/020-01.png" alt="020-01"></p>
 <a id="more"></a>
 
 <h2 id="1、例子"><a href="#1、例子" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;需求：咖啡店的主要卖咖啡，但客户可以动态添加调料品(牛奶、糖等)</p>
@@ -202,8 +204,7 @@
 <p>4、编写测试类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Coffee coffee = <span class="keyword">new</span> Coffee();</span><br><span class="line">        Milk milk = <span class="keyword">new</span> Milk(coffee);</span><br><span class="line">        Milk milk2 = <span class="keyword">new</span> Milk(milk);</span><br><span class="line">        Sugar sugar = <span class="keyword">new</span> Sugar(milk2);</span><br><span class="line">        System.out.println(sugar.show());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="2、总结"><a href="#2、总结" class="headerlink" title="2、总结"></a>2、总结</h2><p>&emsp;&emsp;装饰者模式，可以不改动原有业务，在原有业务的基础上去扩展相关功能，达到开闭原则。Java中的IO流对象也使用了装饰者模式。UML类图如下所示：</p>
-<p><img src="/images/020-01.png" alt="020-01"></p>
+<h2 id="2、总结"><a href="#2、总结" class="headerlink" title="2、总结"></a>2、总结</h2><p>&emsp;&emsp;装饰者模式，可以不改动原有业务，在原有业务的基础上去扩展相关功能，达到开闭原则。Java中的IO流对象也使用了装饰者模式。</p>
 <h1 id="二、适配器模式"><a href="#二、适配器模式" class="headerlink" title="二、适配器模式"></a>二、适配器模式</h1><ul>
 <li>将一个类的接口转换成另一种接口，让原来接口不兼容的类可以兼容</li>
 <li>用户是看不到<strong>被适配者</strong>(Source)</li>
@@ -268,6 +269,8 @@
 <li><strong>实现化</strong>(Implementor)角色：这个角色给出实现化角色的接口，但不给出具体的实现。必须指出的是，这个接口不一定和抽象化角色的接口定义相同，实际上，这两个接口可以非常不一样。实现化角色应当只给出底层操作，而抽象化角色应当只给出基于底层操作的更高一层的操作</li>
 <li><strong>具体实现化</strong>(ConcreteImplementor)角色：这个角色给出实现化角色接口的具体实现</li>
 </ul>
+<p>&emsp;&emsp;UML类图如下所示：</p>
+<p><img src="/images/020-03.png" alt="020-03"></p>
 <h2 id="1、例子-1"><a href="#1、例子-1" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;需求：吃烧烤，可以分成食物和风味两个维度，如食物有鸡翅、鸡腿等；风味有微辣、特辣等。</p>
 <p>1、编写实现化部分</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Taste</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">taste</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExtraSpicy</span> <span class="keyword">implements</span> <span class="title">Taste</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">taste</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"特辣"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SlightlySpicy</span> <span class="keyword">implements</span> <span class="title">Taste</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">taste</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"微辣"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -278,14 +281,15 @@
 <p>3、测试类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> ChickenWings(<span class="keyword">new</span> ExtraSpicy()).eat();</span><br><span class="line">        <span class="keyword">new</span> Drumsticks(<span class="keyword">new</span> SlightlySpicy()).eat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="2、总结-1"><a href="#2、总结-1" class="headerlink" title="2、总结"></a>2、总结</h2><p>&emsp;&emsp;UML类图如下所示：</p>
-<p><img src="/images/020-03.png" alt="020-03"></p>
+<h2 id="2、总结-1"><a href="#2、总结-1" class="headerlink" title="2、总结"></a>2、总结</h2><p>&emsp;&emsp;当系统可能有多个角度分类，且每一种角度都可能变化，若此时仍使用继承则会造成类爆炸问题，扩展起来不灵活。这是可以使用桥接模式把这种多角度分类分离出来，让它们独立变化，减少它们之间耦合。但桥接模式的引入会增加系统的理解与设计难度，由于聚合关联关系建立在抽象层，要求开发者针对抽象进行设计与编程。</p>
 <h1 id="四、组合模式"><a href="#四、组合模式" class="headerlink" title="四、组合模式"></a>四、组合模式</h1><p>&emsp;&emsp;组合模式在<strong>树型结构</strong>的问题中，模糊了简单元素和复杂元素的概念，客户程序可以像处理简单元素一样来处理复杂元素，从而使得客户程序与复杂元素的内部结构解耦。主要有以下角色：</p>
 <ul>
 <li><strong>抽象构件</strong>(Component)：可以是接口或者抽象类，是叶子构件和容器构件的接口，包含子类行为的声明和实现</li>
 <li><strong>叶子构件</strong>(Leaf)：叶子节点没有子节点，是最低级的节点</li>
 <li><strong>容器构件</strong>(Composite)：容器构件中含所有子节点，节点可以是子节点，也可以是容器节点，是一个集合，用来存储节点的。好比一个文件夹，文件夹好比一个容器，用来提供一个容器，它实现了抽象构件定义的行为方法，也可以调用子节点的方法</li>
 </ul>
+<p>&emsp;&emsp;UML类图如下所示：</p>
+<p><img src="/images/020-04.png" alt="020-04"></p>
 <h2 id="1、例子-2"><a href="#1、例子-2" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;需求：一个学校有多个学院，一个学院又有多个专业，用组合模式来管理</p>
 <p>1、编写抽象构件</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Component component)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 叶子节点没有对子节点的操作，所以不写成抽象方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 叶子节点没有对子节点的操作，所以不写成抽象方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -307,8 +311,6 @@
 <li>想表示对象的部分-整体层次结构(<strong>树形结构</strong>)</li>
 <li>用户忽略组合对象与单个对象的不同，可以统一地使用组合结构中的所有对象</li>
 </ul>
-<p>UML类图如下所示：</p>
-<p><img src="/images/020-04.png" alt="020-04"></p>
 <h1 id="五、外观模式"><a href="#五、外观模式" class="headerlink" title="五、外观模式"></a>五、外观模式</h1><p>&emsp;&emsp;外观模式(Facade Pattern)隐藏系统的复杂性，并向客户端提供了一个客户端可以访问系统的接口。这种类型的设计模式属于结构型模式，它向现有的系统添加一个接口，来隐藏系统的复杂性。</p>
 <h2 id="1、例子-3"><a href="#1、例子-3" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;电脑开机其实是复杂的过程，启动CPU、内存、硬盘等等，但是用户不需要知道，用户只需简单按一下电源键即可，这其实就是外观模式。</p>
 <p>1、电脑组件类</p>
@@ -518,6 +520,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/01/31/【学习笔记】设计模式之行为型模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【学习笔记】设计模式之行为型模式
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/11/08/【学习笔记】设计模式之创建型模式/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">【学习笔记】设计模式之创建型模式</div>
@@ -576,7 +587,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 CHIHAYA
+    		&copy; 2020 CHIHAYA
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -663,6 +674,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
@@ -691,6 +706,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">设计模式原则</a>
               </li>
              
@@ -699,15 +722,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -715,19 +730,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
