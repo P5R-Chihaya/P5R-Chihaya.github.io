@@ -149,62 +149,87 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-【学习笔记】Java笔记十：Java8新特性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-【框架】SpringMVC的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/07/【学习笔记】Java笔记十：Java8新特性/">【学习笔记】Java笔记十：Java8新特性</a>
+      <a class="article-title" href="/2019/11/02/【框架】SpringMVC的使用/">【框架】SpringMVC的使用</a>
     </h1>
   
 
         
-        <a href="/2019/10/07/【学习笔记】Java笔记十：Java8新特性/" class="archive-article-date">
-  	<time datetime="2019-10-07T06:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+        <a href="/2019/11/02/【框架】SpringMVC的使用/" class="archive-article-date">
+  	<time datetime="2019-11-02T08:05:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、Lambda表达式"><a href="#一、Lambda表达式" class="headerlink" title="一、Lambda表达式"></a>一、Lambda表达式</h1><h2 id="1、相关说明"><a href="#1、相关说明" class="headerlink" title="1、相关说明"></a>1、相关说明</h2><ul>
-<li><p>创建<strong>函数式接口</strong>的匿名对象时，可以使用Lambda表达式来减少代码量</p>
-</li>
-<li><p>语法格式：(参数列表) -&gt; {代码体}</p>
-</li>
-<li><p>函数式接口：只有一个抽象方法的接口，可以使用注解@FunctionalInterface来标记对应接口</p>
-</li>
-<li><p>Java内置的4个基本函数式接口如下</p>
-<table>
+        <h1 id="一、注解"><a href="#一、注解" class="headerlink" title="一、注解"></a>一、注解</h1><table>
 <thead>
 <tr>
-<th>接口名</th>
-<th>方法</th>
+<th>注解</th>
+<th>使用位置</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Consumer&lt;T&gt;</td>
-<td>void accept(T t)</td>
+<td>@RequestMapping</td>
+<td>类、方法</td>
+<td>映射请求路径</td>
 </tr>
 <tr>
-<td>Supplier&lt;T&gt;</td>
-<td>T get()</td>
+<td>@PathVariable</td>
+<td>方法形参</td>
+<td>获取请求路径某段的值</td>
 </tr>
 <tr>
-<td>Function&lt;T, R&gt;</td>
-<td>R apply(T t)</td>
+<td>@RequestParam</td>
+<td>方法形参</td>
+<td>让请求参数(‘?’后面的内容)与方法形参形成映射关系</td>
 </tr>
 <tr>
-<td>Predicate&lt;T&gt;</td>
-<td>boolean test(T t)</td>
+<td>@RequestHeader</td>
+<td>方法形参</td>
+<td>获取请求头某个key的内容</td>
+</tr>
+<tr>
+<td>@CookieValue</td>
+<td>方法形参</td>
+<td>获取某个Cookie的值</td>
+</tr>
+<tr>
+<td>@Controller</td>
+<td>类</td>
+<td>说明该类为一个controller</td>
+</tr>
+<tr>
+<td>@RestController</td>
+<td>类</td>
+<td>说明该类为Rest风格的controller，会把方法返回值封装成JSON数据</td>
+</tr>
+<tr>
+<td>@RequestBody</td>
+<td>方法形参</td>
+<td>把前端传过来的JSON数据封装成自定义模型类，不能是GET请求</td>
+</tr>
+<tr>
+<td>@ResponseBody</td>
+<td>方法返回类型</td>
+<td>把方法返回值封装成JSON数据</td>
+</tr>
+<tr>
+<td>@SessionAttributes</td>
+<td>类</td>
+<td>Model可把内容存进request域中，该注解就可用把request域中的内容存进session域中</td>
 </tr>
 </tbody></table>
-</li>
-</ul>
         
-          <a class="article-more-a" href="/2019/10/07/【学习笔记】Java笔记十：Java8新特性/#more">more >></a>
+          <a class="article-more-a" href="/2019/11/02/【框架】SpringMVC的使用/#more">more >></a>
         
       
 
@@ -229,7 +254,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java8新特性</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
         		</li>
       		
 		</ul>
@@ -239,7 +264,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/07/【学习笔记】Java笔记十：Java8新特性/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/02/【框架】SpringMVC的使用/">展开全文 >></a>
         </p>
       
 
@@ -269,46 +294,35 @@
 
 
   
-    <article id="post-【学习笔记】Java笔记九：网络编程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-【框架】SpringBoot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/06/【学习笔记】Java笔记九：网络编程/">【学习笔记】Java笔记九：网络编程</a>
+      <a class="article-title" href="/2019/10/31/【框架】SpringBoot/">【框架】SpringBoot</a>
     </h1>
   
 
         
-        <a href="/2019/10/06/【学习笔记】Java笔记九：网络编程/" class="archive-article-date">
-  	<time datetime="2019-10-06T02:56:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
+        <a href="/2019/10/31/【框架】SpringBoot/" class="archive-article-date">
+  	<time datetime="2019-10-31T00:50:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、相关概念"><a href="#一、相关概念" class="headerlink" title="一、相关概念"></a>一、相关概念</h1><h2 id="1、IP"><a href="#1、IP" class="headerlink" title="1、IP"></a>1、IP</h2><ul>
-<li><p>唯一标识Internet上的计算机</p>
-</li>
-<li><p>分类方式1：IPV4和IPV6</p>
-<blockquote>
+        <h1 id="一、相关介绍"><a href="#一、相关介绍" class="headerlink" title="一、相关介绍"></a>一、相关介绍</h1><p>&emsp;&emsp;<strong>本文介绍的内容都是相对基础的部分，请按需阅读。</strong></p>
+<p>&emsp;&emsp;SpringBoot用于简化Spring应用开发，有以下优点：</p>
 <ul>
-<li>IPV4：4个字节组成，4个0~255，中间用小数点隔开，如192.168.0.1</li>
-<li>IPV6：128位(16个字节)组成，8组无符号整数，中间用冒号隔开，如3ffe:3201:1401:1280:c8ff:fe4d:db39:1984</li>
-</ul>
-</blockquote>
-</li>
-<li><p>分类方式2：公网地址(万维网)和私网地址(局域网)，192.168.开头的就是私有地址</p>
-</li>
-<li><p>在Java中对应的类是InetAddress</p>
-</li>
-<li><p>本地地址：127.0.0.1对应域名是localhost</p>
-</li>
+<li>能快速创建独立的Spring项目</li>
+<li>使用嵌入式的Servlet容器，无需打成war包，打成jar包用java -jar即可运行</li>
+<li>很多配置都是自动配置的，我们也可以修改对应的默认值</li>
 </ul>
         
-          <a class="article-more-a" href="/2019/10/06/【学习笔记】Java笔记九：网络编程/#more">more >></a>
+          <a class="article-more-a" href="/2019/10/31/【框架】SpringBoot/#more">more >></a>
         
       
 
@@ -333,7 +347,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络编程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
         		</li>
       		
 		</ul>
@@ -343,7 +357,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/06/【学习笔记】Java笔记九：网络编程/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/10/31/【框架】SpringBoot/">展开全文 >></a>
         </p>
       
 
@@ -373,50 +387,31 @@
 
 
   
-    <article id="post-【学习笔记】Java笔记八：IO流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-【学习笔记】设计模式原则与UML类图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/04/【学习笔记】Java笔记八：IO流/">【学习笔记】Java笔记八：IO流</a>
+      <a class="article-title" href="/2019/10/18/【学习笔记】设计模式原则与UML类图/">【学习笔记】设计模式原则与UML类图</a>
     </h1>
   
 
         
-        <a href="/2019/10/04/【学习笔记】Java笔记八：IO流/" class="archive-article-date">
-  	<time datetime="2019-10-04T06:13:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
+        <a href="/2019/10/18/【学习笔记】设计模式原则与UML类图/" class="archive-article-date">
+  	<time datetime="2019-10-18T11:55:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、File类"><a href="#一、File类" class="headerlink" title="一、File类"></a>一、File类</h1><p>&emsp;&emsp;该类的一个对象代表一个文件或目录(文件夹)</p>
-<h2 id="1、创建File类实例"><a href="#1、创建File类实例" class="headerlink" title="1、创建File类实例"></a>1、创建File类实例</h2><table>
-<thead>
-<tr>
-<th>构造器</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>File(String pathname)</td>
-<td>1、使用相对路径创建时，对于IDEA是相对于当前工程下的<br>2、使用绝对路径时，Windows和DOS系统使用”\“来隔开，为了区别转义符，Java代码层面则使用”\\“；UNIX和URL使用”/“来隔开；也可以用常量File.separator</td>
-</tr>
-<tr>
-<td>File(String parent, String child)</td>
-<td>根据parent路径名字符串和child路径名字符串创建一个新File实例</td>
-</tr>
-<tr>
-<td>File(File parent, String child)</td>
-<td>根据parent抽象路径名和child路径名字符串创建一个新File实例</td>
-</tr>
-</tbody></table>
-<p>(注：该对象只是内存层面上的，与实际硬盘上是否存在无关)</p>
+        <h1 id="一、设计模式原则"><a href="#一、设计模式原则" class="headerlink" title="一、设计模式原则"></a>一、设计模式原则</h1><h2 id="1、单一职责原则"><a href="#1、单一职责原则" class="headerlink" title="1、单一职责原则"></a>1、单一职责原则</h2><p>&emsp;&emsp;一个类只负责一项职责。有时当类的方法较少，可以在方法级别上体现单一职责原则。</p>
+<h2 id="2、接口隔离原则"><a href="#2、接口隔离原则" class="headerlink" title="2、接口隔离原则"></a>2、接口隔离原则</h2><p>&emsp;&emsp;一个类对另外一个类的依赖应该是建立在最小的接口上。</p>
+<p>&emsp;&emsp;比如接口Interface有5个方法，B类和D类实现该接口。A类通过接口依赖B，但只会使用1，2，3这三个方法；C类通过接口依赖D，但只会使用1，4，5这三个方法。这时根据原则应该把接口Interface拆成三个子接口InterfaceA，InterfaceB和InterfaceC。InterfaceA只有1方法，InterfaceB只有2和3方法，InterfaceC只有4和5方法，然后B类实现InterfaceA和InterfaceB，D类实现InterfaceA和InterfaceC。</p>
         
-          <a class="article-more-a" href="/2019/10/04/【学习笔记】Java笔记八：IO流/#more">more >></a>
+          <a class="article-more-a" href="/2019/10/18/【学习笔记】设计模式原则与UML类图/#more">more >></a>
         
       
 
@@ -437,11 +432,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">设计模式原则</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IO流</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">UML类图</a>
         		</li>
       		
 		</ul>
@@ -451,7 +446,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/04/【学习笔记】Java笔记八：IO流/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/10/18/【学习笔记】设计模式原则与UML类图/">展开全文 >></a>
         </p>
       
 
@@ -483,7 +478,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -582,11 +577,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -602,11 +597,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,6 +617,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">错题集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
@@ -630,27 +645,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,6 +682,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
               </li>
             
             <div class="clearfix"></div>

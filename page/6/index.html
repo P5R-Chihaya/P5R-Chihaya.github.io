@@ -149,74 +149,31 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-【学习笔记】Java笔记五：集合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-【算法】负载均衡" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/09/【学习笔记】Java笔记五：集合/">【学习笔记】Java笔记五：集合</a>
+      <a class="article-title" href="/2019/09/17/【算法】负载均衡/">【算法】负载均衡</a>
     </h1>
   
 
         
-        <a href="/2019/09/09/【学习笔记】Java笔记五：集合/" class="archive-article-date">
-  	<time datetime="2019-09-09T02:41:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
+        <a href="/2019/09/17/【算法】负载均衡/" class="archive-article-date">
+  	<time datetime="2019-09-17T02:05:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、Collection接口"><a href="#一、Collection接口" class="headerlink" title="一、Collection接口"></a>一、Collection接口</h1><h2 id="1、相关介绍"><a href="#1、相关介绍" class="headerlink" title="1、相关介绍"></a>1、相关介绍</h2><ul>
-<li><p>单列集合，存储一个一个的对象</p>
-</li>
-<li><p>常用方法如下</p>
-<table>
-<thead>
-<tr>
-<th>接口中的方法</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>boolean contains(Object o)</td>
-<td>判断集合是否包含o对象，判断过程会调用o.equals()，所以最好重写equals方法</td>
-</tr>
-<tr>
-<td>boolean containsAll(Collection&lt;?&gt; c)</td>
-<td>判断集合c是否存在于当前集合中</td>
-</tr>
-<tr>
-<td>boolean remove(Object o)</td>
-<td>移除集合中的元素</td>
-</tr>
-<tr>
-<td>boolean removeAll(Collection&lt;?&gt; c)</td>
-<td>移除当前集合与集合c的交集</td>
-</tr>
-<tr>
-<td>boolean retainAll(Collection&lt;?&gt; c)</td>
-<td>求当前集合与集合c的交集，<strong>当前集合内容会被交集覆盖</strong></td>
-</tr>
-<tr>
-<td>Object[] toArray()</td>
-<td>集合转换为数组</td>
-</tr>
-<tr>
-<td>Iterator&lt;E&gt; iterator()</td>
-<td>返回Iterator的实例，用于遍历Collection集合元素</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>使用Arrays.asList()可将数组装换为List集合</p>
-</li>
-<li><p>涉及到contains()，remove()，retainAll()等方法时，集合的元素要重写equals()方法</p>
-</li>
-</ul>
+        <h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><p>&emsp;&emsp;负载均衡就是指将负载(工作任务)进行平衡、分摊到多个操作单元上进行运行。比如对于某个请求，使用负载均衡能选择合适的服务器去响应。</p>
+<h1 id="二、算法实现"><a href="#二、算法实现" class="headerlink" title="二、算法实现"></a>二、算法实现</h1><p>&emsp;&emsp;自定义一个Server类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Server</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String ip;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> weight;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> currentWeight = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Server</span><span class="params">(String ip)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.ip = ip;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Server</span><span class="params">(String ip, <span class="keyword">int</span> weight)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.ip = ip;</span><br><span class="line">        <span class="keyword">this</span>.weight = weight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getIp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ip;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIp</span><span class="params">(String ip)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.ip = ip;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getWeight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> weight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCurrentWeight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> currentWeight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCurrentWeight</span><span class="params">(<span class="keyword">int</span> currentWeight)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.currentWeight = currentWeight;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Server&#123;"</span> +</span><br><span class="line">                <span class="string">"ip='"</span> + ip + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", weight="</span> + weight +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2019/09/09/【学习笔记】Java笔记五：集合/#more">more >></a>
+          <a class="article-more-a" href="/2019/09/17/【算法】负载均衡/#more">more >></a>
         
       
 
@@ -241,7 +198,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">集合</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">负载均衡</a>
         		</li>
       		
 		</ul>
@@ -251,7 +208,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/09/【学习笔记】Java笔记五：集合/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/09/17/【算法】负载均衡/">展开全文 >></a>
         </p>
       
 
@@ -281,40 +238,38 @@
 
 
   
-    <article id="post-【学习笔记】Java笔记四：常用类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-【学习笔记】Java笔记七：反射" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/06/【学习笔记】Java笔记四：常用类/">【学习笔记】Java笔记四：常用类</a>
+      <a class="article-title" href="/2019/09/14/【学习笔记】Java笔记七：反射/">【学习笔记】Java笔记七：反射</a>
     </h1>
   
 
         
-        <a href="/2019/09/06/【学习笔记】Java笔记四：常用类/" class="archive-article-date">
-  	<time datetime="2019-09-06T10:56:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
+        <a href="/2019/09/14/【学习笔记】Java笔记七：反射/" class="archive-article-date">
+  	<time datetime="2019-09-14T06:24:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、String"><a href="#一、String" class="headerlink" title="一、String"></a>一、String</h1><h2 id="1、相关介绍"><a href="#1、相关介绍" class="headerlink" title="1、相关介绍"></a>1、相关介绍</h2><ul>
-<li><p>基本特性：<strong>不可变</strong>性。如果修改了String对象的内容，那么其实是重新开辟空间并赋上新值</p>
-</li>
-<li><p>如果是通过字面量的方式赋值，那么赋值后字符串保存在方法区的常量池中。在常量池中，不会保存相同内容的字符串，所以如果两个String对象的内容相同，那么它们指向的是同一个地址</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s1 = <span class="string">"abc"</span>;</span><br><span class="line">        String s2 = <span class="string">"abc"</span>;</span><br><span class="line">        System.out.println(s1 == s2); <span class="comment">// 输出结果为true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果是通过new来创建，则是保存在堆中，但是对象中的value是指向常量池的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s1 = <span class="string">"abc"</span>;</span><br><span class="line">        String s2 = <span class="string">"abc"</span>;</span><br><span class="line">        String s3 = <span class="keyword">new</span> String(<span class="string">"abc"</span>);</span><br><span class="line">        String s4 = <span class="keyword">new</span> String(<span class="string">"abc"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(s1 == s2); <span class="comment">// true</span></span><br><span class="line">        System.out.println(s1 == s3); <span class="comment">// false</span></span><br><span class="line">        System.out.println(s1 == s4); <span class="comment">// false</span></span><br><span class="line">        System.out.println(s3 == s4); <span class="comment">// false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
+        <h1 id="一、相关介绍"><a href="#一、相关介绍" class="headerlink" title="一、相关介绍"></a>一、相关介绍</h1><h2 id="1、什么是反射"><a href="#1、什么是反射" class="headerlink" title="1、什么是反射"></a>1、什么是反射</h2><p>&emsp;&emsp;Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为Java语言的反射机制。</p>
+<h2 id="2、反射的作用"><a href="#2、反射的作用" class="headerlink" title="2、反射的作用"></a>2、反射的作用</h2><ul>
+<li>运行时判断任意对象所属的类</li>
+<li>运行时构造任意类的对象</li>
+<li>运行时判断任意类所具有的成员变量和方法</li>
+<li>运行时获取泛型信息</li>
+<li>运行时调用任意对象的成员变量和方法<strong>(包括私有成员变量和方法)</strong></li>
+<li>运行时处理注解</li>
+<li>生成代理对象</li>
 </ul>
         
-          <a class="article-more-a" href="/2019/09/06/【学习笔记】Java笔记四：常用类/#more">more >></a>
+          <a class="article-more-a" href="/2019/09/14/【学习笔记】Java笔记七：反射/#more">more >></a>
         
       
 
@@ -339,19 +294,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">String</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">时间类</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">比较器</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">枚举类</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">反射</a>
         		</li>
       		
 		</ul>
@@ -361,7 +304,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/06/【学习笔记】Java笔记四：常用类/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/09/14/【学习笔记】Java笔记七：反射/">展开全文 >></a>
         </p>
       
 
@@ -391,38 +334,33 @@
 
 
   
-    <article id="post-【学习笔记】Java笔记三：线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-【学习笔记】Java笔记六：泛型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/03/【学习笔记】Java笔记三：线程/">【学习笔记】Java笔记三：线程</a>
+      <a class="article-title" href="/2019/09/13/【学习笔记】Java笔记六：泛型/">【学习笔记】Java笔记六：泛型</a>
     </h1>
   
 
         
-        <a href="/2019/09/03/【学习笔记】Java笔记三：线程/" class="archive-article-date">
-  	<time datetime="2019-09-03T08:31:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+        <a href="/2019/09/13/【学习笔记】Java笔记六：泛型/" class="archive-article-date">
+  	<time datetime="2019-09-13T02:15:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、相关概念"><a href="#一、相关概念" class="headerlink" title="一、相关概念"></a>一、相关概念</h1><ul>
-<li><p>程序：指令的集合，是一段静态的代码。</p>
-</li>
-<li><p>进程：正在运行的程序，是一个动态的过程；有自身的生命周期，是资源分配的单位(系统为每个进程分配不同的内存区域)。</p>
-</li>
-<li><p>线程：进程的进一步细化，是程序内部的一条执行路径。</p>
-</li>
-</ul>
-<h1 id="二、线程的创建"><a href="#二、线程的创建" class="headerlink" title="二、线程的创建"></a>二、线程的创建</h1><h2 id="1、继承Thread"><a href="#1、继承Thread" class="headerlink" title="1、继承Thread"></a>1、继承Thread</h2><p>1、声明一个类继承Thread类，并重写run()方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><p>&emsp;&emsp;泛型可以理解为用来修饰数据<strong>类型(除了基本类型)</strong>的参数。比如一个ArrayList对象，在没有使用使用泛型时可以往里面加任意类型的数据，但这样并不安全，所以可以使用泛型来限制，如ArrayList&lt;String&gt;就是只能往这个集合里面加String类型的数据。</p>
+<h1 id="二、自定义泛型"><a href="#二、自定义泛型" class="headerlink" title="二、自定义泛型"></a>二、自定义泛型</h1><h2 id="1、泛型类"><a href="#1、泛型类" class="headerlink" title="1、泛型类"></a>1、泛型类</h2><p>&emsp;&emsp;假设已定义了Dog和Cat类，都有一个String类型的name字段，那么泛型类可如下定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span>&lt;<span class="title">T</span>&gt; </span>&#123; <span class="comment">// 这是一个泛型类，泛型接口的定义也类似</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="comment">// 宠物的类型不确定，可能是Dog，可能是Cat，于是使用泛型</span></span><br><span class="line">    <span class="keyword">private</span> T pet;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getPet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> pet;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPet</span><span class="params">(T pet)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.pet = pet;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person&lt;Dog&gt; p = <span class="keyword">new</span> Person&lt;&gt;();</span><br><span class="line">        p.setPet(<span class="keyword">new</span> Dog(<span class="string">"路卡利欧"</span>));</span><br><span class="line">        System.out.println(p.getPet().getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2019/09/03/【学习笔记】Java笔记三：线程/#more">more >></a>
+          <a class="article-more-a" href="/2019/09/13/【学习笔记】Java笔记六：泛型/#more">more >></a>
         
       
 
@@ -447,7 +385,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">线程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">泛型</a>
         		</li>
       		
 		</ul>
@@ -457,7 +395,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/03/【学习笔记】Java笔记三：线程/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/09/13/【学习笔记】Java笔记六：泛型/">展开全文 >></a>
         </p>
       
 
@@ -489,7 +427,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -588,11 +526,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -608,11 +546,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,6 +566,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">错题集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
@@ -636,27 +594,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -685,6 +631,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
               </li>
             
             <div class="clearfix"></div>

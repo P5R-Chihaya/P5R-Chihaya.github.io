@@ -149,180 +149,41 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-【框架】SpringMVC的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-【学习笔记】设计模式之创建型模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/02/【框架】SpringMVC的使用/">【框架】SpringMVC的使用</a>
+      <a class="article-title" href="/2019/11/08/【学习笔记】设计模式之创建型模式/">【学习笔记】设计模式之创建型模式</a>
     </h1>
   
 
         
-        <a href="/2019/11/02/【框架】SpringMVC的使用/" class="archive-article-date">
-  	<time datetime="2019-11-02T08:05:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
+        <a href="/2019/11/08/【学习笔记】设计模式之创建型模式/" class="archive-article-date">
+  	<time datetime="2019-11-08T11:41:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、注解"><a href="#一、注解" class="headerlink" title="一、注解"></a>一、注解</h1><table>
-<thead>
-<tr>
-<th>注解</th>
-<th>使用位置</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>@RequestMapping</td>
-<td>类、方法</td>
-<td>映射请求路径</td>
-</tr>
-<tr>
-<td>@PathVariable</td>
-<td>方法形参</td>
-<td>获取请求路径某段的值</td>
-</tr>
-<tr>
-<td>@RequestParam</td>
-<td>方法形参</td>
-<td>让请求参数(‘?’后面的内容)与方法形参形成映射关系</td>
-</tr>
-<tr>
-<td>@RequestHeader</td>
-<td>方法形参</td>
-<td>获取请求头某个key的内容</td>
-</tr>
-<tr>
-<td>@CookieValue</td>
-<td>方法形参</td>
-<td>获取某个Cookie的值</td>
-</tr>
-<tr>
-<td>@Controller</td>
-<td>类</td>
-<td>说明该类为一个controller</td>
-</tr>
-<tr>
-<td>@RestController</td>
-<td>类</td>
-<td>说明该类为Rest风格的controller，会把方法返回值封装成JSON数据</td>
-</tr>
-<tr>
-<td>@RequestBody</td>
-<td>方法形参</td>
-<td>把前端传过来的JSON数据封装成自定义模型类，不能是GET请求</td>
-</tr>
-<tr>
-<td>@ResponseBody</td>
-<td>方法返回类型</td>
-<td>把方法返回值封装成JSON数据</td>
-</tr>
-<tr>
-<td>@SessionAttributes</td>
-<td>类</td>
-<td>Model可把内容存进request域中，该注解就可用把request域中的内容存进session域中</td>
-</tr>
-</tbody></table>
-        
-          <a class="article-more-a" href="/2019/11/02/【框架】SpringMVC的使用/#more">more >></a>
-        
-      
+        <p><strong>本文内容包含：单例模式、简单工厂模式、工厂方法模式、抽象工厂模式、原型模式、建造者模式</strong></p>
+<h1 id="一、单例模式"><a href="#一、单例模式" class="headerlink" title="一、单例模式"></a>一、单例模式</h1><p>&emsp;&emsp;保证某个类只存在一个对象实例，并且只提供一个获取其对象实例的方法。</p>
+<h2 id="1、饿汉式—静态"><a href="#1、饿汉式—静态" class="headerlink" title="1、饿汉式—静态"></a>1、饿汉式—静态</h2><ul>
+<li>构造器私有化</li>
+<li>在类的内部创建对象</li>
+<li>向外暴露一个静态的公共方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySingleton</span> </span>&#123;</span><br><span class="line">    <span class="comment">// instance也可以在静态代码块里实例化</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> MySingleton instance = <span class="keyword">new</span> MySingleton();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构造器私有化，外部不能new</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MySingleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MySingleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/02/【框架】SpringMVC的使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-【框架】SpringBoot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/31/【框架】SpringBoot/">【框架】SpringBoot</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/31/【框架】SpringBoot/" class="archive-article-date">
-  	<time datetime="2019-10-31T00:50:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、相关介绍"><a href="#一、相关介绍" class="headerlink" title="一、相关介绍"></a>一、相关介绍</h1><p>&emsp;&emsp;<strong>本文介绍的内容都是相对基础的部分，请按需阅读。</strong></p>
-<p>&emsp;&emsp;SpringBoot用于简化Spring应用开发，有以下优点：</p>
 <ul>
-<li>能快速创建独立的Spring项目</li>
-<li>使用嵌入式的Servlet容器，无需打成war包，打成jar包用java -jar即可运行</li>
-<li>很多配置都是自动配置的，我们也可以修改对应的默认值</li>
+<li>优点：写法比较简单，在类装载的时候就完成实例化。避免了线程同步问题</li>
+<li>缺点：在类装载的时候就完成实例化，没有懒加载的效果。如果从始至终都未使用过这个实例，则会造成内存的浪费</li>
 </ul>
         
-          <a class="article-more-a" href="/2019/10/31/【框架】SpringBoot/#more">more >></a>
+          <a class="article-more-a" href="/2019/11/08/【学习笔记】设计模式之创建型模式/#more">more >></a>
         
       
 
@@ -343,11 +204,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
@@ -357,7 +214,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/31/【框架】SpringBoot/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/08/【学习笔记】设计模式之创建型模式/">展开全文 >></a>
         </p>
       
 
@@ -387,31 +244,39 @@
 
 
   
-    <article id="post-【学习笔记】设计模式原则与UML类图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-【MySQL】事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/18/【学习笔记】设计模式原则与UML类图/">【学习笔记】设计模式原则与UML类图</a>
+      <a class="article-title" href="/2019/11/04/【MySQL】事务/">【MySQL】事务</a>
     </h1>
   
 
         
-        <a href="/2019/10/18/【学习笔记】设计模式原则与UML类图/" class="archive-article-date">
-  	<time datetime="2019-10-18T11:55:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
+        <a href="/2019/11/04/【MySQL】事务/" class="archive-article-date">
+  	<time datetime="2019-11-04T08:51:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、设计模式原则"><a href="#一、设计模式原则" class="headerlink" title="一、设计模式原则"></a>一、设计模式原则</h1><h2 id="1、单一职责原则"><a href="#1、单一职责原则" class="headerlink" title="1、单一职责原则"></a>1、单一职责原则</h2><p>&emsp;&emsp;一个类只负责一项职责。有时当类的方法较少，可以在方法级别上体现单一职责原则。</p>
-<h2 id="2、接口隔离原则"><a href="#2、接口隔离原则" class="headerlink" title="2、接口隔离原则"></a>2、接口隔离原则</h2><p>&emsp;&emsp;一个类对另外一个类的依赖应该是建立在最小的接口上。</p>
-<p>&emsp;&emsp;比如接口Interface有5个方法，B类和D类实现该接口。A类通过接口依赖B，但只会使用1，2，3这三个方法；C类通过接口依赖D，但只会使用1，4，5这三个方法。这时根据原则应该把接口Interface拆成三个子接口InterfaceA，InterfaceB和InterfaceC。InterfaceA只有1方法，InterfaceB只有2和3方法，InterfaceC只有4和5方法，然后B类实现InterfaceA和InterfaceB，D类实现InterfaceA和InterfaceC。</p>
+        <h1 id="一、相关介绍"><a href="#一、相关介绍" class="headerlink" title="一、相关介绍"></a>一、相关介绍</h1><p>&emsp;&emsp;事务可以理解为一个或一组sql语句组成的执行单元，MySQL数据库中innodb和bdb引擎支持事务。事务有以下四个特性：</p>
+<ul>
+<li><p>A (Atomicity)：原子性，即一个事务不能再拆分，事务的操作要么都执行，要么都不执行</p>
+</li>
+<li><p>C (Consistency)：一致性，即数据库从一个一致性状态变换到另一个一致性状态</p>
+</li>
+<li><p>I (Isolation)：隔离性，即一个事务的执行不受其他事务的干扰，并发执行的事务之间不能相互干扰</p>
+</li>
+<li><p>D (Durability)：持久性，即一个事务一旦提交，对数据库的改变是永久性的</p>
+</li>
+</ul>
         
-          <a class="article-more-a" href="/2019/10/18/【学习笔记】设计模式原则与UML类图/#more">more >></a>
+          <a class="article-more-a" href="/2019/11/04/【MySQL】事务/#more">more >></a>
         
       
 
@@ -432,11 +297,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">设计模式原则</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">UML类图</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">事务</a>
         		</li>
       		
 		</ul>
@@ -446,7 +311,97 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/18/【学习笔记】设计模式原则与UML类图/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/04/【MySQL】事务/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-【学习笔记】nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/03/【学习笔记】nginx/">【学习笔记】nginx</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/03/【学习笔记】nginx/" class="archive-article-date">
+  	<time datetime="2019-11-03T06:21:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、相关概念"><a href="#一、相关概念" class="headerlink" title="一、相关概念"></a>一、相关概念</h1><p>&emsp;&emsp;nginx介绍<a href="https://baike.baidu.com/item/nginx/3817705?fr=aladdin" target="_blank" rel="noopener">点这里</a>。</p>
+<ul>
+<li>正向代理：对于服务端，并不清楚是哪个客户端来访问</li>
+<li>反向代理：对于客户端，并不清楚访问的是哪个服务器，暴露的只是代理地址</li>
+<li>负载均衡：将以前请求集中到单个服务器的情况改为将请求分散到多个服务器上，将负载分发到不同的服务器就是负载均衡</li>
+<li>动静分离：让动态页面和静态页面由不同的服务器来解析，降低原来单个服务器的压力</li>
+<li>高可用：防止nginx服务器宕机，配置多台nginx服务器，主(MASTER)和备(BACKUP)，请求默认访问主服务器，在转发到不同的Tomcat。当主服务器宕机就切换到备服务器继续工作。</li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/11/03/【学习笔记】nginx/#more">more >></a>
+        
+      
+
+        
+		
+		
+		  <div hidden="hidden"></div>
+		
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/03/【学习笔记】nginx/">展开全文 >></a>
         </p>
       
 
@@ -478,7 +433,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -577,11 +532,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,11 +552,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,6 +572,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">错题集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
@@ -625,27 +600,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -674,6 +637,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
               </li>
             
             <div class="clearfix"></div>
