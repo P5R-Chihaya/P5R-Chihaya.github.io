@@ -16,20 +16,20 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="一、相关概念&amp;emsp;&amp;emsp;nginx介绍点这里。  正向代理：对于服务端，并不清楚是哪个客户端来访问 反向代理：对于客户端，并不清楚访问的是哪个服务器，暴露的只是代理地址 负载均衡：将以前请求集中到单个服务器的情况改为将请求分散到多个服务器上，将负载分发到不同的服务器就是负载均衡 动静分离：让动态页面和静态页面由不同的服务器来解析，降低原来单个服务器的压力 高可用：防止nginx服务器宕">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/017-01.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/017-02.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/017-03.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/017-04.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/017-05.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/017-06.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/017-07.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/017-08.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/017-09.png">
-<meta property="og:updated_time" content="2019-11-05T03:47:36.830Z">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/017-01.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/017-02.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/017-03.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/017-04.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/017-05.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/017-06.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/017-07.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/017-08.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/017-09.png">
+<meta property="og:updated_time" content="2020-05-24T02:45:20.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】nginx">
 <meta name="twitter:description" content="一、相关概念&amp;emsp;&amp;emsp;nginx介绍点这里。  正向代理：对于服务端，并不清楚是哪个客户端来访问 反向代理：对于客户端，并不清楚访问的是哪个服务器，暴露的只是代理地址 负载均衡：将以前请求集中到单个服务器的情况改为将请求分散到多个服务器上，将负载分发到不同的服务器就是负载均衡 动静分离：让动态页面和静态页面由不同的服务器来解析，降低原来单个服务器的压力 高可用：防止nginx服务器宕">
-<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/017-01.png">
+<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/1-25/017-01.png">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -256,21 +256,21 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 前面是Linux虚拟机的地址</span><br><span class="line">192.168.18.130 www.123.com</span><br></pre></td></tr></table></figure>
 
 <p>2、修改nginx配置文件的两处地方</p>
-<p><img src="/images/017-01.png" alt="017-01"></p>
+<p><img src="/images/1-25/017-01.png" alt="017-01"></p>
 <p>3、达成效果</p>
-<p><img src="/images/017-02.png" alt="017-02"></p>
+<p><img src="/images/1-25/017-02.png" alt="017-02"></p>
 <h1 id="六、负载均衡"><a href="#六、负载均衡" class="headerlink" title="六、负载均衡"></a>六、负载均衡</h1><p>&emsp;&emsp;实现效果：在浏览器地址栏输入<code>http://192.168.18.130/hello/a.html</code>，让请求分散到8080端口的Tomcat和8081端口的Tomcat。</p>
 <h2 id="1、准备工作"><a href="#1、准备工作" class="headerlink" title="1、准备工作"></a>1、准备工作</h2><p>1、准备两个Tomcat，并修改其中一个的server.xml配置文件，修改三处地方</p>
-<p><img src="/images/017-03.png" alt="017-03"></p>
-<p><img src="/images/017-04.png" alt="017-04"></p>
-<p><img src="/images/017-05.png" alt="017-05"></p>
+<p><img src="/images/1-25/017-03.png" alt="017-03"></p>
+<p><img src="/images/1-25/017-04.png" alt="017-04"></p>
+<p><img src="/images/1-25/017-05.png" alt="017-05"></p>
 <p>2、分别在两个Tomcat的webapps文件夹中创建hello文件夹，再往里面创建a.html文件</p>
 <h2 id="2、配置nginx"><a href="#2、配置nginx" class="headerlink" title="2、配置nginx"></a>2、配置nginx</h2><p>&emsp;&emsp;在nginx.conf中添加或修改以下内容</p>
-<p><img src="/images/017-06.png" alt="017-06"></p>
-<p><img src="/images/017-07.png" alt="017-07"></p>
+<p><img src="/images/1-25/017-06.png" alt="017-06"></p>
+<p><img src="/images/1-25/017-07.png" alt="017-07"></p>
 <h2 id="3、实现效果"><a href="#3、实现效果" class="headerlink" title="3、实现效果"></a>3、实现效果</h2><p>&emsp;&emsp;刷新浏览器会看到不同内容</p>
-<p><img src="/images/017-08.png" alt="017-08"></p>
-<p><img src="/images/017-09.png" alt="017-09"></p>
+<p><img src="/images/1-25/017-08.png" alt="017-08"></p>
+<p><img src="/images/1-25/017-09.png" alt="017-09"></p>
 <h2 id="4、负载均衡算法"><a href="#4、负载均衡算法" class="headerlink" title="4、负载均衡算法"></a>4、负载均衡算法</h2><ul>
 <li><p>轮询：有权重和无权重的算法不同，可参考这篇<a href="https://p5r-chihaya.github.io/2019/09/17/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">文章</a>。权重的配置方式如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 位于http全局块</span><br><span class="line">upstream myserver &#123;</span><br><span class="line">    server 192.168.18.130:8080  weight=10; </span><br><span class="line">    server 192.168.18.130:8081  weight=5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -578,15 +578,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,15 +602,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,7 +622,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,11 +630,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -638,11 +642,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -654,15 +658,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,6 +683,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">

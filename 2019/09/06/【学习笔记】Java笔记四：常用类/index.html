@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="一、String1、相关介绍 基本特性：不可变性。如果修改了String对象的内容，那么其实是重新开辟空间并赋上新值  如果是通过字面量的方式赋值，那么赋值后字符串保存在方法区的常量池中。在常量池中，不会保存相同内容的字符串，所以如果两个String对象的内容相同，那么它们指向的是同一个地址 1234567public class Test &amp;#123;    public static void">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/006-01.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/006-02.png">
-<meta property="og:updated_time" content="2019-11-04T09:10:26.854Z">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/006-01.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/006-02.png">
+<meta property="og:updated_time" content="2020-05-24T02:38:35.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】Java笔记四：常用类">
 <meta name="twitter:description" content="一、String1、相关介绍 基本特性：不可变性。如果修改了String对象的内容，那么其实是重新开辟空间并赋上新值  如果是通过字面量的方式赋值，那么赋值后字符串保存在方法区的常量池中。在常量池中，不会保存相同内容的字符串，所以如果两个String对象的内容相同，那么它们指向的是同一个地址 1234567public class Test &amp;#123;    public static void">
-<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/006-01.png">
+<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/1-25/006-01.png">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -189,7 +189,7 @@
 </ul>
   <a id="more"></a>
 
-<p>  <img src="/images/006-01.png" alt="006-01"></p>
+<p>  <img src="/images/1-25/006-01.png" alt="006-01"></p>
 <ul>
 <li><p>关于字符串拼接，如果涉及到变量的拼接，则是在堆中开辟新的空间</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s1 = <span class="string">"Hello"</span>;</span><br><span class="line">        String s2 = <span class="string">"World"</span>;</span><br><span class="line">        <span class="keyword">final</span> String s3 = <span class="string">"World"</span>;</span><br><span class="line"></span><br><span class="line">        String s4 = <span class="string">"HelloWorld"</span>;           <span class="comment">// 字面量赋值，直接指向常量池</span></span><br><span class="line">        String s5 = s1 + <span class="string">"World"</span>;           <span class="comment">// 涉及到变量的拼接，会在堆中开辟新的空间</span></span><br><span class="line">        String s6 = <span class="string">"Hello"</span> + s2;           <span class="comment">// 同上</span></span><br><span class="line">        String s7 = s1 + s2;                <span class="comment">// 同上</span></span><br><span class="line">        String s8 = <span class="string">"Hello"</span> + s3;           <span class="comment">// s3是final修饰的常量，两个常量的拼接，指向常量池</span></span><br><span class="line">        String s9 = <span class="string">"Hello"</span> + <span class="string">"World"</span>;      <span class="comment">// 常量与常量的拼接，指向常量池</span></span><br><span class="line">        String s10 = (s1 + s2).intern();    <span class="comment">// intern()返回的是在常量池中的地址</span></span><br><span class="line"></span><br><span class="line">        System.out.println(s4 == s5);       <span class="comment">// false</span></span><br><span class="line">        System.out.println(s4 == s6);       <span class="comment">// false</span></span><br><span class="line">        System.out.println(s4 == s7);       <span class="comment">// false</span></span><br><span class="line">        System.out.println(s4 == s8);       <span class="comment">// true</span></span><br><span class="line">        System.out.println(s4 == s9);       <span class="comment">// true</span></span><br><span class="line">        System.out.println(s4 == s10);      <span class="comment">// true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -261,7 +261,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建特定格式的SimpleDateFormat</span></span><br><span class="line">        <span class="comment">// 格式化：日期--&gt;字符串</span></span><br><span class="line">        SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">        Date date = <span class="keyword">new</span> Date();</span><br><span class="line">        String result = sdf.format(date);</span><br><span class="line">        System.out.println(result);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 解析：字符串--&gt;日期</span></span><br><span class="line">        String str = <span class="string">"2019-09-08"</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Date parse = sdf.parse(str);</span><br><span class="line">            System.out.println(parse);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>&emsp;&emsp;常用字母代表的意思如下图所示(JDK 1.6 API)</p>
-<p><img src="/images/006-02.png" alt="006-02"></p>
+<p><img src="/images/1-25/006-02.png" alt="006-02"></p>
 <h2 id="3、java-util-Calendar"><a href="#3、java-util-Calendar" class="headerlink" title="3、java.util.Calendar"></a>3、java.util.Calendar</h2><p>&emsp;&emsp;日历类，是一个抽象类。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 方法1：通过其子类实例化</span></span><br><span class="line">        Calendar calendar = <span class="keyword">new</span> GregorianCalendar();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 方法2：通过静态方法实例化</span></span><br><span class="line">        Calendar calendar2 = Calendar.getInstance();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// get()方法</span></span><br><span class="line">        System.out.println(calendar.get(Calendar.DAY_OF_MONTH));  <span class="comment">// 输出8</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// set()方法</span></span><br><span class="line">        calendar.set(Calendar.DAY_OF_MONTH, <span class="number">10</span>);</span><br><span class="line">        System.out.println(calendar.get(Calendar.DAY_OF_MONTH));  <span class="comment">// 输出10</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// add()方法</span></span><br><span class="line">        calendar.add(Calendar.DAY_OF_MONTH, <span class="number">5</span>);</span><br><span class="line">        System.out.println(calendar.get(Calendar.DAY_OF_MONTH));  <span class="comment">// 输出15</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 转换为Date对象</span></span><br><span class="line">        Date time = calendar.getTime();</span><br><span class="line">        System.out.println(time);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用Date对象为Calendar类设置时间</span></span><br><span class="line">        Date date = <span class="keyword">new</span> Date();</span><br><span class="line">        calendar.setTime(date);</span><br><span class="line">        System.out.println(calendar.get(Calendar.DAY_OF_MONTH));  <span class="comment">// 输出8</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -612,15 +612,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,15 +636,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,7 +656,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,11 +664,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -672,11 +676,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,15 +692,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -717,6 +717,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">

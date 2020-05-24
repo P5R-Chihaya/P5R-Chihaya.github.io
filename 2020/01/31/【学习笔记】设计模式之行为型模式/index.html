@@ -16,23 +16,23 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="本文内容包含：模板方法模式、命令模式、访问者模式、迭代器模式、观察者模式、中介者模式、备忘录模式、解释器模式、状态模式、策略模式、职责链模式 一、模板方法模式&amp;emsp;&amp;emsp;一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。 1、例子&amp;emsp;&amp;emsp;定义一个抽象的游戏模板接口，其实现类具">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/021-01.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/021-02.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/021-03.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/021-04.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/021-05.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/021-06.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/021-07.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/021-08.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/021-09-01.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/021-09-02.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/021-10.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/021-11.png">
-<meta property="og:updated_time" content="2020-01-31T10:16:48.400Z">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/021-01.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/021-02.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/021-03.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/021-04.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/021-05.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/021-06.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/021-07.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/021-08.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/021-09-01.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/021-09-02.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/021-10.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/021-11.png">
+<meta property="og:updated_time" content="2020-05-24T02:47:00.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】设计模式之行为型模式">
 <meta name="twitter:description" content="本文内容包含：模板方法模式、命令模式、访问者模式、迭代器模式、观察者模式、中介者模式、备忘录模式、解释器模式、状态模式、策略模式、职责链模式 一、模板方法模式&amp;emsp;&amp;emsp;一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。 1、例子&amp;emsp;&amp;emsp;定义一个抽象的游戏模板接口，其实现类具">
-<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/021-01.png">
+<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/1-25/021-01.png">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -188,7 +188,7 @@
         <p><strong>本文内容包含：模板方法模式、命令模式、访问者模式、迭代器模式、观察者模式、中介者模式、备忘录模式、解释器模式、状态模式、策略模式、职责链模式</strong></p>
 <h1 id="一、模板方法模式"><a href="#一、模板方法模式" class="headerlink" title="一、模板方法模式"></a>一、模板方法模式</h1><p>&emsp;&emsp;一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。</p>
 <h2 id="1、例子"><a href="#1、例子" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;定义一个抽象的游戏模板接口，其实现类具体实现各个方法。该例子的UML类图应如下所示：</p>
-<p><img src="/images/021-01.png" alt="021-01"></p>
+<p><img src="/images/1-25/021-01.png" alt="021-01"></p>
 <a id="more"></a>
 
 <p>1、Game抽象接口</p>
@@ -214,7 +214,7 @@
 <li>Invoker：要求命令对象执行请求，通常会持有命令对象，可以持有很多的命令对象。这个是客户端真正触发命令并要求命令执行相应操作的地方，也就是说相当于使用命令对象的入口</li>
 </ul>
 <p>&emsp;&emsp;UML类图如下所示：</p>
-<p><img src="/images/021-02.png" alt="021-02"></p>
+<p><img src="/images/1-25/021-02.png" alt="021-02"></p>
 <h2 id="1、例子-1"><a href="#1、例子-1" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;使用命令模式实现遥控器开关电灯。</p>
 <p>1、编写Command接口</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Command</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">cancel</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -249,7 +249,7 @@
 <li>ObjectStructure：定义当中所提到的对象结构，对象结构是一个抽象表述，它内部管理了元素集合，并且可以迭代这些元素提供访问者访问</li>
 </ul>
 <p>&emsp;&emsp;UML类图如下所示：</p>
-<p><img src="/images/021-03.png" alt="021-03"></p>
+<p><img src="/images/1-25/021-03.png" alt="021-03"></p>
 <h2 id="1、例子-2"><a href="#1、例子-2" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;学校每学期期末都要评测学生学习情况。假如有两类学生(普通学生、艺术生)，普通学生有成绩，艺术生有成绩和获奖情况。班主任关注普通学生的成绩和艺术生的成绩；校长则关注普通学生的成绩和艺术生的成绩及获奖情况。由于班主任和校长对学生的关注点不一样，就要做不同处理，因此可以使用访问者模式实现。</p>
 <p>1、Visitor接口及其具体实现类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Visitor</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">visit</span><span class="params">(GeneralStudent student)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">visit</span><span class="params">(ArtStudent student)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 班主任</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Headmaster</span> <span class="keyword">implements</span> <span class="title">Visitor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(GeneralStudent student)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"普通学生"</span> + student.getName() + <span class="string">"的成绩是："</span> + student.getMark());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(ArtStudent student)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"艺术生"</span> + student.getName() + <span class="string">"的成绩是："</span> + student.getMark());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 校长</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">President</span> <span class="keyword">implements</span> <span class="title">Visitor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(GeneralStudent student)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"普通学生"</span> + student.getName() + <span class="string">"的成绩是："</span> + student.getMark());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(ArtStudent student)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"艺术生"</span> + student.getName() + <span class="string">"的成绩是："</span> + student.getMark() + <span class="string">"，获奖情况是："</span> + student.getAward());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -280,7 +280,7 @@
 <li>ConcreteContainer：具体的容器，一般聚合具体的迭代器</li>
 </ul>
 <p>&emsp;&emsp;UML类图如下所示：</p>
-<p><img src="/images/021-04.png" alt="021-04"></p>
+<p><img src="/images/1-25/021-04.png" alt="021-04"></p>
 <h2 id="1、例子-3"><a href="#1、例子-3" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;自定义一个容器，然后遍历它。</p>
 <p>1、编写迭代器接口</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyIterator</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">T <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -306,7 +306,7 @@
 <li>ConcreteObserver：具体观察者</li>
 </ul>
 <p>&emsp;&emsp;UML类图如下所示：</p>
-<p><img src="/images/021-05.png" alt="021-05"></p>
+<p><img src="/images/1-25/021-05.png" alt="021-05"></p>
 <h2 id="1、例子-4"><a href="#1、例子-4" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;气象局的天气数据会经常更新，而各个网站的天气数据都是来自于气象局的，使用观察者模式完成这种设计。</p>
 <p>1、Subject接口</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -344,7 +344,7 @@
 <li>ConcreteColleague：具体同事，每一个同事类仅需要知道中介者对象；每个具体同事类只需要了解自己的行为，而不需要了解其他同事类的情况。在需要与其他的同事通信的时候，与中介者通信即可</li>
 </ul>
 <h2 id="1、例子-5"><a href="#1、例子-5" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;使用中介者模式模拟聊天室。该例子的UML类图应如下所示：</p>
-<p><img src="/images/021-06.png" alt="021-06"></p>
+<p><img src="/images/1-25/021-06.png" alt="021-06"></p>
 <p>1、编写Mediator接口</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Mediator</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerColleague</span><span class="params">(Colleague c)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Colleague src, String message)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -369,7 +369,7 @@
 <li>Caretaker：管理者，对备忘录进行管理，提供保存与获取备忘录的功能，但其不能对备忘录的内容进行访问与修改</li>
 </ul>
 <p>&emsp;&emsp;UML类图如下所示：</p>
-<p><img src="/images/021-07.png" alt="021-07"></p>
+<p><img src="/images/1-25/021-07.png" alt="021-07"></p>
 <h2 id="1、例子-6"><a href="#1、例子-6" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;使用备忘录模式来保存某对象的状态。</p>
 <p>1、编写Originator类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Originator</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> status;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getStatus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> status;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStatus</span><span class="params">(<span class="keyword">int</span> status)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.status = status;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Memento <span class="title">saveStatus</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Memento(status);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">recoverStatus</span><span class="params">(Memento memento)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.status = memento.getStatus();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -401,7 +401,7 @@
 <li>Context：上下文，通常包含各个解释器需要的数据或是公共的功能，一般用来传递被所有解释器共享的数据，后面的解释器可以从这里获取这些值</li>
 </ul>
 <p>&emsp;&emsp;UML类图如下所示：</p>
-<p><img src="/images/021-08.png" alt="021-08"></p>
+<p><img src="/images/1-25/021-08.png" alt="021-08"></p>
 <h2 id="1、例子-7"><a href="#1、例子-7" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;假设某公园的门票有两种优惠方式，如生肖属”牛”可打八折，若是女性客户还能再打九折。而且优惠方式会发生变化，将来可能是属”虎”以及男性客户打折。使用解释器模式来实现：客户只需出示身份证明，如”1997的男性”，就能自动算出最终价格。</p>
 <p>1、编写抽象表达式</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Expression</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">interpret</span><span class="params">(String info)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -433,9 +433,9 @@
 <li>ConcreteState：具体状态类，抽象状态类的子类，每一个子类实现”与环境类某状态相关的行为”，每一个具体状态类对应环境的一个具体状态，不同的具体状态类其行为有所不同</li>
 </ul>
 <p>&emsp;&emsp;UML类图如下所示：</p>
-<p><img src="/images/021-09-01.png" alt="021-09-01"></p>
+<p><img src="/images/1-25/021-09-01.png" alt="021-09-01"></p>
 <h2 id="1、例子-8"><a href="#1、例子-8" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;某抽奖活动的流程大致如下图所示，使用状态模式实现。</p>
-<p><img src="/images/021-09-02.png" alt="021-09-02"></p>
+<p><img src="/images/1-25/021-09-02.png" alt="021-09-02"></p>
 <p>1、编写抽象状态类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">State</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">consume</span><span class="params">(Activity activity)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">raffle</span><span class="params">(Activity activity)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -461,7 +461,7 @@
 <li>Context：使用了各个策略的类</li>
 </ul>
 <p>&emsp;&emsp;UML类图如下所示：</p>
-<p><img src="/images/021-10.png" alt="021-10"></p>
+<p><img src="/images/1-25/021-10.png" alt="021-10"></p>
 <h2 id="1、例子-9"><a href="#1、例子-9" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;使用策略模式实现简单数学运算。</p>
 <p>1、Strategy接口</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Strategy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">operation</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -488,7 +488,7 @@
 <li>ConcreteHandler：具体处理者/接收者，是Handler的子类，具体实现处理请求的方法。倘若该处理者不能处理请求，则把请求传给它所聚合的Handler并让其处理，以此形成一个处理请求的链</li>
 </ul>
 <p>&emsp;&emsp;UML类图如下所示：</p>
-<p><img src="/images/021-11.png" alt="021-11"></p>
+<p><img src="/images/1-25/021-11.png" alt="021-11"></p>
 <h2 id="1、例子-10"><a href="#1、例子-10" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;假设某学校要买进一批教学器材，若金额小于3000，则交给教导主任审批；若金额大于等于3000并小于10000，则交给副校长审批；若金额大于10000，则交给校长审批。使用职责链模式实现。</p>
 <p>1、编写Request</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BuyRequest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> money;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BuyRequest</span><span class="params">(<span class="keyword">double</span> money)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.money = money;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getMoney</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> money;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -807,15 +807,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -827,15 +831,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -847,7 +851,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -855,11 +859,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -867,11 +871,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,15 +887,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -912,6 +912,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">

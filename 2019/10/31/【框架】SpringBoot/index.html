@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="一、相关介绍&amp;emsp;&amp;emsp;本文介绍的内容都是相对基础的部分，请按需阅读。 &amp;emsp;&amp;emsp;SpringBoot用于简化Spring应用开发，有以下优点：  能快速创建独立的Spring项目 使用嵌入式的Servlet容器，无需打成war包，打成jar包用java -jar即可运行 很多配置都是自动配置的，我们也可以修改对应的默认值">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/015-01.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/015-02.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/015-03.png">
-<meta property="og:updated_time" content="2019-11-04T09:13:06.341Z">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/015-01.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/015-02.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/015-03.png">
+<meta property="og:updated_time" content="2020-05-24T02:39:45.596Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【框架】SpringBoot">
 <meta name="twitter:description" content="一、相关介绍&amp;emsp;&amp;emsp;本文介绍的内容都是相对基础的部分，请按需阅读。 &amp;emsp;&amp;emsp;SpringBoot用于简化Spring应用开发，有以下优点：  能快速创建独立的Spring项目 使用嵌入式的Servlet容器，无需打成war包，打成jar包用java -jar即可运行 很多配置都是自动配置的，我们也可以修改对应的默认值">
-<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/015-01.png">
+<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/1-25/015-01.png">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -199,9 +199,9 @@
 <p>5、在pom.xml中添加如下内容，并双击下图中的”package”即可打包成jar包</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/015-01.png" alt="015-01"></p>
+<p><img src="/images/1-25/015-01.png" alt="015-01"></p>
 <p>6、使用java -jar命令也能运行</p>
-<p><img src="/images/015-02.png" alt="015-02"></p>
+<p><img src="/images/1-25/015-02.png" alt="015-02"></p>
 <h1 id="三、配置文件"><a href="#三、配置文件" class="headerlink" title="三、配置文件"></a>三、配置文件</h1><p>&emsp;&emsp;全局配置文件有一个，application.properties或者application.yml，用于修改SpringBoot自动配置的默认值。yml文件格式比较简洁，例子如下</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用缩进表示上下级关系，左对齐的是同级关系，冒号与内容之间有一个空格</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8081</span></span><br></pre></td></tr></table></figure>
 
@@ -249,7 +249,7 @@
 </li>
 </ul>
 <p>&emsp;&emsp;以IDEA为例，当这四个位置都配置了端口号时，最终采取的是配置文件1</p>
-<p><img src="/images/015-03.png" alt="015-03"></p>
+<p><img src="/images/1-25/015-03.png" alt="015-03"></p>
 <h1 id="四、日志"><a href="#四、日志" class="headerlink" title="四、日志"></a>四、日志</h1><ul>
 <li><p>常见的日志框架如下</p>
 <table>
@@ -677,15 +677,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -697,15 +701,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -717,7 +721,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,11 +729,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,11 +741,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -753,15 +757,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -782,6 +782,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">

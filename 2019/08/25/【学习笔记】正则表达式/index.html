@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="一、标准字符集   表达式 匹配内容    \n 换行符   \t 制表符   \\ \本身   \d 数字   \w 字母、数字、下划线   \s 空格、制表符、换行符等空白字符   \S 非空白字符   . 非换行符   \x 当x不是特殊字符时，匹配x自身。详细点这里">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/003-01.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/003-02.png">
-<meta property="og:updated_time" content="2019-11-05T08:21:34.835Z">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/003-01.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/003-02.png">
+<meta property="og:updated_time" content="2020-05-24T02:37:14.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】正则表达式">
 <meta name="twitter:description" content="一、标准字符集   表达式 匹配内容    \n 换行符   \t 制表符   \\ \本身   \d 数字   \w 字母、数字、下划线   \s 空格、制表符、换行符等空白字符   \S 非空白字符   . 非换行符   \x 当x不是特殊字符时，匹配x自身。详细点这里">
-<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/003-01.png">
+<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/1-25/003-01.png">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -333,7 +333,7 @@
 <td>abc\b，可以匹配”abc “中的”abc”，因为’c’后面是空格；但不能匹配”abc123”中的”abc”，因为’c’后面是数字</td>
 </tr>
 </tbody></table>
-<h1 id="五、捕获组"><a href="#五、捕获组" class="headerlink" title="五、捕获组"></a>五、捕获组</h1><p>&emsp;&emsp;使用括号进行分组后，再用\n进行引用；n是从1开始的数字，表示组号，若不想给分组分配组号可以使用(?:)。例子如下图所示：<br><img src="/images/003-01.png" alt="003-01"><br>[a-z]{3}表示连续3个字母，把它放进括号就对其进行了分组，\1就可以引用它，类似于申请了一个变量\1，其内容是连续3个字母。所以该表达式就是匹配两组相同的连续3个字母。<br>&emsp;&emsp;若有多个分组，则用\1\2等(<strong>注：组号是按照<font color="red">左括号</font>的出现顺序来分配的</strong>)来引用，如下图所示：<br><img src="/images/003-02.png" alt="003-02"></p>
+<h1 id="五、捕获组"><a href="#五、捕获组" class="headerlink" title="五、捕获组"></a>五、捕获组</h1><p>&emsp;&emsp;使用括号进行分组后，再用\n进行引用；n是从1开始的数字，表示组号，若不想给分组分配组号可以使用(?:)。例子如下图所示：<br><img src="/images/1-25/003-01.png" alt="003-01"><br>[a-z]{3}表示连续3个字母，把它放进括号就对其进行了分组，\1就可以引用它，类似于申请了一个变量\1，其内容是连续3个字母。所以该表达式就是匹配两组相同的连续3个字母。<br>&emsp;&emsp;若有多个分组，则用\1\2等(<strong>注：组号是按照<font color="red">左括号</font>的出现顺序来分配的</strong>)来引用，如下图所示：<br><img src="/images/1-25/003-02.png" alt="003-02"></p>
 <h1 id="六、预搜索"><a href="#六、预搜索" class="headerlink" title="六、预搜索"></a>六、预搜索</h1><table>
 <thead>
 <tr>
@@ -664,15 +664,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,15 +688,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -704,7 +708,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -712,11 +716,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -724,11 +728,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -740,15 +744,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -769,6 +769,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">

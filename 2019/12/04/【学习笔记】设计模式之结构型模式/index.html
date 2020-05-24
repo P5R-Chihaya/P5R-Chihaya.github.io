@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="本文内容包含：装饰者模式、适配器模式、桥接模式、组合模式、外观模式、享元模式、代理模式 一、装饰者模式&amp;emsp;&amp;emsp;该模式的4个基本角色：  基本抽象组件(Component)：一个抽象类或者接口，由具体构件和抽象装饰者继承或实现 具体构件(ConcreteComponent)：被装饰者 抽象装饰者(Decorator)：装饰者的抽象类，属性中包含Component对象 具体装饰者(Co">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/020-01.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/020-02.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/020-03.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/020-04.png">
-<meta property="og:updated_time" content="2020-01-31T10:01:25.562Z">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/020-01.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/020-02.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/020-03.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/020-04.png">
+<meta property="og:updated_time" content="2020-05-24T02:46:21.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】设计模式之结构型模式">
 <meta name="twitter:description" content="本文内容包含：装饰者模式、适配器模式、桥接模式、组合模式、外观模式、享元模式、代理模式 一、装饰者模式&amp;emsp;&amp;emsp;该模式的4个基本角色：  基本抽象组件(Component)：一个抽象类或者接口，由具体构件和抽象装饰者继承或实现 具体构件(ConcreteComponent)：被装饰者 抽象装饰者(Decorator)：装饰者的抽象类，属性中包含Component对象 具体装饰者(Co">
-<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/020-01.png">
+<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/1-25/020-01.png">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -186,7 +186,7 @@
 <li>具体装饰者(ConcreteDecorator)：动态地为被装饰者添加额外功能</li>
 </ul>
 <p>&emsp;&emsp;UML类图如下所示：</p>
-<p><img src="/images/020-01.png" alt="020-01"></p>
+<p><img src="/images/1-25/020-01.png" alt="020-01"></p>
 <a id="more"></a>
 
 <h2 id="1、例子"><a href="#1、例子" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;需求：咖啡店的主要卖咖啡，但客户可以动态添加调料品(牛奶、糖等)</p>
@@ -261,7 +261,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Phone phone = <span class="keyword">new</span> Phone();</span><br><span class="line">        phone.charge(<span class="keyword">new</span> Adapter(<span class="keyword">new</span> Voltage220V()) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">output5V</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">int</span> srcV = <span class="keyword">this</span>.getVoltageSource().output();</span><br><span class="line">                <span class="keyword">return</span> srcV / <span class="number">44</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>UML类图如下所示：</p>
-<p><img src="/images/020-02.png" alt="020-02"></p>
+<p><img src="/images/1-25/020-02.png" alt="020-02"></p>
 <h1 id="三、桥接模式"><a href="#三、桥接模式" class="headerlink" title="三、桥接模式"></a>三、桥接模式</h1><p>&emsp;&emsp; 当一个类需要在<strong>两个以上维度</strong>进行扩展时，如果采用继承方式会导致子类数量过多，于是引进桥接模式。该模式涉及的角色有：</p>
 <ul>
 <li><strong>抽象化</strong>(Abstraction)角色：抽象化给出的定义，并保存一个对实现化对象的引用。充当“桥”，把抽象化和实现化结合起来</li>
@@ -270,7 +270,7 @@
 <li><strong>具体实现化</strong>(ConcreteImplementor)角色：这个角色给出实现化角色接口的具体实现</li>
 </ul>
 <p>&emsp;&emsp;UML类图如下所示：</p>
-<p><img src="/images/020-03.png" alt="020-03"></p>
+<p><img src="/images/1-25/020-03.png" alt="020-03"></p>
 <h2 id="1、例子-1"><a href="#1、例子-1" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;需求：吃烧烤，可以分成食物和风味两个维度，如食物有鸡翅、鸡腿等；风味有微辣、特辣等。</p>
 <p>1、编写实现化部分</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Taste</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">taste</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExtraSpicy</span> <span class="keyword">implements</span> <span class="title">Taste</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">taste</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"特辣"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SlightlySpicy</span> <span class="keyword">implements</span> <span class="title">Taste</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">taste</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"微辣"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -289,7 +289,7 @@
 <li><strong>容器构件</strong>(Composite)：容器构件中含所有子节点，节点可以是子节点，也可以是容器节点，是一个集合，用来存储节点的。好比一个文件夹，文件夹好比一个容器，用来提供一个容器，它实现了抽象构件定义的行为方法，也可以调用子节点的方法</li>
 </ul>
 <p>&emsp;&emsp;UML类图如下所示：</p>
-<p><img src="/images/020-04.png" alt="020-04"></p>
+<p><img src="/images/1-25/020-04.png" alt="020-04"></p>
 <h2 id="1、例子-2"><a href="#1、例子-2" class="headerlink" title="1、例子"></a>1、例子</h2><p>&emsp;&emsp;需求：一个学校有多个学院，一个学院又有多个专业，用组合模式来管理</p>
 <p>1、编写抽象构件</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Component component)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 叶子节点没有对子节点的操作，所以不写成抽象方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 叶子节点没有对子节点的操作，所以不写成抽象方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -674,15 +674,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,15 +698,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -714,7 +718,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -722,11 +726,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -734,11 +738,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -750,15 +754,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,6 +779,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,21 +16,21 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="本文介绍的相关树结构主要有：二分搜索树、AVL树、2-3树、红黑树、二叉堆、线段树、字典树、并查集 学习资料均来自慕课网liuyubobobo讲师的视频，侵删 一、相关概念 满二叉树：除最后一层无任何子节点外，每一层上的所有结点都有两个子结点的二叉树。 完全二叉树：对于深度为k的，有n个结点的二叉树，当其层序编号（按层来编号）与深度k的满二叉树的层序编号相同时，称为完全二叉树。所有的叶子节点都出现">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/024-2-3%E6%A0%91%E8%8A%82%E7%82%B9.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/024-%E4%BE%8B%E5%AD%901.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/024-%E4%BE%8B%E5%AD%902.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/024-%E4%BE%8B%E5%AD%903.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/024-%E4%BE%8B%E5%AD%904.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/024-%E7%BA%A2%E9%BB%91%E6%A0%91.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/024-%E7%BA%A2%E9%BB%91%E6%A0%912.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/024-%E7%BA%A2%E9%BB%91%E6%A0%91%E6%B7%BB%E5%8A%A0.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/024-%E7%BA%BF%E6%AE%B5%E6%A0%91.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/024-%E5%AD%97%E5%85%B8%E6%A0%91.png">
-<meta property="og:updated_time" content="2020-04-02T08:01:05.427Z">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/024-2-3%E6%A0%91%E8%8A%82%E7%82%B9.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/024-%E4%BE%8B%E5%AD%901.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/024-%E4%BE%8B%E5%AD%902.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/024-%E4%BE%8B%E5%AD%903.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/024-%E4%BE%8B%E5%AD%904.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/024-%E7%BA%A2%E9%BB%91%E6%A0%91.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/024-%E7%BA%A2%E9%BB%91%E6%A0%912.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/024-%E7%BA%A2%E9%BB%91%E6%A0%91%E6%B7%BB%E5%8A%A0.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/024-%E7%BA%BF%E6%AE%B5%E6%A0%91.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/024-%E5%AD%97%E5%85%B8%E6%A0%91.png">
+<meta property="og:updated_time" content="2020-05-24T02:48:25.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【数据结构】树">
 <meta name="twitter:description" content="本文介绍的相关树结构主要有：二分搜索树、AVL树、2-3树、红黑树、二叉堆、线段树、字典树、并查集 学习资料均来自慕课网liuyubobobo讲师的视频，侵删 一、相关概念 满二叉树：除最后一层无任何子节点外，每一层上的所有结点都有两个子结点的二叉树。 完全二叉树：对于深度为k的，有n个结点的二叉树，当其层序编号（按层来编号）与深度k的满二叉树的层序编号相同时，称为完全二叉树。所有的叶子节点都出现">
-<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/024-2-3%E6%A0%91%E8%8A%82%E7%82%B9.png">
+<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/1-25/024-2-3%E6%A0%91%E8%8A%82%E7%82%B9.png">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -229,7 +229,7 @@
 <li><p>每个节点可以存放一个元素或者两个元素，每个节点有2个或者3个孩子</p>
 </li>
 </ul>
-<p><img src="/images/024-2-3%E6%A0%91%E8%8A%82%E7%82%B9.png" alt="024-2-3树节点"></p>
+<p><img src="/images/1-25/024-2-3%E6%A0%91%E8%8A%82%E7%82%B9.png" alt="024-2-3树节点"></p>
 <ul>
 <li><p>2-3树是一种绝对平衡的树，从根节点到叶子节点的节点数量是相同的</p>
 </li>
@@ -237,16 +237,16 @@
 </li>
 </ul>
 <p>例子1：根节点为12，往根节点添加元素6</p>
-<p><img src="/images/024-%E4%BE%8B%E5%AD%901.png" alt="024-例子1"></p>
+<p><img src="/images/1-25/024-%E4%BE%8B%E5%AD%901.png" alt="024-例子1"></p>
 <p>例子2：紧接例子1，再添加元素2，此时融合后的根节点暂时存了3个元素，于是拆分</p>
-<p><img src="/images/024-%E4%BE%8B%E5%AD%902.png" alt="024-例子2"></p>
+<p><img src="/images/1-25/024-%E4%BE%8B%E5%AD%902.png" alt="024-例子2"></p>
 <p>例子3：当融合后的元素个数是3且是叶子节点时，则先拆分再向父节点融合。如下图往第一棵树添加元素4</p>
-<p><img src="/images/024-%E4%BE%8B%E5%AD%903.png" alt="024-例子3"></p>
+<p><img src="/images/1-25/024-%E4%BE%8B%E5%AD%903.png" alt="024-例子3"></p>
 <p>例子4：当向父节点融合后，父节点存了3个元素，则父节点再拆分。如下图往第一棵树添加元素4</p>
-<p><img src="/images/024-%E4%BE%8B%E5%AD%904.png" alt="024-例子4"></p>
+<p><img src="/images/1-25/024-%E4%BE%8B%E5%AD%904.png" alt="024-例子4"></p>
 <h1 id="五-、红黑树"><a href="#五-、红黑树" class="headerlink" title="五 、红黑树"></a>五 、红黑树</h1><p>&emsp;&emsp;红黑树与2-3树相似，它们节点对应关系如下所示</p>
-<p><img src="/images/024-%E7%BA%A2%E9%BB%91%E6%A0%91.png" alt="024-红黑树"></p>
-<p><img src="/images/024-%E7%BA%A2%E9%BB%91%E6%A0%912.png" alt="024-红黑树2"></p>
+<p><img src="/images/1-25/024-%E7%BA%A2%E9%BB%91%E6%A0%91.png" alt="024-红黑树"></p>
+<p><img src="/images/1-25/024-%E7%BA%A2%E9%BB%91%E6%A0%912.png" alt="024-红黑树2"></p>
 <p>于是红黑树有以下性质：</p>
 <ul>
 <li>根节点是黑色的</li>
@@ -259,7 +259,7 @@
 <ol>
 <li>如下图所示，当初始状态如①所示，当添加的元素<strong>比红色节点的大</strong>时，顺序则是①②③④⑤</li>
 </ol>
-<p><img src="/images/024-%E7%BA%A2%E9%BB%91%E6%A0%91%E6%B7%BB%E5%8A%A0.png" alt="024-红黑树添加"></p>
+<p><img src="/images/1-25/024-%E7%BA%A2%E9%BB%91%E6%A0%91%E6%B7%BB%E5%8A%A0.png" alt="024-红黑树添加"></p>
 <ol start="2">
 <li>若添加的元素比红色节点的小时，则是直接从①跳到③</li>
 <li>若添加到元素比黑色节点的大时，则是直接从①跳到④</li>
@@ -289,12 +289,12 @@
 <li>二叉树的每个节点存储的都是某个区间范围的信息，叶子节点可以只存储一个元素的信息，也可以存储某个更小区间的信息</li>
 <li>假如总区间有n个元素，那么使用数组存储线段树时，好的情况需要2*n的空间；坏情况需要4*n的空间，即当n不是2的次幂时，就会造成某些节点的左子树存了一个元素的信息，右子树却存了两个元素的信息，这种情况就需要4*n的空间</li>
 </ul>
-<p><img src="/images/024-%E7%BA%BF%E6%AE%B5%E6%A0%91.png" alt="024-线段树"></p>
+<p><img src="/images/1-25/024-%E7%BA%BF%E6%AE%B5%E6%A0%91.png" alt="024-线段树"></p>
 <p>简单实现的代码如下所示：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 融合器</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Merger</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">E <span class="title">merger</span><span class="params">(E a, E b)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 线段树</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SegmentTree</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">	<span class="comment">// 存放原始数据</span></span><br><span class="line">    <span class="keyword">private</span> E[] data;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 真正的线段树</span></span><br><span class="line">    <span class="keyword">private</span> E[] tree;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Merger&lt;E&gt; merger;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SegmentTree</span><span class="params">(E[] arr, Merger&lt;E&gt; merger)</span> </span>&#123;</span><br><span class="line">        data = (E[]) <span class="keyword">new</span> Object[arr.length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</span><br><span class="line">            data[i] = arr[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.merger = merger;</span><br><span class="line">        tree = (E[]) <span class="keyword">new</span> Object[<span class="number">4</span> * arr.length];</span><br><span class="line">        buildSegmentTree(<span class="number">0</span>, <span class="number">0</span>, data.length - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> data.length;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= data.length) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Illegal parameter 'index'."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> data[index];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, E e)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= data.length) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Illegal parameter 'index'."</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            data[index] = e;</span><br><span class="line">            update(<span class="number">0</span>, <span class="number">0</span>, data.length - <span class="number">1</span>, index, e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> treeIndex, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> index, E e)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">            tree[treeIndex] = e;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> leftChildIndex = getLeftChild(treeIndex);</span><br><span class="line">            <span class="keyword">int</span> rightChildIndex = getRightChild(treeIndex);</span><br><span class="line">            <span class="keyword">if</span> (index &gt;= mid + <span class="number">1</span>) &#123;</span><br><span class="line">                update(rightChildIndex, mid + <span class="number">1</span>, r, index, e);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                update(leftChildIndex, l, mid, index, e);</span><br><span class="line">            &#125;</span><br><span class="line">            tree[treeIndex] = merger.merger(tree[leftChildIndex], tree[rightChildIndex]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询区间为[queryLeft, queryRight]的信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> E <span class="title">query</span><span class="params">(<span class="keyword">int</span> queryLeft, <span class="keyword">int</span> queryRight)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (queryLeft &gt; queryRight || queryLeft &lt; <span class="number">0</span> || queryLeft &gt;= data.length</span><br><span class="line">                || queryRight &gt;= data.length) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Illegal parameter 'left' or 'right'."</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> queryFromChild(<span class="number">0</span>, <span class="number">0</span>, data.length - <span class="number">1</span>, queryLeft, queryRight);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> E <span class="title">queryFromChild</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> queryLeft, <span class="keyword">int</span> queryRight)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l == queryLeft &amp;&amp; r == queryRight) &#123;</span><br><span class="line">            <span class="keyword">return</span> tree[index];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> leftChildIndex = getLeftChild(index);</span><br><span class="line">            <span class="keyword">int</span> rightChildIndex = getRightChild(index);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 这种写法是避免l+r的结果会越界</span></span><br><span class="line">            <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (mid &lt; queryLeft) &#123;</span><br><span class="line">                <span class="keyword">return</span> queryFromChild(rightChildIndex, mid + <span class="number">1</span>, r, queryLeft, queryRight);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mid &gt;= queryRight) &#123;</span><br><span class="line">                <span class="keyword">return</span> queryFromChild(leftChildIndex, l, mid, queryLeft, queryRight);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                E leftResult = queryFromChild(leftChildIndex, l, mid, queryLeft, mid);</span><br><span class="line">                E rightResult = queryFromChild(rightChildIndex, mid + <span class="number">1</span>, r, mid + <span class="number">1</span>, queryRight);</span><br><span class="line">                <span class="keyword">return</span> merger.merger(leftResult, rightResult);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建线段树，在tree[index]处，存放的是区间为data[l,r]的信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">buildSegmentTree</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">            tree[index] = data[l];</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> leftChildIndex = getLeftChild(index);</span><br><span class="line">            <span class="keyword">int</span> rightChildIndex = getRightChild(index);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 这种写法是避免l+r的结果会越界</span></span><br><span class="line">            <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">            buildSegmentTree(leftChildIndex, l, mid);</span><br><span class="line">            buildSegmentTree(rightChildIndex, mid + <span class="number">1</span>, r);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 根据融合器来操作区间元素，如求和，求最大值等</span></span><br><span class="line">            <span class="comment">// 不能求均值，这里的代码逻辑不符合数学上的逻辑</span></span><br><span class="line">            tree[index] = merger.merger(tree[leftChildIndex], tree[rightChildIndex]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getLeftChild</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span> * index + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getRightChild</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span> * index + <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="八、字典树"><a href="#八、字典树" class="headerlink" title="八、字典树"></a>八、字典树</h1><p>&emsp;&emsp;字典树常用于处理字符串，并不是一个二叉树，如下图所示的字典树中，就存储了”cat”、”dog”、”pan”和”panda”</p>
-<p><img src="/images/024-%E5%AD%97%E5%85%B8%E6%A0%91.png" alt="024-字典树"></p>
+<p><img src="/images/1-25/024-%E5%AD%97%E5%85%B8%E6%A0%91.png" alt="024-字典树"></p>
 <p>简单实现的代码如下所示：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Trie</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Node root;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 判断从根到该节点能否组成一个单词</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">boolean</span> isWord;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> TreeMap&lt;Character, Node&gt; branch;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(<span class="keyword">boolean</span> isWord)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.isWord = isWord;</span><br><span class="line">            branch = <span class="keyword">new</span> TreeMap&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>(<span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Trie</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        root = <span class="keyword">new</span> Node();</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 向字典树中添加一个单词</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">        Node cur = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = word.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (cur.branch.get(c) == <span class="keyword">null</span>) &#123;</span><br><span class="line">                cur.branch.put(c, <span class="keyword">new</span> Node());</span><br><span class="line">            &#125;</span><br><span class="line">            cur = cur.branch.get(c);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 以前不存在该单词，则size++</span></span><br><span class="line">        <span class="keyword">if</span> (!cur.isWord) &#123;</span><br><span class="line">            cur.isWord = <span class="keyword">true</span>;</span><br><span class="line">            size++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 判断字典树中是否存在某单词</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">        Node cur = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.length(); i++) &#123;</span><br><span class="line">            cur = cur.branch.get(word.charAt(i));</span><br><span class="line">            <span class="keyword">if</span> (cur == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cur.isWord;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询是否存在以特定字符串为前缀的单词</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">containsPrefix</span><span class="params">(String prefix)</span> </span>&#123;</span><br><span class="line">        Node cur = root;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; prefix.length(); i++) &#123;</span><br><span class="line">            cur = cur.branch.get(prefix.charAt(i));</span><br><span class="line">            <span class="keyword">if</span> (cur == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -631,15 +631,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,15 +655,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -671,7 +675,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,11 +683,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -691,11 +695,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -707,15 +711,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -736,6 +736,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">

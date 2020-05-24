@@ -149,6 +149,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-【学习笔记】JVM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/03/【学习笔记】JVM/">【学习笔记】JVM</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/03/【学习笔记】JVM/" class="archive-article-date">
+  	<time datetime="2020-04-03T13:22:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>本文内容均基于<a href="https://www.bilibili.com/video/BV1TJ411R75F?p=1" target="_blank" rel="noopener">网络视频</a></strong></p>
+<h1 id="一、基本知识"><a href="#一、基本知识" class="headerlink" title="一、基本知识"></a>一、基本知识</h1><p>1、JVM结构图如下所示</p>
+<p><img src="/images/26-50/026-JVM.png" alt="026-JVM"></p>
+<p>2、JVM是运行在操作系统之上的，与硬件没有直接的交互</p>
+<p>3、本地方法（native修饰的）放在<strong>本地方法栈</strong>中，其他方法则放在<strong>Java栈</strong>中</p>
+<p>4、灰色的区域是线程私有的（每个线程都有各自的相应区域）；同时占用内存空间少，几乎没有GC回收</p>
+<p>5、亮色的区域是所有线程共享的，存在GC回收</p>
+<p>6、栈管运行，堆管存储</p>
+        
+          <a class="article-more-a" href="/2020/04/03/【学习笔记】JVM/#more">more >></a>
+        
+      
+
+        
+		
+		
+		  <div hidden="hidden"></div>
+		
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JVM</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/03/【学习笔记】JVM/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-【算法】背包问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -345,96 +439,6 @@
 
 
   
-    <article id="post-【错题集】笔试面试所遇到的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/03/【错题集】笔试面试所遇到的坑/">【错题集】笔试面试所遇到的坑</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/03/【错题集】笔试面试所遇到的坑/" class="archive-article-date">
-  	<time datetime="2020-03-03T08:35:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1、非编程题"><a href="#1、非编程题" class="headerlink" title="1、非编程题"></a>1、非编程题</h1><p>1、二叉树的前序、中序、后序遍历的”前中后”指的是<strong>根节点</strong>的遍历顺序：</p>
-<p>前序遍历（DLR）：根、左、右</p>
-<p>中序遍历（LDR）：左、根、右</p>
-<p>后序遍历（LRD）：左、右、根</p>
-<p>2、MySQL的limit优化</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 优化前</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">limit</span> <span class="number">100000</span>, <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 优化后</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span> &gt;= (<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> student <span class="keyword">limit</span> <span class="number">100000</span>, <span class="number">1</span>) <span class="keyword">limit</span> <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 或者</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student a </span><br><span class="line"><span class="keyword">join</span> (<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> student <span class="keyword">limit</span> <span class="number">100000</span>, <span class="number">20</span>) b <span class="keyword">on</span> a.id = b.id;</span><br></pre></td></tr></table></figure>
-
-<p>！
-        
-          <a class="article-more-a" href="/2020/03/03/【错题集】笔试面试所遇到的坑/#more">more >></a>
-        
-      
-
-        
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">错题集</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/03/【错题集】笔试面试所遇到的坑/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -536,15 +540,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,15 +564,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,7 +584,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,11 +592,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -596,11 +604,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,15 +620,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -641,6 +645,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">

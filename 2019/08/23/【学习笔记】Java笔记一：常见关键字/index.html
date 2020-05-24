@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类  只有抽象类才能定义抽象方法  抽象类的非抽象子类必须重写父类的抽象方法  抽象类可以有属性和非抽象方法  一个类只能继承(extends)一个抽象类  私有属性和方法也是能继承到的，但是要通过其他方法来访问，不能直接调用    二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-02T12:18:03.811Z">
+<meta property="og:updated_time" content="2020-04-05T06:15:12.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】Java笔记一：常见关键字">
 <meta name="twitter:description" content="一、abstract 修饰的方法叫抽象方法，修饰的类叫抽象类  只有抽象类才能定义抽象方法  抽象类的非抽象子类必须重写父类的抽象方法  抽象类可以有属性和非抽象方法  一个类只能继承(extends)一个抽象类  私有属性和方法也是能继承到的，但是要通过其他方法来访问，不能直接调用    二、interface 一种特殊的类，比抽象类更抽象，叫做接口 接口的所有方法默认是public abstr">
@@ -223,6 +223,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输出结果是：</span><br><span class="line">父类静态代码块</span><br><span class="line">子类静态代码块</span><br><span class="line">父类构造器</span><br><span class="line">子类构造器</span><br></pre></td></tr></table></figure>
 
 <p>完整的顺序是：父静态代码块、子静态代码块、父<strong>非静态</strong>代码块、父构造函数、子<strong>非静态</strong>代码块、子构造函数</p>
+<p>注：静态代码块只会加载一次！</p>
 <h1 id="四、final"><a href="#四、final" class="headerlink" title="四、final"></a>四、final</h1><ul>
 <li>该关键字理解为”最终”的意思</li>
 <li>final可以修饰类、方法、属性、局部变量</li>
@@ -579,15 +580,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,15 +604,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,7 +624,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,11 +632,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,11 +644,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,15 +660,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,6 +685,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">

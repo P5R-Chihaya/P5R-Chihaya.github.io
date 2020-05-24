@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="一、相关概念 程序：指令的集合，是一段静态的代码。  进程：正在运行的程序，是一个动态的过程；有自身的生命周期，是资源分配的单位(系统为每个进程分配不同的内存区域)。  线程：进程的进一步细化，是程序内部的一条执行路径。   二、线程的创建1、继承Thread1、声明一个类继承Thread类，并重写run()方法 12345678910public class MyThread extends T">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/005-01.png">
-<meta property="og:updated_time" content="2019-11-04T09:09:56.684Z">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/005-01.png">
+<meta property="og:updated_time" content="2020-05-24T02:37:49.482Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】Java笔记三：线程">
 <meta name="twitter:description" content="一、相关概念 程序：指令的集合，是一段静态的代码。  进程：正在运行的程序，是一个动态的过程；有自身的生命周期，是资源分配的单位(系统为每个进程分配不同的内存区域)。  线程：进程的进一步细化，是程序内部的一条执行路径。   二、线程的创建1、继承Thread1、声明一个类继承Thread类，并重写run()方法 12345678910public class MyThread extends T">
-<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/005-01.png">
+<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/1-25/005-01.png">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -275,7 +275,7 @@
 </tr>
 </tbody></table>
 <h1 id="五、线程的生命周期"><a href="#五、线程的生命周期" class="headerlink" title="五、线程的生命周期"></a>五、线程的生命周期</h1><p>&emsp;&emsp;线程的生命周期大致如下图所示：</p>
-<p><img src="/images/005-01.png" alt="005-01"></p>
+<p><img src="/images/1-25/005-01.png" alt="005-01"></p>
 <h1 id="六、线程同步"><a href="#六、线程同步" class="headerlink" title="六、线程同步"></a>六、线程同步</h1><h2 id="1、线程安全问题"><a href="#1、线程安全问题" class="headerlink" title="1、线程安全问题"></a>1、线程安全问题</h2><p>&emsp;&emsp;当多个线程操作某个共享资源时，就会出现线程不安全问题。例子如下。</p>
 <h2 id="2、线程不安全例子"><a href="#2、线程不安全例子" class="headerlink" title="2、线程不安全例子"></a>2、线程不安全例子</h2><p>&emsp;&emsp;模仿售票站卖票的情况。</p>
 <p>1、创建一个售票站，共10张票</p>
@@ -667,15 +667,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -687,15 +691,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -707,7 +711,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -715,11 +719,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,11 +731,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -743,15 +747,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -772,6 +772,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">

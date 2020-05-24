@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="CHIHAYA">
 <meta property="og:description" content="一、相关介绍&amp;emsp;&amp;emsp;事务可以理解为一个或一组sql语句组成的执行单元，MySQL数据库中innodb和bdb引擎支持事务。事务有以下四个特性：  A (Atomicity)：原子性，即一个事务不能再拆分，事务的操作要么都执行，要么都不执行  C (Consistency)：一致性，即数据库从一个一致性状态变换到另一个一致性状态  I (Isolation)：隔离性，即一个事务的执行">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/018-01.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/018-02.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/018-03.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/018-04.png">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/018-05.png">
-<meta property="og:updated_time" content="2019-12-04T01:11:34.473Z">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/018-01.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/018-02.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/018-03.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/018-04.png">
+<meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/018-05.png">
+<meta property="og:updated_time" content="2020-05-24T02:45:48.044Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【MySQL】事务">
 <meta name="twitter:description" content="一、相关介绍&amp;emsp;&amp;emsp;事务可以理解为一个或一组sql语句组成的执行单元，MySQL数据库中innodb和bdb引擎支持事务。事务有以下四个特性：  A (Atomicity)：原子性，即一个事务不能再拆分，事务的操作要么都执行，要么都不执行  C (Consistency)：一致性，即数据库从一个一致性状态变换到另一个一致性状态  I (Isolation)：隔离性，即一个事务的执行">
-<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/018-01.png">
+<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/1-25/018-01.png">
   
     <link rel="alternative" href="/atom.xml" title="CHIHAYA" type="application/atom+xml">
   
@@ -236,7 +236,7 @@
 </tbody></table>
 <h2 id="3、演示并发问题"><a href="#3、演示并发问题" class="headerlink" title="3、演示并发问题"></a>3、演示并发问题</h2><p>&emsp;&emsp;<strong>以下操作均在命令提示符中进行</strong></p>
 <p>&emsp;&emsp;现数据库有account表，并有以下数据。</p>
-<p><img src="/images/018-01.png" alt="018-01"></p>
+<p><img src="/images/1-25/018-01.png" alt="018-01"></p>
 <p>使用两个命令提示符来模拟两个事务(事务A是黑色背景，事务B是蓝色背景)，以最低隔离级别为例来演示，其他隔离级别的演示类似。</p>
 <p>1、把两个事务的隔离级别都设置为最低的READ UNCOMMITTED</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set session transaction isolation level read uncommitted;</span><br></pre></td></tr></table></figure>
@@ -245,12 +245,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select @@transaction_isolation;</span><br></pre></td></tr></table></figure>
 
 <p>3、事务A修改数据，并未提交</p>
-<p><img src="/images/018-02.png" alt="018-02"></p>
+<p><img src="/images/1-25/018-02.png" alt="018-02"></p>
 <p>4、事务B可以查看到A未提交的数据</p>
-<p><img src="/images/018-03.png" alt="018-03"></p>
+<p><img src="/images/1-25/018-03.png" alt="018-03"></p>
 <p>5、事务A回滚，B发生了脏读和不可重复读</p>
-<p><img src="/images/018-04.png" alt="018-04"></p>
-<p><img src="/images/018-05.png" alt="018-05"></p>
+<p><img src="/images/1-25/018-04.png" alt="018-04"></p>
+<p><img src="/images/1-25/018-05.png" alt="018-05"></p>
 <h1 id="四、相关链接"><a href="#四、相关链接" class="headerlink" title="四、相关链接"></a>四、相关链接</h1><ul>
 <li><a href="https://www.bilibili.com/video/av49181542/?p=134" target="_blank" rel="noopener">参考资料1</a></li>
 <li><a href="https://blog.csdn.net/qq_33591903/article/details/81672260" target="_blank" rel="noopener">参考资料2</a></li>
@@ -550,15 +550,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,15 +574,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,7 +594,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,11 +602,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,11 +614,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,15 +630,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,6 +655,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
               </li>
              
               <li class="article-tag-list-item">
