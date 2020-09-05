@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/003-01.png">
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/003-02.png">
-<meta property="og:updated_time" content="2020-05-24T02:37:14.551Z">
+<meta property="og:updated_time" content="2020-09-04T06:01:07.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】正则表达式">
 <meta name="twitter:description" content="一、标准字符集   表达式 匹配内容    \n 换行符   \t 制表符   \\ \本身   \d 数字   \w 字母、数字、下划线   \s 空格、制表符、换行符等空白字符   \S 非空白字符   . 非换行符   \x 当x不是特殊字符时，匹配x自身。详细点这里">
@@ -368,7 +368,13 @@
 <td>(?&lt;!)表示前面<strong>不</strong>应该出现什么，所以不能匹配到”123abc”中的”abc”，但是可以匹配”222abc”中的”abc”</td>
 </tr>
 </tbody></table>
-<h1 id="七、相关链接"><a href="#七、相关链接" class="headerlink" title="七、相关链接"></a>七、相关链接</h1><ul>
+<h1 id="七、例子"><a href="#七、例子" class="headerlink" title="七、例子"></a>七、例子</h1><ul>
+<li><p>校验字符串是否有中文</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">regexTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String regex = <span class="string">"^[^\u4e00-\u9fa5]&#123;0,&#125;$"</span>;</span><br><span class="line">    String msg = <span class="string">"aaaa啊"</span>;</span><br><span class="line">    <span class="keyword">if</span> (Pattern.matches(regex, msg)) &#123;</span><br><span class="line">        System.out.println(<span class="string">"没有中文"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"有中文"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="八、相关链接"><a href="#八、相关链接" class="headerlink" title="八、相关链接"></a>八、相关链接</h1><ul>
 <li><a href="https://baike.baidu.com/item/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" target="_blank" rel="noopener">参考资料1</a></li>
 <li><a href="https://www.bilibili.com/video/av29578557" target="_blank" rel="noopener">参考资料2</a></li>
 <li><a href="https://c.runoob.com/front-end/854" target="_blank" rel="noopener">在线测试工具</a></li>
@@ -548,7 +554,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、标准字符集"><span class="toc-number">1.</span> <span class="toc-text">一、标准字符集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、自定义字符集"><span class="toc-number">2.</span> <span class="toc-text">二、自定义字符集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、量词"><span class="toc-number">3.</span> <span class="toc-text">三、量词</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、边界字符，这类符号用于表示位置"><span class="toc-number">4.</span> <span class="toc-text">四、边界字符，这类符号用于表示位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、捕获组"><span class="toc-number">5.</span> <span class="toc-text">五、捕获组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、预搜索"><span class="toc-number">6.</span> <span class="toc-text">六、预搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、相关链接"><span class="toc-number">7.</span> <span class="toc-text">七、相关链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、标准字符集"><span class="toc-number">1.</span> <span class="toc-text">一、标准字符集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、自定义字符集"><span class="toc-number">2.</span> <span class="toc-text">二、自定义字符集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、量词"><span class="toc-number">3.</span> <span class="toc-text">三、量词</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、边界字符，这类符号用于表示位置"><span class="toc-number">4.</span> <span class="toc-text">四、边界字符，这类符号用于表示位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、捕获组"><span class="toc-number">5.</span> <span class="toc-text">五、捕获组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、预搜索"><span class="toc-number">6.</span> <span class="toc-text">六、预搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、例子"><span class="toc-number">7.</span> <span class="toc-text">七、例子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、相关链接"><span class="toc-number">8.</span> <span class="toc-text">八、相关链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -676,11 +682,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+                <a href="javascript:void(0)" class="js-tag color1">常见关键字</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">常见关键字</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,19 +694,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Spring JdbcTemplate</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -712,15 +714,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Spring JdbcTemplate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -728,19 +726,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">错题集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -748,11 +742,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -777,6 +783,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">

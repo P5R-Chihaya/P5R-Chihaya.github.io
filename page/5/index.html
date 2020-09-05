@@ -149,6 +149,151 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-【框架】SpringMVC的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/02/【框架】SpringMVC的使用/">【框架】SpringMVC的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/02/【框架】SpringMVC的使用/" class="archive-article-date">
+  	<time datetime="2019-11-02T08:05:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、注解"><a href="#一、注解" class="headerlink" title="一、注解"></a>一、注解</h1><table>
+<thead>
+<tr>
+<th>注解</th>
+<th>使用位置</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@RequestMapping</td>
+<td>类、方法</td>
+<td>映射请求路径</td>
+</tr>
+<tr>
+<td>@PathVariable</td>
+<td>方法形参</td>
+<td>获取请求路径某段的值</td>
+</tr>
+<tr>
+<td>@RequestParam</td>
+<td>方法形参</td>
+<td>让请求参数(‘?’后面的内容)与方法形参形成映射关系</td>
+</tr>
+<tr>
+<td>@RequestHeader</td>
+<td>方法形参</td>
+<td>获取请求头某个key的内容</td>
+</tr>
+<tr>
+<td>@CookieValue</td>
+<td>方法形参</td>
+<td>获取某个Cookie的值</td>
+</tr>
+<tr>
+<td>@Controller</td>
+<td>类</td>
+<td>说明该类为一个controller</td>
+</tr>
+<tr>
+<td>@RestController</td>
+<td>类</td>
+<td>说明该类为Rest风格的controller，会把方法返回值封装成JSON数据</td>
+</tr>
+<tr>
+<td>@RequestBody</td>
+<td>方法形参</td>
+<td>把前端传过来的JSON数据封装成自定义模型类，不能是GET请求</td>
+</tr>
+<tr>
+<td>@ResponseBody</td>
+<td>方法返回类型</td>
+<td>把方法返回值封装成JSON数据</td>
+</tr>
+<tr>
+<td>@SessionAttributes</td>
+<td>类</td>
+<td>Model可把内容存进request域中，该注解就可用把request域中的内容存进session域中</td>
+</tr>
+</tbody></table>
+        
+          <a class="article-more-a" href="/2019/11/02/【框架】SpringMVC的使用/#more">more >></a>
+        
+      
+
+        
+		
+		
+		  <div hidden="hidden"></div>
+		
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">SpringMVC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/02/【框架】SpringMVC的使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-【框架】SpringBoot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -331,129 +476,9 @@
 
 
   
-    <article id="post-【学习笔记】Java笔记十：Java8新特性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/07/【学习笔记】Java笔记十：Java8新特性/">【学习笔记】Java笔记十：Java8新特性</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/07/【学习笔记】Java笔记十：Java8新特性/" class="archive-article-date">
-  	<time datetime="2019-10-07T06:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、Lambda表达式"><a href="#一、Lambda表达式" class="headerlink" title="一、Lambda表达式"></a>一、Lambda表达式</h1><h2 id="1、相关说明"><a href="#1、相关说明" class="headerlink" title="1、相关说明"></a>1、相关说明</h2><ul>
-<li><p>创建<strong>函数式接口</strong>的匿名对象时，可以使用Lambda表达式来减少代码量</p>
-</li>
-<li><p>语法格式：(参数列表) -&gt; {代码体}</p>
-</li>
-<li><p>函数式接口：只有一个抽象方法的接口，可以使用注解@FunctionalInterface来标记对应接口</p>
-</li>
-<li><p>Java内置的4个基本函数式接口如下</p>
-<table>
-<thead>
-<tr>
-<th>接口名</th>
-<th>方法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Consumer&lt;T&gt;</td>
-<td>void accept(T t)</td>
-</tr>
-<tr>
-<td>Supplier&lt;T&gt;</td>
-<td>T get()</td>
-</tr>
-<tr>
-<td>Function&lt;T, R&gt;</td>
-<td>R apply(T t)</td>
-</tr>
-<tr>
-<td>Predicate&lt;T&gt;</td>
-<td>boolean test(T t)</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/10/07/【学习笔记】Java笔记十：Java8新特性/#more">more >></a>
-        
-      
-
-        
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java8新特性</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/07/【学习笔记】Java笔记十：Java8新特性/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 
@@ -564,11 +589,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+                <a href="javascript:void(0)" class="js-tag color1">常见关键字</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">常见关键字</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,19 +601,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Spring JdbcTemplate</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,15 +621,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Spring JdbcTemplate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,19 +633,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">错题集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,11 +649,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -665,6 +690,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
