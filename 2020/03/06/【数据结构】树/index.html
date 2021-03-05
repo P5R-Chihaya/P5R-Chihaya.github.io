@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/024-%E7%BA%A2%E9%BB%91%E6%A0%91%E6%B7%BB%E5%8A%A0.png">
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/024-%E7%BA%BF%E6%AE%B5%E6%A0%91.png">
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/1-25/024-%E5%AD%97%E5%85%B8%E6%A0%91.png">
-<meta property="og:updated_time" content="2020-05-24T02:48:25.925Z">
+<meta property="og:updated_time" content="2021-02-09T04:00:17.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【数据结构】树">
 <meta name="twitter:description" content="本文介绍的相关树结构主要有：二分搜索树、AVL树、2-3树、红黑树、二叉堆、线段树、字典树、并查集 学习资料均来自慕课网liuyubobobo讲师的视频，侵删 一、相关概念 满二叉树：除最后一层无任何子节点外，每一层上的所有结点都有两个子结点的二叉树。 完全二叉树：对于深度为k的，有n个结点的二叉树，当其层序编号（按层来编号）与深度k的满二叉树的层序编号相同时，称为完全二叉树。所有的叶子节点都出现">
@@ -334,7 +334,12 @@
 <li><p>自定义类型的hashCode()和equals()的模板如下，仅供参考</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> hash = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 随意取一个数</span></span><br><span class="line">        <span class="keyword">int</span> B = <span class="number">31</span>;</span><br><span class="line">        hash = hash * B + name.hashCode();</span><br><span class="line">        hash = hash * B + age;</span><br><span class="line">        <span class="keyword">return</span> hash;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == obj) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (obj == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.getClass() != obj.getClass()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Student temp = (Student) obj;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.age == temp.age &amp;&amp;</span><br><span class="line">                <span class="keyword">this</span>.name.equals(temp.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
 </li>
+</ul>
+<h1 id="十一、相关链接"><a href="#十一、相关链接" class="headerlink" title="十一、相关链接"></a>十一、相关链接</h1><ul>
+<li><a href="https://mp.weixin.qq.com/s/sPIE54UmvNgINZIATQKyew" target="_blank" rel="noopener">图解红黑树</a></li>
 </ul>
 
       
@@ -515,7 +520,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、相关概念"><span class="toc-number">1.</span> <span class="toc-text">一、相关概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、二分搜索树"><span class="toc-number">2.</span> <span class="toc-text">二、二分搜索树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、AVL树"><span class="toc-number">3.</span> <span class="toc-text">三、AVL树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、添加操作"><span class="toc-number">3.1.</span> <span class="toc-text">1、添加操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、删除操作"><span class="toc-number">3.2.</span> <span class="toc-text">2、删除操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、2-3树"><span class="toc-number">4.</span> <span class="toc-text">四、2-3树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-、红黑树"><span class="toc-number">5.</span> <span class="toc-text">五 、红黑树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、添加操作-1"><span class="toc-number">5.1.</span> <span class="toc-text">1、添加操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、与AVL树比较"><span class="toc-number">5.2.</span> <span class="toc-text">2、与AVL树比较</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、二叉堆"><span class="toc-number">6.</span> <span class="toc-text">六、二叉堆</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、添加操作-2"><span class="toc-number">6.1.</span> <span class="toc-text">1、添加操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、删除操作-1"><span class="toc-number">6.2.</span> <span class="toc-text">2、删除操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、线段树-区间树"><span class="toc-number">7.</span> <span class="toc-text">七、线段树(区间树)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、字典树"><span class="toc-number">8.</span> <span class="toc-text">八、字典树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、并查集"><span class="toc-number">9.</span> <span class="toc-text">九、并查集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、实现思路"><span class="toc-number">9.1.</span> <span class="toc-text">1、实现思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、优化"><span class="toc-number">9.2.</span> <span class="toc-text">2、优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、路径压缩"><span class="toc-number">9.3.</span> <span class="toc-text">3、路径压缩</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十、哈希表"><span class="toc-number">10.</span> <span class="toc-text">十、哈希表</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、相关概念"><span class="toc-number">1.</span> <span class="toc-text">一、相关概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、二分搜索树"><span class="toc-number">2.</span> <span class="toc-text">二、二分搜索树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、AVL树"><span class="toc-number">3.</span> <span class="toc-text">三、AVL树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、添加操作"><span class="toc-number">3.1.</span> <span class="toc-text">1、添加操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、删除操作"><span class="toc-number">3.2.</span> <span class="toc-text">2、删除操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、2-3树"><span class="toc-number">4.</span> <span class="toc-text">四、2-3树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-、红黑树"><span class="toc-number">5.</span> <span class="toc-text">五 、红黑树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、添加操作-1"><span class="toc-number">5.1.</span> <span class="toc-text">1、添加操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、与AVL树比较"><span class="toc-number">5.2.</span> <span class="toc-text">2、与AVL树比较</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、二叉堆"><span class="toc-number">6.</span> <span class="toc-text">六、二叉堆</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、添加操作-2"><span class="toc-number">6.1.</span> <span class="toc-text">1、添加操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、删除操作-1"><span class="toc-number">6.2.</span> <span class="toc-text">2、删除操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、线段树-区间树"><span class="toc-number">7.</span> <span class="toc-text">七、线段树(区间树)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、字典树"><span class="toc-number">8.</span> <span class="toc-text">八、字典树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、并查集"><span class="toc-number">9.</span> <span class="toc-text">九、并查集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、实现思路"><span class="toc-number">9.1.</span> <span class="toc-text">1、实现思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、优化"><span class="toc-number">9.2.</span> <span class="toc-text">2、优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、路径压缩"><span class="toc-number">9.3.</span> <span class="toc-text">3、路径压缩</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十、哈希表"><span class="toc-number">10.</span> <span class="toc-text">十、哈希表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一、相关链接"><span class="toc-number">11.</span> <span class="toc-text">十一、相关链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -631,11 +636,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,7 +648,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">常见关键字</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,7 +656,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color1">常见关键字</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,7 +664,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,23 +672,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">泛型</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -703,11 +708,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -719,15 +728,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Spring JdbcTemplate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -735,19 +740,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
+                <a href="javascript:void(0)" class="js-tag color1">八皇后问题</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">逆波兰表达式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -759,11 +764,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">逆波兰表达式</a>
+                <a href="javascript:void(0)" class="js-tag color4">错题集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">错题集</a>
+                <a href="javascript:void(0)" class="js-tag color5">消息队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
               </li>
             
             <div class="clearfix"></div>
