@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="P5.">
 <meta property="og:description" content="一、简介&amp;emsp;&amp;emsp;背包问题的大致介绍如下：有一个总容量为 V 的背包，给定一些物品，它们的体积存放在数组 v 中，它们的价值存放在数组 w 中，从这些物品中挑出一部分放入背包中，使得背包的总价值最大，问如何挑选。 二、0/1背包问题1、解决思路&amp;emsp;&amp;emsp;0/1背包问题的关键点在于每个物品的数量只有一个，则对于某件物品，它要么放入背包，要么不放入背包。我们可以创建一个二维">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-02T07:57:53.882Z">
+<meta property="og:updated_time" content="2021-03-31T07:51:27.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【算法】背包问题">
 <meta name="twitter:description" content="一、简介&amp;emsp;&amp;emsp;背包问题的大致介绍如下：有一个总容量为 V 的背包，给定一些物品，它们的体积存放在数组 v 中，它们的价值存放在数组 w 中，从这些物品中挑出一部分放入背包中，使得背包的总价值最大，问如何挑选。 二、0/1背包问题1、解决思路&amp;emsp;&amp;emsp;0/1背包问题的关键点在于每个物品的数量只有一个，则对于某件物品，它要么放入背包，要么不放入背包。我们可以创建一个二维">
@@ -187,7 +187,7 @@
 <h2 id="2、代码实现"><a href="#2、代码实现" class="headerlink" title="2、代码实现"></a>2、代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 0/1背包问题</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> v      各个物品的体积</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> w      各个物品的价值</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> volume 背包的总容量</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">zeroOneKnapsack</span><span class="params">(<span class="keyword">int</span>[] v, <span class="keyword">int</span>[] w, <span class="keyword">int</span> volume)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (v.length != w.length) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"体积数组的长度与价值数组的长度不一致!"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 为了操作方便，在数组v和数组w的第一个位置插入一个无效值</span></span><br><span class="line">        <span class="keyword">int</span>[] newV = <span class="keyword">new</span> <span class="keyword">int</span>[v.length + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span>[] newW = <span class="keyword">new</span> <span class="keyword">int</span>[w.length + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; newV.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i != <span class="number">0</span>) &#123;</span><br><span class="line">                newV[i] = v[i - <span class="number">1</span>];</span><br><span class="line">                newW[i] = w[i - <span class="number">1</span>];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                newV[i] = -<span class="number">1</span>;</span><br><span class="line">                newW[i] = -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        v = newV;</span><br><span class="line">        w = newW;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 真正开始计算</span></span><br><span class="line">        <span class="keyword">int</span>[][] f = <span class="keyword">new</span> <span class="keyword">int</span>[v.length][volume + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; v.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= volume; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j &gt;= v[i]) &#123;</span><br><span class="line">                    f[i][j] = Math.max(f[i - <span class="number">1</span>][j], f[i - <span class="number">1</span>][j - v[i]] + w[i]);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    f[i][j] = f[i - <span class="number">1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> f[v.length - <span class="number">1</span>][volume];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="3、优化结果集空间"><a href="#3、优化结果集空间" class="headerlink" title="3、优化结果集空间"></a>3、优化结果集空间</h2><p>&emsp;&emsp;仔细观察式子<code>f[i][j] = Max{f[i-1][j], f[i-1][j-v[i]]+w[i]}</code>并结合代码可以发现，对于外循环i来说，其实每次都是与<strong>上一轮</strong>循环（第i-1轮）的结果进行比较，而不关心更早的轮次，于是我们可以把结果集优化成一维的。代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 0/1背包问题，对记录结果的数组空间进行优化</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> v      各个物品的体积</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> w      各个物品的价值</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> volume 背包的总容量</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">zeroOneKnapsack2</span><span class="params">(<span class="keyword">int</span>[] v, <span class="keyword">int</span>[] w, <span class="keyword">int</span> volume)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (v.length != w.length) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"体积数组的长度与价值数组的长度不一致!"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">int</span>[] f = <span class="keyword">new</span> <span class="keyword">int</span>[volume + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v.length; i++) &#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">			j必须是倒序遍历，保证等式右边的f[j]和f[j - v[i]]都是上一轮计算后的结果</span></span><br><span class="line"><span class="comment">			假如j是正序，则对于外循环来说，其实是与本轮次进行比较，不符合原来的逻辑“与第i-1轮比较”</span></span><br><span class="line"><span class="comment">			*/</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = volume; j &gt;= v[i]; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">                    f[j] = w[i];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    f[j] = Math.max(f[j], f[j - v[i]] + w[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> f[volume];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 0/1背包问题，对记录结果的数组空间进行优化</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> v      各个物品的体积</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> w      各个物品的价值</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> volume 背包的总容量</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">zeroOneKnapsack2</span><span class="params">(<span class="keyword">int</span>[] v, <span class="keyword">int</span>[] w, <span class="keyword">int</span> volume)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (v.length != w.length) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"体积数组的长度与价值数组的长度不一致!"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">int</span>[] f = <span class="keyword">new</span> <span class="keyword">int</span>[volume + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v.length; i++) &#123;</span><br><span class="line">            <span class="comment">// j必须是倒序遍历，保证等式右边的f[j]和f[j - v[i]]都是上一轮计算后的结果</span></span><br><span class="line">            <span class="comment">// 假如j是正序，则对于外循环来说，其实是与本轮次进行比较，不符合原来的逻辑“与第i-1轮比较”</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = volume; j &gt;= v[i]; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">                    f[j] = w[i];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    f[j] = Math.max(f[j], f[j - v[i]] + w[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> f[volume];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="三、完全背包问题"><a href="#三、完全背包问题" class="headerlink" title="三、完全背包问题"></a>三、完全背包问题</h1><p>&emsp;&emsp;完全背包问题与0/1背包问题相似，区别仅仅在于在本问题中，每个物品可选的数量是k个，k∈[0, +∞)。正常情况下，再对k进行遍历就能解决了，但是此时复杂度达到了O(n^3)。耗时较高，可以优化成O(n^2)，伪代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; v.length; i++)</span><br><span class="line">	for (int j = v[i]; j &lt;= V; j++)</span><br><span class="line">		f[j] = Max&#123;f[j], f[j-v[i]]+w[i]&#125;;</span><br></pre></td></tr></table></figure>
@@ -490,27 +490,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JVM</a>
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,7 +510,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,7 +534,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,7 +554,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,15 +574,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,11 +590,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color5">Spring JdbcTemplate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Spring JdbcTemplate</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,31 +602,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">排序算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">八皇后问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">逆波兰表达式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">错题集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -631,6 +615,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">逆波兰表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">错题集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
             
             <div class="clearfix"></div>
