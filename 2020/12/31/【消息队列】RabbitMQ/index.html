@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/26-50/029-%E7%94%9F%E4%BA%A7%E8%80%85%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF.png">
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/26-50/029-wq%E6%B6%88%E8%B4%B9%E8%80%851.png">
 <meta property="og:image" content="https://p5r-chihaya.github.io/images/26-50/029-wq%E6%B6%88%E8%B4%B9%E8%80%852.png">
-<meta property="og:updated_time" content="2020-12-31T10:00:59.213Z">
+<meta property="og:updated_time" content="2021-07-20T09:16:53.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【消息队列】RabbitMQ">
 <meta name="twitter:description" content="1. 介绍&amp;emsp;&amp;emsp;RabbitMQ是使用Erlang语言开发的开源消息队列系统，基于AMQP协议。  RabbitMQ目前支持7种模型，还有以下特点：  开源、性能优秀，稳定性保障 提供可靠性消息投递模式、返回模式 与Spring AMQP完美整合，API丰富 集群模式丰富，表达式配置，HA模式，镜像队列模型 保证数据不丢失的前提做到高可靠性、可用性">
@@ -220,7 +220,7 @@
 
 <h2 id="3-4-提炼工具类"><a href="#3-4-提炼工具类" class="headerlink" title="3.4 提炼工具类"></a>3.4 提炼工具类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RabbitMqUtils</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ConnectionFactory factory;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        factory = <span class="keyword">new</span> ConnectionFactory();</span><br><span class="line">        factory.setHost(<span class="string">"127.0.0.1"</span>);</span><br><span class="line">        factory.setPort(<span class="number">5672</span>);</span><br><span class="line">        factory.setVirtualHost(<span class="string">"/ems"</span>);</span><br><span class="line">        factory.setUsername(<span class="string">"guest"</span>);</span><br><span class="line">        factory.setPassword(<span class="string">"guest"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getLocalConnection</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> factory.newConnection();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException | TimeoutException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">closeConnectionAndChannel</span><span class="params">(Connection connection, Channel channel)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (channel != <span class="keyword">null</span>) &#123;</span><br><span class="line">                channel.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (connection != <span class="keyword">null</span>) &#123;</span><br><span class="line">                connection.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException | TimeoutException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="4-Work-queues模型"><a href="#4-Work-queues模型" class="headerlink" title="4. Work queues模型"></a>4. Work queues模型</h1><h2 id="4-1-生产者"><a href="#4-1-生产者" class="headerlink" title="4.1 生产者"></a>4.1 生产者</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) throws IOException &#123;</span><br><span class="line">    Connection localConnection = RabbitMqUtils.getLocalConnection();</span><br><span class="line">    Channel channel = localConnection.createChannel();</span><br><span class="line">    channel.queueDeclare("work", true, false, false, null);</span><br><span class="line">    for (int i = 1; i &lt;= 10; i++) &#123;</span><br><span class="line">        String msg = "我是消息" + i;</span><br><span class="line">        channel.basicPublish("", "work", null, msg.getBytes());</span><br><span class="line">    &#125;</span><br><span class="line">    RabbitMqUtils.closeConnectionAndChannel(localConnection, channel);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="4-Work-queues模型"><a href="#4-Work-queues模型" class="headerlink" title="4. Work queues模型"></a>4. Work queues模型</h1><h2 id="4-1-生产者"><a href="#4-1-生产者" class="headerlink" title="4.1 生产者"></a>4.1 生产者</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    Connection localConnection = RabbitMqUtils.getLocalConnection();</span><br><span class="line">    Channel channel = localConnection.createChannel();</span><br><span class="line">    channel.queueDeclare(<span class="string">"work"</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">null</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">        String msg = <span class="string">"我是消息"</span> + i;</span><br><span class="line">        channel.basicPublish(<span class="string">""</span>, <span class="string">"work"</span>, <span class="keyword">null</span>, msg.getBytes());</span><br><span class="line">    &#125;</span><br><span class="line">    RabbitMqUtils.closeConnectionAndChannel(localConnection, channel);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="4-2-消费者"><a href="#4-2-消费者" class="headerlink" title="4.2 消费者"></a>4.2 消费者</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 多个消费者的代码一样，只是消费者名字不同</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    Connection localConnection = RabbitMqUtils.getLocalConnection();</span><br><span class="line">    Channel channel = localConnection.createChannel();</span><br><span class="line">    channel.queueDeclare(<span class="string">"work"</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">null</span>);</span><br><span class="line">    channel.basicConsume(<span class="string">"work"</span>, <span class="keyword">true</span>, <span class="keyword">new</span> DefaultConsumer(channel) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleDelivery</span><span class="params">(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, <span class="keyword">byte</span>[] body)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"消费者-1: "</span> + <span class="keyword">new</span> String(body));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -566,7 +566,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">HashMap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">常见关键字</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,7 +598,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">常见关键字</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,23 +606,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">注解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,23 +622,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,11 +642,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,19 +662,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Spring JdbcTemplate</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">排序算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,11 +690,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">排序算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">负载均衡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -707,10 +715,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">错题集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
               </li>
             
             <div class="clearfix"></div>
