@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://p5r-chihaya.github.io">
-  <title>【学习笔记】Java笔记十：Java8新特性 | P5.</title>
+  <title>【学习笔记】Java笔记7：反射 | P5.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Lambda表达式1、相关说明 创建函数式接口的匿名对象时，可以使用Lambda表达式来减少代码量  语法格式：(参数列表) -&amp;gt; {代码体}  函数式接口：只有一个抽象方法的接口，可以使用注解@FunctionalInterface来标记对应接口  Java内置的4个基本函数式接口如下    接口名 方法    Consumer&amp;lt;T&amp;gt; void accept(T t)">
-<meta name="keywords" content="Java,Java8新特性">
+  <meta name="description" content="一、相关介绍1、什么是反射&amp;emsp;&amp;emsp;Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为Java语言的反射机制。 2、反射的作用 运行时判断任意对象所属的类 运行时构造任意类的对象 运行时判断任意类所具有的成员变量和方法 运行时获取泛型信息 运行时调用任意对象的">
+<meta name="keywords" content="Java,反射">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【学习笔记】Java笔记十：Java8新特性">
-<meta property="og:url" content="https://p5r-chihaya.github.io/2019/10/07/【学习笔记】Java笔记十：Java8新特性/index.html">
+<meta property="og:title" content="【学习笔记】Java笔记7：反射">
+<meta property="og:url" content="https://p5r-chihaya.github.io/2019/09/14/【学习笔记】Java笔记7：反射/index.html">
 <meta property="og:site_name" content="P5.">
-<meta property="og:description" content="一、Lambda表达式1、相关说明 创建函数式接口的匿名对象时，可以使用Lambda表达式来减少代码量  语法格式：(参数列表) -&amp;gt; {代码体}  函数式接口：只有一个抽象方法的接口，可以使用注解@FunctionalInterface来标记对应接口  Java内置的4个基本函数式接口如下    接口名 方法    Consumer&amp;lt;T&amp;gt; void accept(T t)">
+<meta property="og:description" content="一、相关介绍1、什么是反射&amp;emsp;&amp;emsp;Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为Java语言的反射机制。 2、反射的作用 运行时判断任意对象所属的类 运行时构造任意类的对象 运行时判断任意类所具有的成员变量和方法 运行时获取泛型信息 运行时调用任意对象的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-16T05:12:42.927Z">
+<meta property="og:updated_time" content="2021-09-02T03:31:07.431Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【学习笔记】Java笔记十：Java8新特性">
-<meta name="twitter:description" content="一、Lambda表达式1、相关说明 创建函数式接口的匿名对象时，可以使用Lambda表达式来减少代码量  语法格式：(参数列表) -&amp;gt; {代码体}  函数式接口：只有一个抽象方法的接口，可以使用注解@FunctionalInterface来标记对应接口  Java内置的4个基本函数式接口如下    接口名 方法    Consumer&amp;lt;T&amp;gt; void accept(T t)">
+<meta name="twitter:title" content="【学习笔记】Java笔记7：反射">
+<meta name="twitter:description" content="一、相关介绍1、什么是反射&amp;emsp;&amp;emsp;Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为Java语言的反射机制。 2、反射的作用 运行时判断任意对象所属的类 运行时构造任意类的对象 运行时判断任意类所具有的成员变量和方法 运行时获取泛型信息 运行时调用任意对象的">
   
     <link rel="alternative" href="/atom.xml" title="P5." type="application/atom+xml">
   
@@ -152,221 +152,85 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【学习笔记】Java笔记十：Java8新特性" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-【学习笔记】Java笔记7：反射" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      【学习笔记】Java笔记十：Java8新特性
+      【学习笔记】Java笔记7：反射
     </h1>
   
 
         
-        <a href="/2019/10/07/【学习笔记】Java笔记十：Java8新特性/" class="archive-article-date">
-  	<time datetime="2019-10-07T06:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
+        <a href="/2019/09/14/【学习笔记】Java笔记7：反射/" class="archive-article-date">
+  	<time datetime="2019-09-14T06:24:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、Lambda表达式"><a href="#一、Lambda表达式" class="headerlink" title="一、Lambda表达式"></a>一、Lambda表达式</h1><h2 id="1、相关说明"><a href="#1、相关说明" class="headerlink" title="1、相关说明"></a>1、相关说明</h2><ul>
-<li><p>创建<strong>函数式接口</strong>的匿名对象时，可以使用Lambda表达式来减少代码量</p>
-</li>
-<li><p>语法格式：(参数列表) -&gt; {代码体}</p>
-</li>
-<li><p>函数式接口：只有一个抽象方法的接口，可以使用注解@FunctionalInterface来标记对应接口</p>
-</li>
-<li><p>Java内置的4个基本函数式接口如下</p>
-<table>
-<thead>
-<tr>
-<th>接口名</th>
-<th>方法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Consumer&lt;T&gt;</td>
-<td>void accept(T t)</td>
-</tr>
-<tr>
-<td>Supplier&lt;T&gt;</td>
-<td>T get()</td>
-</tr>
-<tr>
-<td>Function&lt;T, R&gt;</td>
-<td>R apply(T t)</td>
-</tr>
-<tr>
-<td>Predicate&lt;T&gt;</td>
-<td>boolean test(T t)</td>
-</tr>
-</tbody></table>
-</li>
+        <h1 id="一、相关介绍"><a href="#一、相关介绍" class="headerlink" title="一、相关介绍"></a>一、相关介绍</h1><h2 id="1、什么是反射"><a href="#1、什么是反射" class="headerlink" title="1、什么是反射"></a>1、什么是反射</h2><p>&emsp;&emsp;Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为Java语言的反射机制。</p>
+<h2 id="2、反射的作用"><a href="#2、反射的作用" class="headerlink" title="2、反射的作用"></a>2、反射的作用</h2><ul>
+<li>运行时判断任意对象所属的类</li>
+<li>运行时构造任意类的对象</li>
+<li>运行时判断任意类所具有的成员变量和方法</li>
+<li>运行时获取泛型信息</li>
+<li>运行时调用任意对象的成员变量和方法<strong>(包括私有成员变量和方法)</strong></li>
+<li>运行时处理注解</li>
+<li>生成代理对象</li>
 </ul>
 <a id="more"></a>
 
-<h2 id="2、例子"><a href="#2、例子" class="headerlink" title="2、例子"></a>2、例子</h2><h3 id="1）Consumer-lt-T-gt"><a href="#1）Consumer-lt-T-gt" class="headerlink" title="1）Consumer&lt;T&gt;"></a>1）Consumer&lt;T&gt;</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        addMoney(<span class="number">400</span>, money -&gt; System.out.println(<span class="string">"零花钱加了"</span>+ money + <span class="string">"元"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addMoney</span><span class="params">(<span class="keyword">double</span> money, Consumer&lt;Double&gt; consumer)</span> </span>&#123;</span><br><span class="line">        consumer.accept(money);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="二、java-lang-Class"><a href="#二、java-lang-Class" class="headerlink" title="二、java.lang.Class"></a>二、java.lang.Class</h1><p>&emsp;&emsp;程序经过javac.exe命令后，会生成字节码(.class)文件，然后java.exe命令对字节码文件进行解释运行，相当于把字节码文件加载到内存中，充当一个运行时类，作为Class的一个实例。即Class的实例就是一个运行时类，一个具体类的Class实例只有一个。</p>
+<h2 id="1、获取运行时类的实例"><a href="#1、获取运行时类的实例" class="headerlink" title="1、获取运行时类的实例"></a>1、获取运行时类的实例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</span><br><span class="line">        <span class="comment">// 方法一</span></span><br><span class="line">        Class clazz1 = People<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        System.out.println(clazz1);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 方法二：调用对象的getClass()方法</span></span><br><span class="line">        People people = <span class="keyword">new</span> People();</span><br><span class="line">        Class clazz2 = people.getClass();</span><br><span class="line">        System.out.println(clazz2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 方法三：调用Class的静态方法forName()，要写全类名。会抛异常</span></span><br><span class="line">        <span class="comment">// 常用</span></span><br><span class="line">        Class clazz3 = Class.forName(<span class="string">"pers.ljc.test.People"</span>);</span><br><span class="line">        System.out.println(clazz3);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 方法四：使用类加载器</span></span><br><span class="line">        ClassLoader classLoader = Test<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>()</span>;</span><br><span class="line">        Class clazz4 = classLoader.loadClass(<span class="string">"pers.ljc.test.People"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 这四个指向的是同一个</span></span><br><span class="line">        System.out.println(clazz1 == clazz2); <span class="comment">// true</span></span><br><span class="line">        System.out.println(clazz1 == clazz3); <span class="comment">// true</span></span><br><span class="line">        System.out.println(clazz1 == clazz4); <span class="comment">// true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2）Predicate-lt-T-gt"><a href="#2）Predicate-lt-T-gt" class="headerlink" title="2）Predicate&lt;T&gt;"></a>2）Predicate&lt;T&gt;</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; list = Arrays.asList(<span class="string">"123abc"</span>, <span class="string">"456"</span>, <span class="string">"4abc"</span>);</span><br><span class="line">        <span class="comment">// Lambda表达式中，代码体只有一行时，可以省略花括号和"return"</span></span><br><span class="line">        List&lt;String&gt; result = filterString(list, str -&gt; str.contains(<span class="string">"abc"</span>));</span><br><span class="line">        System.out.println(result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">filterString</span><span class="params">(List&lt;String&gt; list, Predicate&lt;String&gt; pre)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;String&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (String s : list) &#123;</span><br><span class="line">            <span class="keyword">if</span> (pre.test(s)) &#123;</span><br><span class="line">                result.add(s);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="二、方法引用"><a href="#二、方法引用" class="headerlink" title="二、方法引用"></a>二、方法引用</h1><h2 id="1、相关说明-1"><a href="#1、相关说明-1" class="headerlink" title="1、相关说明"></a>1、相关说明</h2><ul>
-<li><p>本质上还是Lambda表达式，对应的接口也得是函数式接口，代码量更少</p>
-</li>
-<li><p>对于Lambda表达式代码体中的方法，已有其他现成的方法时，可以使用方法引用</p>
-</li>
-<li><p>语法格式</p>
-<blockquote>
-<p>1、对象::非静态方法</p>
-<p>2、类::静态方法</p>
-<p>3、类::非静态方法</p>
-</blockquote>
-</li>
+<p>&emsp;&emsp;可以充当Class实例的有</p>
+<ul>
+<li>具体类(外部类，成员内部类，静态内部类，局部内部类，匿名内部类均可)</li>
+<li>接口</li>
+<li>数组</li>
+<li>枚举类</li>
+<li>注解</li>
+<li>基本数据类型</li>
+<li>void</li>
+<li>Class自身</li>
 </ul>
-<h2 id="2、例子-1"><a href="#2、例子-1" class="headerlink" title="2、例子"></a>2、例子</h2><h3 id="1）对象-非静态方法"><a href="#1）对象-非静态方法" class="headerlink" title="1）对象::非静态方法"></a>1）对象::非静态方法</h3><p>&emsp;&emsp;与”类::静态方法”的情况类似</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Consumer&lt;String&gt; con1 = str -&gt; System.out.println(str);</span><br><span class="line">        con1.accept(<span class="string">"Lambda表达式"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 上述Lambda表达式中代码体的效果与PrintStream的println(T t)方法一致</span></span><br><span class="line">        <span class="comment">// 且参数列表也一样，于是可以用方法引用</span></span><br><span class="line">        PrintStream ps = System.out;</span><br><span class="line">        Consumer&lt;String&gt; con2 = ps::println;</span><br><span class="line">        con2.accept(<span class="string">"方法引用"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</span><br><span class="line">        Class c1 = Object<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        Class c2 = Map<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        Class c3 = <span class="keyword">int</span>[][]<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        Class c4 = ElementType<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        Class c5 = Override<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        Class c6 = <span class="keyword">int</span><span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        Class c7 = <span class="keyword">void</span><span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        Class c8 = Class<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 数组的类型和维度一样时，Class就是同一个</span></span><br><span class="line">        <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">20</span>];</span><br><span class="line">        <span class="keyword">int</span>[] b = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];</span><br><span class="line">        System.out.println(a.getClass() == b.getClass()); <span class="comment">// true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2）类-非静态方法"><a href="#2）类-非静态方法" class="headerlink" title="2）类::非静态方法"></a>2）类::非静态方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 类::非静态方法</span></span><br><span class="line">        <span class="comment">// Comparator的int compare(T t1, T t2)</span></span><br><span class="line">        <span class="comment">// String的int t1.compareTo(t2)</span></span><br><span class="line">        Comparator&lt;String&gt; con = String::compareTo;</span><br><span class="line">        <span class="comment">// 实际上是调用了"abc".compareTo("abq")</span></span><br><span class="line">        System.out.println(con.compare(<span class="string">"abc"</span>, <span class="string">"abq"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2、创建运行时类的对象"><a href="#2、创建运行时类的对象" class="headerlink" title="2、创建运行时类的对象"></a>2、创建运行时类的对象</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Class&lt;People&gt; clazz = People<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        People people = clazz.newInstance(); <span class="comment">// 相当于调用空参构造器</span></span><br><span class="line">        System.out.println(people);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="三、构造器引用"><a href="#三、构造器引用" class="headerlink" title="三、构造器引用"></a>三、构造器引用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 原始写法</span></span><br><span class="line">        Function&lt;String, Student&gt; fun1 = <span class="keyword">new</span> Function&lt;String, Student&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> Student <span class="title">apply</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// 自定义Student类，构造器传入学生名字</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> Student(name);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">// Lambda表达式</span></span><br><span class="line">        Function&lt;String, Student&gt; fun2 = name -&gt; <span class="keyword">new</span> Student(name);</span><br><span class="line">        <span class="comment">// 构造器引用，在Student类中刚好有需要一个参数的构造器，所以能直接用Student::new</span></span><br><span class="line">        Function&lt;String, Student&gt; fun3 = Student::<span class="keyword">new</span>;</span><br><span class="line">        Student tom = fun3.apply(<span class="string">"Tom"</span>);</span><br><span class="line">        System.out.println(tom);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3、获取运行时类的结构"><a href="#3、获取运行时类的结构" class="headerlink" title="3、获取运行时类的结构"></a>3、获取运行时类的结构</h2><p>&emsp;&emsp;现有如下几种类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> "123"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="四、Stream-API"><a href="#四、Stream-API" class="headerlink" title="四、Stream API"></a>四、Stream API</h1><h2 id="1、相关说明-2"><a href="#1、相关说明-2" class="headerlink" title="1、相关说明"></a>1、相关说明</h2><ul>
-<li><p>Stream操作有点类似于复杂的SQL语句，可以对集合数据进行过滤、截取等操作</p>
-</li>
-<li><p>Stream关注的是对数据的运算，与CPU打交道；集合关注的是数据的存储，与内存打交道</p>
-</li>
-<li><p>Stream本身不会存储元素</p>
-</li>
-<li><p>Stream不会改变源对象，会返回一个新的Stream</p>
-</li>
-<li><p>Stream操作是延迟执行的，只有执行终止操作时才执行中间操作</p>
-</li>
-<li><p>执行流程如下</p>
-<blockquote>
-<p>1、实例化</p>
-<p>2、中间操作(过滤、映射等)</p>
-<p>3、终止</p>
-</blockquote>
-</li>
-<li><p>一旦执行终止操作，Stream将不能再使用；想要再用，就得再实例化</p>
-</li>
-</ul>
-<h2 id="2、操作"><a href="#2、操作" class="headerlink" title="2、操作"></a>2、操作</h2><h3 id="1）实例化"><a href="#1）实例化" class="headerlink" title="1）实例化"></a>1）实例化</h3><ul>
-<li>通过集合的stream()方法获取顺序流；parallelStream()方法获取并行流</li>
-<li>通过Arrays.stream()方法，参数是数组</li>
-<li>通过Stream.of()方法，参数是多个元素，如：Stream.of(1, 2, 3, 4)</li>
-</ul>
-<h3 id="2）筛选与切片"><a href="#2）筛选与切片" class="headerlink" title="2）筛选与切片"></a>2）筛选与切片</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; list = Arrays.asList(<span class="string">"123abc"</span>, <span class="string">"456"</span>, <span class="string">"789abc"</span>, <span class="string">"456"</span>);</span><br><span class="line">    <span class="comment">// filter():过滤，过滤包含"abc"的</span></span><br><span class="line">    <span class="comment">// forEach():这是一个终止操作，参数传一个Consumer</span></span><br><span class="line">    list.stream().filter(str -&gt; str.contains(<span class="string">"abc"</span>)).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// limit():截取</span></span><br><span class="line">    list.stream().limit(<span class="number">2</span>).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// skip():跳过多个元素</span></span><br><span class="line">    list.stream().skip(<span class="number">1</span>).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// distinct():去重</span></span><br><span class="line">    list.stream().distinct().forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">interfaceMethod</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="3）映射"><a href="#3）映射" class="headerlink" title="3）映射"></a>3）映射</h3><p>1、map()</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; list = Arrays.asList(<span class="string">"aa"</span>, <span class="string">"bb"</span>, <span class="string">"cc"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// map():映射，参数是Function类</span></span><br><span class="line">    list.stream().map(str -&gt; str.toUpperCase()).forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">char</span> gender;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> weight;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"呼吸"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"吃"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>2、flatMap()</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StreamTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; list = Arrays.asList(<span class="string">"aaa"</span>, <span class="string">"bbb"</span>, <span class="string">"ccc"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果使用map()，得到的Stream中的元素是Stream，不会把自定义方法的返回值拆开</span></span><br><span class="line">        Stream&lt;Stream&lt;Character&gt;&gt; streamStream = list.stream().map(StreamTest::fromStringToStream);</span><br><span class="line">        streamStream.forEach(s -&gt; s.forEach(System.out::print));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果使用flatMap()，得到的Stream中的元素是Character，会把自定义方法的返回值拆开</span></span><br><span class="line">        Stream&lt;Character&gt; characterStream = list.stream().flatMap(StreamTest::fromStringToStream);</span><br><span class="line">        characterStream.forEach(System.out::print);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 自定义方法，把字符串的每个字符加到list集合中，返回该list的Stream</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Stream&lt;Character&gt; <span class="title">fromStringToStream</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;Character&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : str.toCharArray()) &#123;</span><br><span class="line">            list.add(c);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list.stream();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MyAnnotation</span>(value = <span class="string">"hello"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">People</span>&lt;<span class="title">String</span>&gt; <span class="keyword">implements</span> <span class="title">MyInterface</span>, <span class="title">Comparable</span>&lt;<span class="title">Student</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">int</span> id;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@MyAnnotation</span>(value = <span class="string">"ljc"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Student</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Student(String name, <span class="keyword">int</span> age) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> age, <span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@MyAnnotation</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">show</span><span class="params">(String address)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"我住在"</span> + address);</span><br><span class="line">        <span class="keyword">return</span> address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">say</span><span class="params">(String interest)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"我的兴趣是"</span> + interest);</span><br><span class="line">        <span class="keyword">return</span> interest;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"睡觉"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">interfaceMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"interfaceMethod"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Student o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// set, get, toString方法...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="4）排序"><a href="#4）排序" class="headerlink" title="4）排序"></a>4）排序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = Arrays.asList(<span class="number">88</span>, -<span class="number">10</span>, <span class="number">40</span>);</span><br><span class="line">    <span class="comment">// sorted():排序，如果集合中的元素是自定义类，则要么sorted()参数传一个比较器，要么该自定义类实现Comparable接口</span></span><br><span class="line">    list.stream().sorted().forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1）获取属性"><a href="#1）获取属性" class="headerlink" title="1）获取属性"></a>1）获取属性</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Class clazz = Student<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        <span class="comment">// 获取当前运行时类及其父类的public属性</span></span><br><span class="line">        Field[] fields = clazz.getFields();</span><br><span class="line">        <span class="keyword">for</span> (Field f : fields) &#123;</span><br><span class="line">            System.out.println(f);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"---------------"</span>);</span><br><span class="line">        <span class="comment">// 获取当前运行时类的所有属性，不包含父类</span></span><br><span class="line">        Field[] declaredFields = clazz.getDeclaredFields();</span><br><span class="line">        <span class="keyword">for</span> (Field f : declaredFields) &#123;</span><br><span class="line">            System.out.println(f);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="5）终止之查找与匹配"><a href="#5）终止之查找与匹配" class="headerlink" title="5）终止之查找与匹配"></a>5）终止之查找与匹配</h3><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>boolean allMatch(Predicate p)</td>
-<td>检查是否匹配所有元素</td>
-</tr>
-<tr>
-<td>boolean anyMatch(Predicate p)</td>
-<td>检查是否至少匹配一个元素</td>
-</tr>
-<tr>
-<td>boolean noneMatch(Predicate p)</td>
-<td>检查是否没有匹配元素</td>
-</tr>
-<tr>
-<td>Optional findFirst()</td>
-<td>获取第一个元素</td>
-</tr>
-<tr>
-<td>Optional findAny()</td>
-<td>获取任一元素</td>
-</tr>
-<tr>
-<td>long count()</td>
-<td>统计元素个数</td>
-</tr>
-<tr>
-<td>Optional max(Comparator c)</td>
-<td>获取最大值元素</td>
-</tr>
-<tr>
-<td>Optional min(Comparator c)</td>
-<td>获取最小值元素</td>
-</tr>
-<tr>
-<td>void forEach(Consumer c)</td>
-<td>内部迭代</td>
-</tr>
-</tbody></table>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 自定义Student类的集合，Student类有name和age属性</span></span><br><span class="line">    List&lt;Student&gt; list = Arrays.asList(<span class="keyword">new</span> Student(<span class="string">"jack"</span>, <span class="number">20</span>), <span class="keyword">new</span> Student(<span class="string">"tom"</span>, <span class="number">50</span>), <span class="keyword">new</span> Student(<span class="string">"mi"</span>, <span class="number">30</span>));</span><br><span class="line">    Optional&lt;Student&gt; max = list.stream().max((e1, e2) -&gt; e1.getAge() - e2.getAge());</span><br><span class="line">    System.out.println(max);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2）获取方法"><a href="#2）获取方法" class="headerlink" title="2）获取方法"></a>2）获取方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Class clazz = Student<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        <span class="comment">// 获取当前运行时类及其父类(包括Object类)的public方法</span></span><br><span class="line">        Method[] methods = clazz.getMethods();</span><br><span class="line">        <span class="keyword">for</span> (Method m : methods) &#123;</span><br><span class="line">            System.out.println(m);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"----------------"</span>);</span><br><span class="line">        <span class="comment">// 获取当前运行时类的所有方法</span></span><br><span class="line">        Method[] declaredMethods = clazz.getDeclaredMethods();</span><br><span class="line">        <span class="keyword">for</span> (Method m : declaredMethods) &#123;</span><br><span class="line">            System.out.println(m);</span><br><span class="line">            <span class="comment">// 获取方法的注解，只有被RetentionPolicy.RUNTIME修饰的注解才可以</span></span><br><span class="line">            Annotation[] annos = m.getAnnotations();</span><br><span class="line">            <span class="keyword">for</span> (Annotation a : annos) &#123;</span><br><span class="line">                System.out.println(a);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 获取方法的修饰符</span></span><br><span class="line">            System.out.println(Modifier.toString(m.getModifiers()));</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 通过各种get方法可以获取到方法参数、返回类型、抛出的异常等</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="6）终止之归约"><a href="#6）终止之归约" class="headerlink" title="6）终止之归约"></a>6）终止之归约</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>);</span><br><span class="line">    <span class="comment">// T reduce(T identity, BinaryOperator&lt;T&gt; accumulator)</span></span><br><span class="line">    <span class="comment">// 第一个参数是初始值，</span></span><br><span class="line">    <span class="comment">// 第二个参数表示，将流中的元素反复结合起来，结合的方式具体要看传入的参数，本例的意思是：</span></span><br><span class="line">    <span class="comment">// 初始值10加上第一个元素1得到11，11加上第二个元素2得到13，如此循环</span></span><br><span class="line">    Integer reduce = list.stream().reduce(<span class="number">10</span>, Integer::sum);</span><br><span class="line">    System.out.println(reduce);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Student&gt; list = Arrays.asList(<span class="keyword">new</span> Student(<span class="string">"jack"</span>, <span class="number">20</span>), <span class="keyword">new</span> Student(<span class="string">"tom"</span>, <span class="number">50</span>), <span class="keyword">new</span> Student(<span class="string">"mi"</span>, <span class="number">30</span>));</span><br><span class="line">    Stream&lt;Integer&gt; ageStream = list.stream().map(Student::getAge);</span><br><span class="line">    <span class="comment">// Optional&lt;T&gt; reduce(BinaryOperator&lt;T&gt; accumulator)</span></span><br><span class="line">    <span class="comment">// 只有一个参数，将流中的元素反复结合起来，结合的方式是依次累加</span></span><br><span class="line">    Optional&lt;Integer&gt; reduce = ageStream.reduce((d1, d2) -&gt; d1 + d2);</span><br><span class="line">    System.out.println(reduce);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3）获取构造器"><a href="#3）获取构造器" class="headerlink" title="3）获取构造器"></a>3）获取构造器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Class clazz = Student<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        <span class="comment">// 获取当前运行时类的public构造器</span></span><br><span class="line">        Constructor[] constructors = clazz.getConstructors();</span><br><span class="line">        <span class="keyword">for</span> (Constructor c : constructors) &#123;</span><br><span class="line">            System.out.println(c);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"----------------"</span>);</span><br><span class="line">        <span class="comment">// 获取当前运行类的所有构造器</span></span><br><span class="line">        Constructor[] declaredConstructors = clazz.getDeclaredConstructors();</span><br><span class="line">        <span class="keyword">for</span> (Constructor c : declaredConstructors) &#123;</span><br><span class="line">            System.out.println(c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="7）终止之收集"><a href="#7）终止之收集" class="headerlink" title="7）终止之收集"></a>7）终止之收集</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Student&gt; list = Arrays.asList(<span class="keyword">new</span> Student(<span class="string">"jack"</span>, <span class="number">20</span>), <span class="keyword">new</span> Student(<span class="string">"tom"</span>, <span class="number">50</span>), <span class="keyword">new</span> Student(<span class="string">"mi"</span>, <span class="number">30</span>));</span><br><span class="line">    <span class="comment">// collect(Collector c):收集</span></span><br><span class="line">    <span class="comment">// 把结果收集到list中</span></span><br><span class="line">    List&lt;Student&gt; resultList = list.stream().filter(e -&gt; e.getAge() &gt; <span class="number">20</span>).collect(Collectors.toList());</span><br><span class="line">    resultList.forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把结果收集到set中</span></span><br><span class="line">    Set&lt;Student&gt; resultSet = list.stream().filter(e -&gt; e.getAge() &gt; <span class="number">20</span>).collect(Collectors.toSet());</span><br><span class="line">    resultSet.forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4）获取父类"><a href="#4）获取父类" class="headerlink" title="4）获取父类"></a>4）获取父类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Class clazz = Student<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        <span class="comment">// 获取当前运行时类的父类(无泛型信息)</span></span><br><span class="line">        Class superclass = clazz.getSuperclass();</span><br><span class="line">        System.out.println(superclass);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 获取当前运行时类的带泛型父类</span></span><br><span class="line">        Type genericSuperclass = clazz.getGenericSuperclass();</span><br><span class="line">        System.out.println(genericSuperclass);</span><br><span class="line">        <span class="comment">// 获取泛型类型</span></span><br><span class="line">        ParameterizedType paramType = (ParameterizedType) genericSuperclass;</span><br><span class="line">        Type[] actualTypeArguments = paramType.getActualTypeArguments();</span><br><span class="line">        System.out.println(((Class) actualTypeArguments[<span class="number">0</span>]).getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="五、Optional类"><a href="#五、Optional类" class="headerlink" title="五、Optional类"></a>五、Optional类</h1><p>&emsp;&emsp;在Stream操作中经常会返回这种类型。Optional&lt;T&gt;是一个容器类，存放T类型的值，可以避免空指针异常。</p>
-<h2 id="1、实例化"><a href="#1、实例化" class="headerlink" title="1、实例化"></a>1、实例化</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Student tom = <span class="keyword">new</span> Student(<span class="string">"tom"</span>, <span class="number">20</span>);</span><br><span class="line">    <span class="comment">// 使用Optional.of()创建实例，参数不能是null</span></span><br><span class="line">    <span class="comment">// Optional.ofNullable()的参数可以是null</span></span><br><span class="line">    Optional&lt;Student&gt; student = Optional.of(tom);</span><br><span class="line">    System.out.println(student);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5）获取其他内容"><a href="#5）获取其他内容" class="headerlink" title="5）获取其他内容"></a>5）获取其他内容</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Class clazz = Student<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        <span class="comment">// 获取运行时类的接口</span></span><br><span class="line">        Class[] interfaces = clazz.getInterfaces();</span><br><span class="line">        <span class="keyword">for</span> (Class c : interfaces) &#123;</span><br><span class="line">            System.out.println(c);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 获取运行时类的包</span></span><br><span class="line">        Package aPackage = clazz.getPackage();</span><br><span class="line">        System.out.println(aPackage);</span><br><span class="line">        <span class="comment">// 获取运行时类的注解，需要被RetentionPolicy.RUNTIME修饰</span></span><br><span class="line">        Annotation[] annotations = clazz.getAnnotations();</span><br><span class="line">        <span class="keyword">for</span> (Annotation a : annotations) &#123;</span><br><span class="line">            System.out.println(a);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="2、相关方法"><a href="#2、相关方法" class="headerlink" title="2、相关方法"></a>2、相关方法</h2><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Optional.of(T t)</td>
-<td>创建一个Optional实例，参数t不能为空</td>
-</tr>
-<tr>
-<td>Optional.empty()</td>
-<td>创建一个空的实例</td>
-</tr>
-<tr>
-<td>Optional.ofNullable(T t)</td>
-<td>创建一个Optional实例，参数t可以为空</td>
-</tr>
-<tr>
-<td>boolean isPresent()</td>
-<td>判断Optional的内容是否为空</td>
-</tr>
-<tr>
-<td>void ifPresent(Consumer c)</td>
-<td>如果内容不为空，则执行Consumer代码，并把Optional的内容作为参数传入Consumer中</td>
-</tr>
-<tr>
-<td>T get()</td>
-<td>返回Optional的内容，如果为空则抛异常</td>
-</tr>
-<tr>
-<td>T orElse(T t)</td>
-<td>如果当前Optional的内容非空，则返回该内容；否则如果为空，返回参数里的t</td>
-</tr>
-<tr>
-<td>T orElseGet(Supplier other)</td>
-<td>返回Optional的内容，如果为空则返回Supplier代码中的返回值</td>
-</tr>
-<tr>
-<td>T orElseThrow(Supplier s)</td>
-<td>返回Optional的内容，如果为空则抛出Supplier代码中抛出的异常</td>
-</tr>
-</tbody></table>
-<h1 id="六、相关链接"><a href="#六、相关链接" class="headerlink" title="六、相关链接"></a>六、相关链接</h1><ul>
-<li><a href="https://www.bilibili.com/video/av48144058/?p=664" target="_blank" rel="noopener">参考资料</a></li>
+<p>&emsp;&emsp;还有很多方法可以获取到不同的内容，这里不一一演示了。</p>
+<h2 id="4、调用运行时类的结构"><a href="#4、调用运行时类的结构" class="headerlink" title="4、调用运行时类的结构"></a>4、调用运行时类的结构</h2><h3 id="1）调用属性相关方法"><a href="#1）调用属性相关方法" class="headerlink" title="1）调用属性相关方法"></a>1）调用属性相关方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Class&lt;Student&gt; clazz = Student<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建对象</span></span><br><span class="line">        Student student = clazz.newInstance();</span><br><span class="line">        <span class="comment">// 获取运行时类的属性</span></span><br><span class="line">        Field name = clazz.getDeclaredField(<span class="string">"name"</span>);</span><br><span class="line">        <span class="comment">// 加了这句才可以为私有属性赋值</span></span><br><span class="line">        name.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 为指定对象设置属性值</span></span><br><span class="line">        name.set(student, <span class="string">"2"</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(student);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2）调用指定方法"><a href="#2）调用指定方法" class="headerlink" title="2）调用指定方法"></a>2）调用指定方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Class&lt;Student&gt; clazz = Student<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建对象</span></span><br><span class="line">        Student student = clazz.newInstance();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取指定方法，并指明参数列表的类型</span></span><br><span class="line">        Method show = clazz.getDeclaredMethod(<span class="string">"show"</span>, String<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        show.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 为指定对象调用该方法</span></span><br><span class="line">        Object address = show.invoke(student, <span class="string">"广州"</span>);</span><br><span class="line">        System.out.println(address);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 调用静态方法</span></span><br><span class="line">        Method sleep = clazz.getDeclaredMethod(<span class="string">"sleep"</span>);</span><br><span class="line">        sleep.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        sleep.invoke(clazz); <span class="comment">// 这里的参数为任意对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3）调用构造器"><a href="#3）调用构造器" class="headerlink" title="3）调用构造器"></a>3）调用构造器</h3><p>&emsp;&emsp;这种方式用得少，因为通用性小(不同的类，构造器不同)，一般通过运行时类的newInstance()方法来创建对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Class&lt;Student&gt; clazz = Student<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取构造器，指明构造器的参数列表的类型</span></span><br><span class="line">        Constructor&lt;Student&gt; constructor = clazz.getDeclaredConstructor(String<span class="class">.<span class="keyword">class</span>, <span class="title">int</span>.<span class="title">class</span>, <span class="title">int</span>.<span class="title">class</span>)</span>;</span><br><span class="line">        constructor.setAccessible(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 通过构造器创建对象</span></span><br><span class="line">        Student student = constructor.newInstance(<span class="string">"小明"</span>, <span class="number">20</span>, <span class="number">1001</span>);</span><br><span class="line">        System.out.println(student);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、相关链接"><a href="#三、相关链接" class="headerlink" title="三、相关链接"></a>三、相关链接</h1><ul>
+<li><a href="https://www.bilibili.com/video/av48144058/?p=634" target="_blank" rel="noopener">参考资料</a></li>
 </ul>
 
       
@@ -382,7 +246,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				https://p5r-chihaya.github.io/2019/10/07/【学习笔记】Java笔记十：Java8新特性/
+				https://p5r-chihaya.github.io/2019/09/14/【学习笔记】Java笔记7：反射/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -439,7 +303,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Java8新特性</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">反射</a>
         		</li>
       		
 		</ul>
@@ -495,7 +359,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADJ0lEQVR42u3a0U7rQAwEUP7/p7mvoEvbGbuVmu3JU5VAkrOVMPbs11d8fP84fp65f/X/I7nn/ePWu3294sDGxsa+CDt5TH6mXazNm7QLh42NjX02+35hSIrErCC1y3fram7BxsbGxr7firRlL7lbTsXGxsbGbm/dLk07EpqNpbCxsbE/k71pD/LilCzcpmi9ZJaGjY2N/fbsPBV9/88vybexsbGx35i9Gd/n22jyItcW0aECGxsb+yD2LMTdb99pW4XN1ZvLjY2NjX0E+/7rzopZO2zKS92++GFjY2Ofzd6EsrOG4UFdXTzlwT2xsbGxD2VHXctooJOXq7YFauNhbGxs7FPZbUlrG5h2ODUrnLkLGxsb+yR2u78lDwPa0DcpPM8qitjY2NjnsffbdPYbd/ZtRlsUsbGxsc9gJ3/621tHA/qg2DyrmfnjKjY2NvZB7Hw7Y9swtMvXjrfyYlZ3XdjY2NgXZOeFJGlaZuvdBgDtz2BjY2Ofyt6XjfzxbRuzGT89KGnY2NjYB7HzErJpKmatzmycVOfb2NjY2Aex25Ygf/CsaCUt0yyKwMbGxj6J3Qa9m1C2DRtmo6uXbNnBxsbGfmN2HhI8dzA0a35mGzGLoRI2Njb2BdmbsLbdHLkZBm3C5iKpwMbGxr4gOwll26C3HUu1v7sPJ7CxsbFPZee3yxuVNvTdlLr2bbGxsbHPYOev2BabWdybxxJ5Kf3jbbGxsbE/gP09OtqoYFPq2tHYr8/Y2NjYx7Fn5WEWwc5GRe0Ya7hNBxsbG/uC7M0//bNh0KYoJu1QEQ9gY2NjH8fOm4o8sq0zikXom3+R2NjY2J/AzktFcn4/kNos3M3fxcbGxj6O3TYnm1LXMvKooAinsbGxsY9gz0Y8xeaYRauzaX4etDTY2NjYB7HbgtGO8pOr7YaePMx4QrHExsbGvgh7M+5pMe0ibhLb1TeJjY2NfUF2G6nuI9vZ0rf3vHkGGxsb+4PZ+eNnI6Q6so23DWFjY2Njb67OqPugFxsbG/tz2LOh/ywYyLfX5JlGvVjY2NjYB7HbWfpmANSS2kg4L6LY2NjYR7D/Abt8z6s6dJlOAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACv0lEQVR42u3a0W7CMAwFUP7/p7fniUGv7bhj0ukTgi3JKVJjrvN4xNfX0/X86fPrfOR89sfGhYeHhzde+vNw73nvqT1wdT0v58LDw8Nb4yULfbXoV+/kt2Yy/oUFDw8P72N41VI7Wcr7leDh4eH9X16CTP43L5TzyAMPDw/vTl5vick71eXmYfHhrAUPDw8v5lXbVJ/weqW/h4eHhzduNVUfuNUwd1KCR6Ph4eHhLfB6x556RwqSIrvXPLs4noWHh4d3lFdt2FebWL0DBL1495d58fDw8JZ5yQTV8DcPeXtruPga8PDw8BZ41Yd7vj1MNoN8O0newcPDw9vgTZpek5ZVHjSMjgXg4eHhHeVNjlIlwWveGJvP9bK/h4eHh7fG6zWiqkcB8rC4utlEKTUeHh7eAu/U9Hnkmt+gcuSBh4eHt8CbJxl5YyzB9NpsF9sGHh4e3u28fGPIi93q0YRRWouHh4e3zKs2+/NodXLgoLr9PKp7Cx4eHl48S7VInRyc6pXg1W3jYkvAw8PDO8qbhLB5kV09KND7yx8NMDw8PLyjvLz+nBwy6N2UvJh+D8bDw8M7y6s+uKtlbt7uKmQn+deDh4eHt8Yrl6fj8neyVZTPlOHh4eEt8JJFLz6+W8e8opgYDw8Pb4GXt6/yUKB3s+bRRrT74eHh4R3lVeOGaps/iTzy8CJKpvHw8PD+iJeUsPkju9r4r44WtcHw8PDwjvKSmCApsvNYIY96q2Pi4eHhbfC+ilceRvRaVodnxMPDw1vgzRtX1W0gKZfz2KK3seHh4eHNeXmTKSmLqw/6Xpc/vxF4eHh4e7w8LEhIk8K6Vw83U2o8PDy8W3jRoMXSvNdai34l4OHh4X0MLy+Oe9HDBIyHh4d3D68aBFS3jaS8zo8mJOPg4eHh7fF6P/jzSCJ/VvdCh0mQgYeHh1fkfQPitCvwHv0CXwAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -509,18 +373,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/18/【学习笔记】设计模式原则与UML类图/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/17/【算法】负载均衡/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          【学习笔记】设计模式原则与UML类图
+          【算法】负载均衡
         
       </div>
     </a>
   
   
-    <a href="/2019/10/06/【学习笔记】Java笔记九：网络编程/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【学习笔记】Java笔记九：网络编程</div>
+    <a href="/2019/09/13/【学习笔记】Java笔记6：泛型/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【学习笔记】Java笔记6：泛型</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -547,7 +411,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Lambda表达式"><span class="toc-number">1.</span> <span class="toc-text">一、Lambda表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关说明"><span class="toc-number">1.1.</span> <span class="toc-text">1、相关说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、例子"><span class="toc-number">1.2.</span> <span class="toc-text">2、例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）Consumer-lt-T-gt"><span class="toc-number">1.2.1.</span> <span class="toc-text">1）Consumer&lt;T&gt;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）Predicate-lt-T-gt"><span class="toc-number">1.2.2.</span> <span class="toc-text">2）Predicate&lt;T&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、方法引用"><span class="toc-number">2.</span> <span class="toc-text">二、方法引用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关说明-1"><span class="toc-number">2.1.</span> <span class="toc-text">1、相关说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、例子-1"><span class="toc-number">2.2.</span> <span class="toc-text">2、例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）对象-非静态方法"><span class="toc-number">2.2.1.</span> <span class="toc-text">1）对象::非静态方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）类-非静态方法"><span class="toc-number">2.2.2.</span> <span class="toc-text">2）类::非静态方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、构造器引用"><span class="toc-number">3.</span> <span class="toc-text">三、构造器引用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、Stream-API"><span class="toc-number">4.</span> <span class="toc-text">四、Stream API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关说明-2"><span class="toc-number">4.1.</span> <span class="toc-text">1、相关说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、操作"><span class="toc-number">4.2.</span> <span class="toc-text">2、操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）实例化"><span class="toc-number">4.2.1.</span> <span class="toc-text">1）实例化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）筛选与切片"><span class="toc-number">4.2.2.</span> <span class="toc-text">2）筛选与切片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3）映射"><span class="toc-number">4.2.3.</span> <span class="toc-text">3）映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4）排序"><span class="toc-number">4.2.4.</span> <span class="toc-text">4）排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5）终止之查找与匹配"><span class="toc-number">4.2.5.</span> <span class="toc-text">5）终止之查找与匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6）终止之归约"><span class="toc-number">4.2.6.</span> <span class="toc-text">6）终止之归约</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7）终止之收集"><span class="toc-number">4.2.7.</span> <span class="toc-text">7）终止之收集</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、Optional类"><span class="toc-number">5.</span> <span class="toc-text">五、Optional类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、实例化"><span class="toc-number">5.1.</span> <span class="toc-text">1、实例化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、相关方法"><span class="toc-number">5.2.</span> <span class="toc-text">2、相关方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、相关链接"><span class="toc-number">6.</span> <span class="toc-text">六、相关链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、相关介绍"><span class="toc-number">1.</span> <span class="toc-text">一、相关介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、什么是反射"><span class="toc-number">1.1.</span> <span class="toc-text">1、什么是反射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、反射的作用"><span class="toc-number">1.2.</span> <span class="toc-text">2、反射的作用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、java-lang-Class"><span class="toc-number">2.</span> <span class="toc-text">二、java.lang.Class</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、获取运行时类的实例"><span class="toc-number">2.1.</span> <span class="toc-text">1、获取运行时类的实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、创建运行时类的对象"><span class="toc-number">2.2.</span> <span class="toc-text">2、创建运行时类的对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、获取运行时类的结构"><span class="toc-number">2.3.</span> <span class="toc-text">3、获取运行时类的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）获取属性"><span class="toc-number">2.3.1.</span> <span class="toc-text">1）获取属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）获取方法"><span class="toc-number">2.3.2.</span> <span class="toc-text">2）获取方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3）获取构造器"><span class="toc-number">2.3.3.</span> <span class="toc-text">3）获取构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4）获取父类"><span class="toc-number">2.3.4.</span> <span class="toc-text">4）获取父类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5）获取其他内容"><span class="toc-number">2.3.5.</span> <span class="toc-text">5）获取其他内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、调用运行时类的结构"><span class="toc-number">2.4.</span> <span class="toc-text">4、调用运行时类的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）调用属性相关方法"><span class="toc-number">2.4.1.</span> <span class="toc-text">1）调用属性相关方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）调用指定方法"><span class="toc-number">2.4.2.</span> <span class="toc-text">2）调用指定方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3）调用构造器"><span class="toc-number">2.4.3.</span> <span class="toc-text">3）调用构造器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、相关链接"><span class="toc-number">3.</span> <span class="toc-text">三、相关链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -663,15 +527,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -687,35 +555,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">注解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -735,6 +575,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
@@ -744,6 +608,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">索引堆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -759,15 +631,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,15 +651,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color1">八皇后问题</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">八皇后问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -799,11 +667,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">逆波兰表达式</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color2">逆波兰表达式</a>
               </li>
              
               <li class="article-tag-list-item">

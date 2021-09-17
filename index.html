@@ -149,19 +149,112 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-【学习笔记】HashMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-【数据结构】索引堆" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/01/【学习笔记】HashMap/">【学习笔记】HashMap</a>
+      <a class="article-title" href="/2021/09/09/【数据结构】索引堆/">【数据结构】索引堆</a>
     </h1>
   
 
         
-        <a href="/2021/09/01/【学习笔记】HashMap/" class="archive-article-date">
+        <a href="/2021/09/09/【数据结构】索引堆/" class="archive-article-date">
+  	<time datetime="2021-09-09T08:48:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h1><ul>
+<li><p>索引堆是对堆的优化：在堆中，构建堆、插入、删除过程都需要大量的交换操作。在普通堆的实现中，进行交换操作是直接交换真实元素数组中的两个元素。而索引堆交换的是这两个元素的索引，而不是直接交换元素，就有以下优势：</p>
+<blockquote>
+<ol>
+<li>减小交换操作的消耗，尤其是对于元素交换需要很多资源的对象来说，比如大字符串</li>
+<li>可以根据原位置找到元素，即便这个元素已经换了位置。比如说我们这些元素表示的是一个一个的系统任务，初始的时候，数值的索引是系统进程的 ID 号，可是将数组构建成普通堆之后，这些索引和系统任务之间就会失去关联</li>
+</ol>
+</blockquote>
+</li>
+<li><p>在堆的基础上用一个索引数组来存储数据元素的位置，即索引堆里面包含两个数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IndexHeap</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">// 真实元素数组</span></span><br><span class="line">    <span class="keyword">private</span> T[] data;</span><br><span class="line">    <span class="comment">// 索引数组</span></span><br><span class="line">    <span class="comment">// 普通的堆：data[0]就是堆中的最大/最小元素</span></span><br><span class="line">    <span class="comment">// 索引堆：data[index[0]]才是最大/最小元素</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] index;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2021/09/09/【数据结构】索引堆/#more">more >></a>
+        
+      
+
+        
+		
+		
+		  <div hidden="hidden"></div>
+		
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">索引堆</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/09/【数据结构】索引堆/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-【学习笔记】Java笔记11：HashMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/01/【学习笔记】Java笔记11：HashMap/">【学习笔记】Java笔记11：HashMap</a>
+    </h1>
+  
+
+        
+        <a href="/2021/09/01/【学习笔记】Java笔记11：HashMap/" class="archive-article-date">
   	<time datetime="2021-09-01T12:37:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-01</time>
 </a>
         
@@ -188,7 +281,7 @@
 </li>
 </ul>
         
-          <a class="article-more-a" href="/2021/09/01/【学习笔记】HashMap/#more">more >></a>
+          <a class="article-more-a" href="/2021/09/01/【学习笔记】Java笔记11：HashMap/#more">more >></a>
         
       
 
@@ -223,7 +316,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/01/【学习笔记】HashMap/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/09/01/【学习笔记】Java笔记11：HashMap/">展开全文 >></a>
         </p>
       
 
@@ -342,94 +435,9 @@
 
 
   
-    <article id="post-【算法】八皇后问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/05/【算法】八皇后问题/">【算法】八皇后问题</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/05/【算法】八皇后问题/" class="archive-article-date">
-  	<time datetime="2021-03-05T03:47:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-问题介绍"><a href="#1-问题介绍" class="headerlink" title="1. 问题介绍"></a>1. 问题介绍</h1><p>&emsp;&emsp;在8×8格的国际象棋上摆放8个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法。</p>
-<h1 id="2-思路"><a href="#2-思路" class="headerlink" title="2. 思路"></a>2. 思路</h1><p>1、将第一个皇后放在第1行的第1列，判断是否冲突。</p>
-<p>2、若没有冲突，把下一个皇后放在第2行的第1列，判断是否冲突，没有冲突则继续把下一个皇后放在下一行。若有冲突，则尝试把皇后放在第2列，继续判断循环摆放。当所有列都有冲突时，回溯到上一个皇后，改变上一个皇后摆放的列数。</p>
-        
-          <a class="article-more-a" href="/2021/03/05/【算法】八皇后问题/#more">more >></a>
-        
-      
-
-        
-		
-		
-		  <div hidden="hidden"></div>
-		
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">八皇后问题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/05/【算法】八皇后问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -528,15 +536,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,35 +564,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">注解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,6 +584,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
@@ -609,6 +617,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">索引堆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,15 +640,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,15 +660,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color1">八皇后问题</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">八皇后问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -664,11 +676,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">逆波兰表达式</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color2">逆波兰表达式</a>
               </li>
              
               <li class="article-tag-list-item">

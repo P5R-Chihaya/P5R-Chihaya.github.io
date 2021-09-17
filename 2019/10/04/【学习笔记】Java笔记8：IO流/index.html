@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://p5r-chihaya.github.io">
-  <title>【学习笔记】HashMap | P5.</title>
+  <title>【学习笔记】Java笔记8：IO流 | P5.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 介绍 底层是数组 + 链表（JDK 1.8后是红黑树，当链表长度大于8时，链表转换为红黑树）  2. 源码2.1 常量 默认容量大小 DEFAULT_INITIAL_CAPACITY = 16  数组最大长度 MAXIMUM_CAPACITY = 2^30  默认负载因子 DEFAULT_LOAD_FACTOR = 0.75  树化（某一条链表升级为红黑树）的阈值 TREEIFY_THRES">
-<meta name="keywords" content="Java,HashMap">
+  <meta name="description" content="一、File类&amp;emsp;&amp;emsp;该类的一个对象代表一个文件或目录(文件夹) 1、创建File类实例   构造器 说明    File(String pathname) 1、使用相对路径创建时，对于IDEA是相对于当前工程下的2、使用绝对路径时，Windows和DOS系统使用”\“来隔开，为了区别转义符，Java代码层面则使用”\\“；UNIX和URL使用”/“来隔开；也可以用常量File.s">
+<meta name="keywords" content="Java,IO流">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【学习笔记】HashMap">
-<meta property="og:url" content="https://p5r-chihaya.github.io/2021/09/01/【学习笔记】HashMap/index.html">
+<meta property="og:title" content="【学习笔记】Java笔记8：IO流">
+<meta property="og:url" content="https://p5r-chihaya.github.io/2019/10/04/【学习笔记】Java笔记8：IO流/index.html">
 <meta property="og:site_name" content="P5.">
-<meta property="og:description" content="1. 介绍 底层是数组 + 链表（JDK 1.8后是红黑树，当链表长度大于8时，链表转换为红黑树）  2. 源码2.1 常量 默认容量大小 DEFAULT_INITIAL_CAPACITY = 16  数组最大长度 MAXIMUM_CAPACITY = 2^30  默认负载因子 DEFAULT_LOAD_FACTOR = 0.75  树化（某一条链表升级为红黑树）的阈值 TREEIFY_THRES">
+<meta property="og:description" content="一、File类&amp;emsp;&amp;emsp;该类的一个对象代表一个文件或目录(文件夹) 1、创建File类实例   构造器 说明    File(String pathname) 1、使用相对路径创建时，对于IDEA是相对于当前工程下的2、使用绝对路径时，Windows和DOS系统使用”\“来隔开，为了区别转义符，Java代码层面则使用”\\“；UNIX和URL使用”/“来隔开；也可以用常量File.s">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://p5r-chihaya.github.io/images/26-50/033-HashMap%E6%89%A9%E5%AE%B9%E4%B9%8B%E9%93%BE%E8%A1%A8.png">
-<meta property="og:updated_time" content="2021-09-01T12:44:20.604Z">
+<meta property="og:updated_time" content="2021-09-02T03:31:16.015Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【学习笔记】HashMap">
-<meta name="twitter:description" content="1. 介绍 底层是数组 + 链表（JDK 1.8后是红黑树，当链表长度大于8时，链表转换为红黑树）  2. 源码2.1 常量 默认容量大小 DEFAULT_INITIAL_CAPACITY = 16  数组最大长度 MAXIMUM_CAPACITY = 2^30  默认负载因子 DEFAULT_LOAD_FACTOR = 0.75  树化（某一条链表升级为红黑树）的阈值 TREEIFY_THRES">
-<meta name="twitter:image" content="https://p5r-chihaya.github.io/images/26-50/033-HashMap%E6%89%A9%E5%AE%B9%E4%B9%8B%E9%93%BE%E8%A1%A8.png">
+<meta name="twitter:title" content="【学习笔记】Java笔记8：IO流">
+<meta name="twitter:description" content="一、File类&amp;emsp;&amp;emsp;该类的一个对象代表一个文件或目录(文件夹) 1、创建File类实例   构造器 说明    File(String pathname) 1、使用相对路径创建时，对于IDEA是相对于当前工程下的2、使用绝对路径时，Windows和DOS系统使用”\“来隔开，为了区别转义符，Java代码层面则使用”\\“；UNIX和URL使用”/“来隔开；也可以用常量File.s">
   
     <link rel="alternative" href="/atom.xml" title="P5." type="application/atom+xml">
   
@@ -154,83 +152,248 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【学习笔记】HashMap" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-【学习笔记】Java笔记8：IO流" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      【学习笔记】HashMap
+      【学习笔记】Java笔记8：IO流
     </h1>
   
 
         
-        <a href="/2021/09/01/【学习笔记】HashMap/" class="archive-article-date">
-  	<time datetime="2021-09-01T12:37:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-01</time>
+        <a href="/2019/10/04/【学习笔记】Java笔记8：IO流/" class="archive-article-date">
+  	<time datetime="2019-10-04T06:13:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h1><ul>
-<li>底层是数组 + 链表（JDK 1.8后是红黑树，当链表长度大于8时，链表转换为红黑树）</li>
-</ul>
-<h1 id="2-源码"><a href="#2-源码" class="headerlink" title="2. 源码"></a>2. 源码</h1><h2 id="2-1-常量"><a href="#2-1-常量" class="headerlink" title="2.1 常量"></a>2.1 常量</h2><ul>
-<li><p>默认容量大小 DEFAULT_INITIAL_CAPACITY = 16</p>
-</li>
-<li><p>数组最大长度 MAXIMUM_CAPACITY = 2^30</p>
-</li>
-<li><p>默认负载因子 DEFAULT_LOAD_FACTOR = 0.75</p>
-</li>
-<li><p>树化（某一条链表升级为红黑树）的阈值 TREEIFY_THRESHOLD = 8</p>
-<blockquote>
-<p>前提是所有元素数量达到 MIN_TREEIFY_CAPACITY = 64 后</p>
-</blockquote>
-</li>
-<li><p>树降级称为链表的阈值 UNTREEIFY_THRESHOLD = 6</p>
-</li>
-</ul>
+        <h1 id="一、File类"><a href="#一、File类" class="headerlink" title="一、File类"></a>一、File类</h1><p>&emsp;&emsp;该类的一个对象代表一个文件或目录(文件夹)</p>
+<h2 id="1、创建File类实例"><a href="#1、创建File类实例" class="headerlink" title="1、创建File类实例"></a>1、创建File类实例</h2><table>
+<thead>
+<tr>
+<th>构造器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>File(String pathname)</td>
+<td>1、使用相对路径创建时，对于IDEA是相对于当前工程下的<br>2、使用绝对路径时，Windows和DOS系统使用”\“来隔开，为了区别转义符，Java代码层面则使用”\\“；UNIX和URL使用”/“来隔开；也可以用常量File.separator</td>
+</tr>
+<tr>
+<td>File(String parent, String child)</td>
+<td>根据parent路径名字符串和child路径名字符串创建一个新File实例</td>
+</tr>
+<tr>
+<td>File(File parent, String child)</td>
+<td>根据parent抽象路径名和child路径名字符串创建一个新File实例</td>
+</tr>
+</tbody></table>
+<p>(注：该对象只是内存层面上的，与实际硬盘上是否存在无关)</p>
 <a id="more"></a>
 
-<h2 id="2-2-属性"><a href="#2-2-属性" class="headerlink" title="2.2 属性"></a>2.2 属性</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 哈希表</span></span><br><span class="line"><span class="keyword">transient</span> Node&lt;K,V&gt;[] table;</span><br><span class="line"></span><br><span class="line"><span class="keyword">transient</span> Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 哈希表的元素个数</span></span><br><span class="line"><span class="keyword">transient</span> <span class="keyword">int</span> size;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 哈希表的结构修改次数，如插入、删除（替换不算）</span></span><br><span class="line"><span class="keyword">transient</span> <span class="keyword">int</span> modCount;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 扩容阈值，当哈希表的元素超过阈值时，触发扩容</span></span><br><span class="line"><span class="comment">// 初始化为一个大于等于cap的值，且该值为2的幂（cap是调构造方法时的传参）</span></span><br><span class="line"><span class="keyword">int</span> threshold;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 负载因子，threshold = capacity（当前数组的大小） * loadFactor</span></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">float</span> loadFactor;</span><br></pre></td></tr></table></figure>
+<h2 id="2、需要注意的方法"><a href="#2、需要注意的方法" class="headerlink" title="2、需要注意的方法"></a>2、需要注意的方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>File[] listFiles()</td>
+<td>获取当前<font color="red">目录</font>下所有的文件或目录，得到File数组</td>
+</tr>
+<tr>
+<td>String[] list()</td>
+<td>获取当前<font color="red">目录</font>下所有的文件或目录，得到String数组</td>
+</tr>
+<tr>
+<td>boolean renameTo(File dest)</td>
+<td>1、重新命名此抽象路径名表示的文件<br>2、要想 file1.renameTo(file2) 返回true，则file1要在硬盘中存在，file2不存在</td>
+</tr>
+<tr>
+<td>boolean createNewFile()</td>
+<td>创建文件；若硬盘中已存在，则不创建返回false</td>
+</tr>
+<tr>
+<td>boolean mkdir()</td>
+<td>创建目录；若上层目录不存在，则不会创建</td>
+</tr>
+<tr>
+<td>boolean mkdirs()</td>
+<td>创建目录；即使上层目录不存在，也会一并创建</td>
+</tr>
+</tbody></table>
+<h1 id="二、IO流"><a href="#二、IO流" class="headerlink" title="二、IO流"></a>二、IO流</h1><p>&emsp;&emsp;四个抽象基类如下</p>
+<table>
+<thead>
+<tr>
+<th>(抽象基类)</th>
+<th>字节流</th>
+<th>字符流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>输入流</td>
+<td>InputStream</td>
+<td>Reader</td>
+</tr>
+<tr>
+<td>输出流</td>
+<td>OutputStream</td>
+<td>Writer</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;IO流体系如下</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>字节输入流</th>
+<th>字节输出流</th>
+<th>字符输入流</th>
+<th>字符输出流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>抽象基类</td>
+<td>InputStream</td>
+<td>OutputStream</td>
+<td>Reader</td>
+<td>Writer</td>
+</tr>
+<tr>
+<td>访问文件</td>
+<td>FileInputStream</td>
+<td>FileOutputStream</td>
+<td>FileReader</td>
+<td>FileWriter</td>
+</tr>
+<tr>
+<td>访问数组</td>
+<td>ByteArrayInputStream</td>
+<td>ByteArrayOutputStream</td>
+<td>CharArrayReader</td>
+<td>CharArrayWriter</td>
+</tr>
+<tr>
+<td>访问管道</td>
+<td>PipedInputStream</td>
+<td>PipedOutputStream</td>
+<td>PipedReader</td>
+<td>PipedWriter</td>
+</tr>
+<tr>
+<td>访问字符串</td>
+<td></td>
+<td></td>
+<td>StringReader</td>
+<td>StringWriter</td>
+</tr>
+<tr>
+<td>缓冲流</td>
+<td>BufferedInputStream</td>
+<td>BufferedOutputStream</td>
+<td>BufferedReader</td>
+<td>BufferedWriter</td>
+</tr>
+<tr>
+<td>转换流</td>
+<td></td>
+<td></td>
+<td>InputStreamReader</td>
+<td>OutputStreamWriter</td>
+</tr>
+<tr>
+<td>对象流</td>
+<td>ObjectInputStream</td>
+<td>ObjectOutputStream</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>FilterInputStream</td>
+<td>FilterOutputStream</td>
+<td>FilterReader</td>
+<td>FilterWriter</td>
+</tr>
+<tr>
+<td>打印流</td>
+<td></td>
+<td>PrintStream</td>
+<td></td>
+<td>PrintWriter</td>
+</tr>
+<tr>
+<td>推回输入流</td>
+<td>PushbackInputStream</td>
+<td></td>
+<td>PushbackReader</td>
+<td></td>
+</tr>
+<tr>
+<td>特殊流</td>
+<td>DataInputStream</td>
+<td>DataOutputStream</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="1、FileReader"><a href="#1、FileReader" class="headerlink" title="1、FileReader"></a>1、FileReader</h2><p>&emsp;&emsp;用于处理文本文件(.txt，.java，.c，.cpp等)的输入流</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用read()方法</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFileReader</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    FileReader fr = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">// 为了保证流可以关闭，需要使用try/catch来处理异常</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\hello.txt"</span>);</span><br><span class="line">        fr = <span class="keyword">new</span> FileReader(file);</span><br><span class="line">        <span class="keyword">int</span> data;</span><br><span class="line">        <span class="keyword">while</span> (-<span class="number">1</span> != (data = fr.read())) &#123;</span><br><span class="line">            System.out.print((<span class="keyword">char</span>) data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != fr)</span><br><span class="line">                fr.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用read(char[] cbuf)方法</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFileReader2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    File file = <span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\hello.txt"</span>);</span><br><span class="line">    <span class="keyword">char</span>[] buff = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">5</span>];</span><br><span class="line">    FileReader fr = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        fr = <span class="keyword">new</span> FileReader(file);</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> (-<span class="number">1</span> != (len = fr.read(buff))) &#123;</span><br><span class="line">            <span class="comment">// 这里循环的上限不能是buff.length，因为每调用read()就会把内容填进char数组中，使用buff.length可能会在最后一次输出上一次的内容</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">                System.out.print(buff[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != fr)</span><br><span class="line">                fr.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-3-构造方法"><a href="#2-3-构造方法" class="headerlink" title="2.3 构造方法"></a>2.3 构造方法</h2><ul>
-<li>构造方法里调用了<code>int tableSizeFor(int cap)</code>方法</li>
+<h2 id="2、FileWriter"><a href="#2、FileWriter" class="headerlink" title="2、FileWriter"></a>2、FileWriter</h2><p>&emsp;&emsp;用于处理文本文件的输出流</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFileWriter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    FileWriter fw = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\hello.txt"</span>);</span><br><span class="line">        <span class="comment">// 第二个参数表示以追加形式写数据，默认是覆盖</span></span><br><span class="line">        fw = <span class="keyword">new</span> FileWriter(file, <span class="keyword">true</span>);</span><br><span class="line">        fw.write(<span class="string">"How are you\n"</span>);</span><br><span class="line">        fw.write(<span class="string">"I'm fine\n"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != fw)</span><br><span class="line">                fw.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、复制文本文件"><a href="#3、复制文本文件" class="headerlink" title="3、复制文本文件"></a>3、复制文本文件</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 复制文本文件</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCopy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    File scr = <span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\src.txt"</span>);</span><br><span class="line">    File dest = <span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\dest.txt"</span>);</span><br><span class="line">    FileReader fr = <span class="keyword">null</span>;</span><br><span class="line">    FileWriter fw = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        fr = <span class="keyword">new</span> FileReader(scr);</span><br><span class="line">        fw = <span class="keyword">new</span> FileWriter(dest);</span><br><span class="line">        <span class="keyword">char</span>[] buff = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> (-<span class="number">1</span> != (len = fr.read(buff))) &#123;</span><br><span class="line">            <span class="comment">// 每次写len个字符</span></span><br><span class="line">            fw.write(buff, <span class="number">0</span>, len);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != fw)</span><br><span class="line">                fw.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != fr)</span><br><span class="line">                fr.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、FileInputStream-FileOutputStream"><a href="#4、FileInputStream-FileOutputStream" class="headerlink" title="4、FileInputStream/FileOutputStream"></a>4、FileInputStream/FileOutputStream</h2><p>&emsp;&emsp;字节流，可处理任意文件，输出文本文件到控制台时可能会出现乱码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFileInputOutputStream</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    File src = <span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\src.jpg"</span>);</span><br><span class="line">    File dest = <span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\dest.jpg"</span>);</span><br><span class="line">    FileInputStream fis = <span class="keyword">null</span>;</span><br><span class="line">    FileOutputStream fos = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        fis = <span class="keyword">new</span> FileInputStream(src);</span><br><span class="line">        fos = <span class="keyword">new</span> FileOutputStream(dest);</span><br><span class="line">        <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> (-<span class="number">1</span> != (len = fis.read(buff))) &#123;</span><br><span class="line">            fos.write(buff, <span class="number">0</span>, len);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != fis) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                fis.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != fos) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                fos.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5、缓冲流"><a href="#5、缓冲流" class="headerlink" title="5、缓冲流"></a>5、缓冲流</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testBufferedInputOutputStream</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    File src = <span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\src.jpg"</span>);</span><br><span class="line">    File dest = <span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\dest.jpg"</span>);</span><br><span class="line">    BufferedInputStream bis = <span class="keyword">null</span>;</span><br><span class="line">    BufferedOutputStream bos = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        FileInputStream fis = <span class="keyword">new</span> FileInputStream(src);</span><br><span class="line">        FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(dest);</span><br><span class="line">        bis = <span class="keyword">new</span> BufferedInputStream(fis);</span><br><span class="line">        bos = <span class="keyword">new</span> BufferedOutputStream(fos);</span><br><span class="line">        <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> (-<span class="number">1</span> != (len = bis.read(buff))) &#123;</span><br><span class="line">            bos.write(buff, <span class="number">0</span>, len);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != bis) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                bis.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != bos) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                bos.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6、转换流"><a href="#6、转换流" class="headerlink" title="6、转换流"></a>6、转换流</h2><ul>
+<li>InputStreamReader：字节输入流 –&gt; 字符输入流，解码</li>
+<li>OutputStreamWriter：字符输出流 –&gt; 字节输出流，编码</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造方法传进来的容量大小可以是任意数，但该方法保证了初始化的大小为2的幂</span></span><br><span class="line"><span class="comment">// 返回一个大于等于cap的值，且该值为2的幂 </span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">tableSizeFor</span><span class="params">(<span class="keyword">int</span> cap)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = cap - <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// &gt;&gt;：带符号右移。正数右移高位补0，负数右移高位补1</span></span><br><span class="line">    <span class="comment">// &gt;&gt;&gt;：无符号右移。无论是正数还是负数，高位通通补0</span></span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">2</span>;</span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">4</span>;</span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">8</span>;</span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">16</span>;</span><br><span class="line">    <span class="keyword">return</span> (n &lt; <span class="number">0</span>) ? <span class="number">1</span> : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    File src = <span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\src.txt"</span>);</span><br><span class="line">    File dest = <span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\dest.txt"</span>);</span><br><span class="line"></span><br><span class="line">    InputStreamReader isr = <span class="keyword">null</span>;</span><br><span class="line">    OutputStreamWriter osw = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        FileInputStream fis = <span class="keyword">new</span> FileInputStream(src);</span><br><span class="line">        FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(dest);</span><br><span class="line"></span><br><span class="line">        isr = <span class="keyword">new</span> InputStreamReader(fis, <span class="string">"UTF-8"</span>);</span><br><span class="line">        osw = <span class="keyword">new</span> OutputStreamWriter(fos, <span class="string">"UTF-8"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span>[] buff = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> (-<span class="number">1</span> != (len = isr.read(buff))) &#123;</span><br><span class="line">            osw.write(buff, <span class="number">0</span> , len);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != isr) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                isr.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != osw) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                osw.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-4-put方法"><a href="#2-4-put方法" class="headerlink" title="2.4 put方法"></a>2.4 put方法</h2><ul>
-<li>put之前先调用hash()方法计算key的哈希值，然后再进行路由寻址：(数组长度 - 1) &amp; 哈希值</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h;</span><br><span class="line">    <span class="comment">// key的哈希值 异或 它的高16位</span></span><br><span class="line">    <span class="comment">// 当数组的长度很短时，只有低位数的哈希值能参与运算；而让高16位参与运算可以更好的均匀散列，减少碰撞，进一步降低hash冲突的几率，并且使得高16位和低16位的信息都被保留了。</span></span><br><span class="line">    <span class="keyword">return</span> (key == <span class="keyword">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7、数据流"><a href="#7、数据流" class="headerlink" title="7、数据流"></a>7、数据流</h2><p>&emsp;&emsp;DataInputStream和DataOutputStream，用于读写基本数据类型变量和String字符串</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDataStream</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    DataOutputStream dos = <span class="keyword">new</span> DataOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="string">"E:\\JavaTest\\test.dat"</span>));</span><br><span class="line">    dos.writeUTF(<span class="string">"学海无涯"</span>);</span><br><span class="line">    dos.flush();</span><br><span class="line">    dos.writeInt(<span class="number">123</span>);</span><br><span class="line">    dos.flush();</span><br><span class="line">    dos.writeBoolean(<span class="keyword">false</span>);</span><br><span class="line">    dos.flush();</span><br><span class="line">    dos.close();</span><br><span class="line"></span><br><span class="line">    DataInputStream dis = <span class="keyword">new</span> DataInputStream(<span class="keyword">new</span> FileInputStream(<span class="string">"E:\\JavaTest\\test.dat"</span>));</span><br><span class="line">    <span class="comment">// 读的顺序要与写的顺序一致</span></span><br><span class="line">    System.out.println(dis.readUTF());</span><br><span class="line">    System.out.println(dis.readInt());</span><br><span class="line">    System.out.println(dis.readBoolean());</span><br><span class="line">    dis.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="8、对象流"><a href="#8、对象流" class="headerlink" title="8、对象流"></a>8、对象流</h2><p>&emsp;&emsp;ObjectInputStream和ObjecOutputStream，用于读写基本数据类型变量和对象，使用方法与上文的数据流基本相似</p>
 <ul>
-<li>put方法里会调用putVal方法</li>
+<li><p>序列化：保存基本类型数据或对象</p>
+<blockquote>
+<p>自定义的对象要想实现序列化，对应类得满足以下条件</p>
+<p>1、实现Serializable接口</p>
+<p>2、为该类提供全局变量serialVersionUID，类型是static final long</p>
+<p>3、该类的内部属性必须是可序列化的</p>
+<p>4、不能序列化static或transient修饰的内部属性</p>
+</blockquote>
+</li>
+<li><p>反序列化：读取基本类型数据或对象</p>
+</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Implements Map.put and related methods.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> hash         key的哈希值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> key          key</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> value        value</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> onlyIfAbsent 如果为true，则不替换key相同的value（put方法调用时传入fasle，则会替换）</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> evict        if false, the table is in creation mode.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> previous value, or null if none</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">final</span> V <span class="title">putVal</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">boolean</span> onlyIfAbsent, <span class="keyword">boolean</span> evict)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 当前Map的散列表</span></span><br><span class="line">    HashMap.Node&lt;K, V&gt;[] tab;</span><br><span class="line">    <span class="comment">// 当前元素</span></span><br><span class="line">    HashMap.Node&lt;K, V&gt; p;</span><br><span class="line">    <span class="comment">// n：散列表的长度</span></span><br><span class="line">    <span class="comment">// i：路由寻址结果的下标</span></span><br><span class="line">    <span class="keyword">int</span> n, i;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 第一次调用putVal时才初始化Map中最耗内存的散列表</span></span><br><span class="line">    <span class="keyword">if</span> ((tab = table) == <span class="keyword">null</span> || (n = tab.length) == <span class="number">0</span>)</span><br><span class="line">        n = (tab = resize()).length;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 最简单的场景，寻址找到的位置没有元素，则直接创建元素放入散列表</span></span><br><span class="line">    <span class="keyword">if</span> ((p = tab[i = (n - <span class="number">1</span>) &amp; hash]) == <span class="keyword">null</span>)</span><br><span class="line">        tab[i] = newNode(hash, key, value, <span class="keyword">null</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 临时元素，最终会指向key相同的旧元素</span></span><br><span class="line">        HashMap.Node&lt;K, V&gt; e;</span><br><span class="line">        <span class="comment">// 临时key</span></span><br><span class="line">        K k;</span><br><span class="line">        <span class="comment">// 此时p指向该位置上的旧元素（链表的头节点 或 红黑树的根节点）</span></span><br><span class="line">        <span class="comment">// 如果该位置上的旧元素与新元素的哈希值相同，并且两者的key相同，则把e指向旧元素</span></span><br><span class="line">        <span class="keyword">if</span> (p.hash == hash &amp;&amp;</span><br><span class="line">            ((k = p.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">            e = p;</span><br><span class="line">        <span class="comment">// 如果旧元素已经形成红黑树</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p <span class="keyword">instanceof</span> HashMap.TreeNode)</span><br><span class="line">            e = ((HashMap.TreeNode&lt;K, V&gt;) p).putTreeVal(<span class="keyword">this</span>, tab, hash, key, value);</span><br><span class="line">        <span class="comment">// 此时链表的头节点不等于新元素，则需要逐个比较链表上是否有key相同的旧元素，没有则在末尾添加</span></span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> binCount = <span class="number">0</span>; ; ++binCount) &#123;</span><br><span class="line">                <span class="comment">// 遍历到最后一个元素，也没有key相同的元素，则在链表末尾添加新元素</span></span><br><span class="line">                <span class="keyword">if</span> ((e = p.next) == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    p.next = newNode(hash, key, value, <span class="keyword">null</span>);</span><br><span class="line">                    <span class="comment">// 如果当前链表长度超过树化阈值，则转成红黑树</span></span><br><span class="line">                    <span class="keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - <span class="number">1</span>)</span><br><span class="line">                        treeifyBin(tab, hash);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 如果找到key相同的元素，跳出循环</span></span><br><span class="line">                <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                    ((k = e.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                p = e;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 此时e指向key相同的旧元素</span></span><br><span class="line">        <span class="keyword">if</span> (e != <span class="keyword">null</span>) &#123; <span class="comment">// existing mapping for key</span></span><br><span class="line">            V oldValue = e.value;</span><br><span class="line">            <span class="keyword">if</span> (!onlyIfAbsent || oldValue == <span class="keyword">null</span>)</span><br><span class="line">                e.value = value;</span><br><span class="line">            afterNodeAccess(e);</span><br><span class="line">            <span class="keyword">return</span> oldValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 散列表修改结构的次数加一</span></span><br><span class="line">    ++modCount;</span><br><span class="line">    <span class="comment">// 插入新元素，size自增，如果大于扩容阈值，则触发扩容</span></span><br><span class="line">    <span class="keyword">if</span> (++size &gt; threshold)</span><br><span class="line">        resize();</span><br><span class="line">    afterNodeInsertion(evict);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-5-resize扩容方法"><a href="#2-5-resize扩容方法" class="headerlink" title="2.5 resize扩容方法"></a>2.5 resize扩容方法</h2><ul>
-<li>为什么需要扩容：为了解决哈希冲突导致的链化影响查询效率的问题，扩容可以缓解该问题</li>
+<h1 id="三、RandomAccessFile"><a href="#三、RandomAccessFile" class="headerlink" title="三、RandomAccessFile"></a>三、RandomAccessFile</h1><h2 id="1、相关说明"><a href="#1、相关说明" class="headerlink" title="1、相关说明"></a>1、相关说明</h2><ul>
+<li><p>该类直接继承于Object类，实现了DataInput和DataOutput接口</p>
+</li>
+<li><p>既可以作为输入流，也可以作为输出流</p>
+<blockquote>
+<p>作为输出流时，如果文件不存在，则会自动创建；如果存在，则会覆盖原文件，但不是全部覆盖，是从头覆盖，能覆盖多少算多少</p>
+</blockquote>
+</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> Node&lt;K,V&gt;[] resize() &#123;</span><br><span class="line">    <span class="comment">// 扩容前旧的哈希表</span></span><br><span class="line">    Node&lt;K,V&gt;[] oldTab = table;</span><br><span class="line">    <span class="comment">// 扩容前旧的table数组的长度</span></span><br><span class="line">    <span class="keyword">int</span> oldCap = (oldTab == <span class="keyword">null</span>) ? <span class="number">0</span> : oldTab.length;</span><br><span class="line">    <span class="comment">// 扩容前旧的扩容阈值</span></span><br><span class="line">    <span class="keyword">int</span> oldThr = threshold;</span><br><span class="line">    <span class="comment">// newCap：扩容后table数组的大小</span></span><br><span class="line">    <span class="comment">// newThr：扩容后，下次再触发扩容的阈值</span></span><br><span class="line">    <span class="keyword">int</span> newCap, newThr = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 说明散列表已经初始化过了，这是一种正常扩容</span></span><br><span class="line">    <span class="keyword">if</span> (oldCap &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 达到这个条件就没法再继续扩容了，把下次扩容阈值调到最大</span></span><br><span class="line">        <span class="keyword">if</span> (oldCap &gt;= MAXIMUM_CAPACITY) &#123;</span><br><span class="line">            threshold = Integer.MAX_VALUE;</span><br><span class="line">            <span class="keyword">return</span> oldTab;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 如果扩容一倍后仍然小于最大容量，并且旧的容量大于默认大小，则下次扩容阈值翻倍</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ((newCap = oldCap &lt;&lt; <span class="number">1</span>) &lt; MAXIMUM_CAPACITY &amp;&amp;</span><br><span class="line">                 oldCap &gt;= DEFAULT_INITIAL_CAPACITY)</span><br><span class="line">            newThr = oldThr &lt;&lt; <span class="number">1</span>; <span class="comment">// double threshold</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 此时oldCap = 0，说明还未初始化</span></span><br><span class="line">    <span class="comment">// 1. new HashMap(initCap, loadFactor);</span></span><br><span class="line">    <span class="comment">// 2. new HashMap(initCap);</span></span><br><span class="line">    <span class="comment">// 3. new HashMap(tempMap); 且tempMap有内容</span></span><br><span class="line">    <span class="comment">// 这三种情况把旧扩容阈值赋给新容量，newCap一定是2的幂</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (oldThr &gt; <span class="number">0</span>)</span><br><span class="line">        newCap = oldThr;</span><br><span class="line">    <span class="comment">// 此时oldCap = 0， oldThr = 0</span></span><br><span class="line">    <span class="comment">// new HashsMap();</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 此时新容量为16</span></span><br><span class="line">        newCap = DEFAULT_INITIAL_CAPACITY;</span><br><span class="line">        <span class="comment">// 新扩容阈值为 0.75 * 16 = 12</span></span><br><span class="line">        newThr = (<span class="keyword">int</span>)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (newThr == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">float</span> ft = (<span class="keyword">float</span>)newCap * loadFactor;</span><br><span class="line">        newThr = (newCap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; (<span class="keyword">float</span>)MAXIMUM_CAPACITY ?</span><br><span class="line">                  (<span class="keyword">int</span>)ft : Integer.MAX_VALUE);</span><br><span class="line">    &#125;</span><br><span class="line">    threshold = newThr;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(&#123;<span class="string">"rawtypes"</span>,<span class="string">"unchecked"</span>&#125;)</span><br><span class="line">    Node&lt;K,V&gt;[] newTab = (Node&lt;K,V&gt;[])<span class="keyword">new</span> Node[newCap];</span><br><span class="line">    table = newTab;</span><br><span class="line">    <span class="keyword">if</span> (oldTab != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">// j：扩容前旧的寻址地址</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; oldCap; ++j) &#123;</span><br><span class="line">            <span class="comment">// 当前node节点元素</span></span><br><span class="line">            Node&lt;K,V&gt; e;</span><br><span class="line">            <span class="comment">// 当前桶位有数据，但是无法区分是单节点，还是链表，或者还是红黑树</span></span><br><span class="line">            <span class="keyword">if</span> ((e = oldTab[j]) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="comment">// 置为null让GC回收</span></span><br><span class="line">                oldTab[j] = <span class="keyword">null</span>;</span><br><span class="line">                <span class="comment">// 如果是单节点，重新计算寻址结果，把节点放到新数组中</span></span><br><span class="line">                <span class="keyword">if</span> (e.next == <span class="keyword">null</span>)</span><br><span class="line">                    newTab[e.hash &amp; (newCap - <span class="number">1</span>)] = e;</span><br><span class="line">                <span class="comment">// 如果是红黑树（待补充……）</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (e <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">                    ((TreeNode&lt;K,V&gt;)e).split(<span class="keyword">this</span>, newTab, j, oldCap);</span><br><span class="line">                <span class="comment">// 上述两种情况不满足，此时就是链表，见章节2.5.1</span></span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">// 低位链表：扩容前与扩容后的寻址地址一样的</span></span><br><span class="line">                    Node&lt;K,V&gt; loHead = <span class="keyword">null</span>, loTail = <span class="keyword">null</span>;</span><br><span class="line">                    <span class="comment">// 高位链表：扩容后的寻址地址 = 扩容前的寻址地址 + 扩容前数组长度</span></span><br><span class="line">                    Node&lt;K,V&gt; hiHead = <span class="keyword">null</span>, hiTail = <span class="keyword">null</span>;</span><br><span class="line">                    Node&lt;K,V&gt; next;</span><br><span class="line">                    <span class="keyword">do</span> &#123;</span><br><span class="line">                        next = e.next;</span><br><span class="line">                        <span class="comment">// 下面的if/else的操作是把元素放到 低位链表 或 高位链表 中</span></span><br><span class="line">                        <span class="comment">// (e.hash &amp; oldCap) == 0 说明这些元素应放到低位链表中</span></span><br><span class="line">                        <span class="keyword">if</span> ((e.hash &amp; oldCap) == <span class="number">0</span>) &#123;</span><br><span class="line">                            <span class="keyword">if</span> (loTail == <span class="keyword">null</span>)</span><br><span class="line">                                loHead = e;</span><br><span class="line">                            <span class="keyword">else</span></span><br><span class="line">                                loTail.next = e;</span><br><span class="line">                            loTail = e;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="keyword">if</span> (hiTail == <span class="keyword">null</span>)</span><br><span class="line">                                hiHead = e;</span><br><span class="line">                            <span class="keyword">else</span></span><br><span class="line">                                hiTail.next = e;</span><br><span class="line">                            hiTail = e;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">while</span> ((e = next) != <span class="keyword">null</span>);</span><br><span class="line">                    <span class="comment">// 扩容后，低位链表仍然放到旧的寻址地址j里</span></span><br><span class="line">                    <span class="keyword">if</span> (loTail != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        loTail.next = <span class="keyword">null</span>;</span><br><span class="line">                        newTab[j] = loHead;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// 扩容后，高位链表放到新的寻址地址里</span></span><br><span class="line">                    <span class="comment">// 新的寻址地址 = 旧的寻址地址 + 扩容前数组长度</span></span><br><span class="line">                    <span class="keyword">if</span> (hiTail != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        hiTail.next = <span class="keyword">null</span>;</span><br><span class="line">                        newTab[j + oldCap] = hiHead;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newTab;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2、例题"><a href="#2、例题" class="headerlink" title="2、例题"></a>2、例题</h2><p>&emsp;&emsp;需求：以追加的形式修改文本文件内容，从”123456789”修改为”123abc456789”</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">// 原文件内容为"123456789"</span></span><br><span class="line">    RandomAccessFile raf = <span class="keyword">new</span> RandomAccessFile(<span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\hello.txt"</span>), <span class="string">"rw"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把指针移到下标为3的位置</span></span><br><span class="line">    raf.seek(<span class="number">3</span>);</span><br><span class="line">    <span class="comment">// 保存下标3后面的字符</span></span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder((<span class="keyword">int</span>) <span class="keyword">new</span> File(<span class="string">"E:\\JavaTest\\hello.txt"</span>).length());</span><br><span class="line">    <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">int</span> len;</span><br><span class="line">    <span class="keyword">while</span> (-<span class="number">1</span> != (len = raf.read(buff))) &#123;</span><br><span class="line">        sb.append(<span class="keyword">new</span> String(buff, <span class="number">0</span>, len));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 追加"abc"</span></span><br><span class="line">    raf.seek(<span class="number">3</span>);</span><br><span class="line">    raf.write(<span class="string">"abc"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 再添加原来的字符</span></span><br><span class="line">    raf.write(sb.toString().getBytes());</span><br><span class="line">    raf.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-5-1-扩容时链表的处理"><a href="#2-5-1-扩容时链表的处理" class="headerlink" title="2.5.1 扩容时链表的处理"></a>2.5.1 扩容时链表的处理</h3><p><img src="/images/26-50/033-HashMap%E6%89%A9%E5%AE%B9%E4%B9%8B%E9%93%BE%E8%A1%A8.png" alt="033-HashMap扩容之链表"></p>
-<h2 id="2-6-get方法"><a href="#2-6-get方法" class="headerlink" title="2.6 get方法"></a>2.6 get方法</h2><ul>
-<li>get方法里会调用getNode方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Implements Map.get and related methods.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> hash key的哈希值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> key  key</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>	   返回key-value节点，若无则返回null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">final</span> Node&lt;K,V&gt; <span class="title">getNode</span><span class="params">(<span class="keyword">int</span> hash, Object key)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 散列表数组</span></span><br><span class="line">    Node&lt;K,V&gt;[] tab;</span><br><span class="line">    <span class="comment">// first：桶位头元素</span></span><br><span class="line">    <span class="comment">// e：临时node节点元素</span></span><br><span class="line">    Node&lt;K,V&gt; first, e;</span><br><span class="line">    <span class="comment">// 数组长度</span></span><br><span class="line">    <span class="keyword">int</span> n; </span><br><span class="line">    K k;</span><br><span class="line">    <span class="comment">// 数组不为空，并且寻址到的桶位不为空</span></span><br><span class="line">    <span class="keyword">if</span> ((tab = table) != <span class="keyword">null</span> &amp;&amp; (n = tab.length) &gt; <span class="number">0</span> &amp;&amp;</span><br><span class="line">        (first = tab[(n - <span class="number">1</span>) &amp; hash]) != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 桶位的头节点就是要找的元素，直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (first.hash == hash &amp;&amp;</span><br><span class="line">            ((k = first.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">            <span class="keyword">return</span> first;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ((e = first.next) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 如果是红黑树（待补充……）</span></span><br><span class="line">            <span class="keyword">if</span> (first <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">                <span class="keyword">return</span> ((TreeNode&lt;K,V&gt;)first).getTreeNode(hash, key);</span><br><span class="line">            <span class="comment">// 否则遍历链表来找</span></span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                    ((k = e.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                    <span class="keyword">return</span> e;</span><br><span class="line">            &#125; <span class="keyword">while</span> ((e = e.next) != <span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-7-remove方法"><a href="#2-7-remove方法" class="headerlink" title="2.7 remove方法"></a>2.7 remove方法</h2><ul>
-<li>remove方法里会调用removeNode方法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Implements Map.remove and related methods.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> hash        key的哈希值</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> key         key</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> value       value</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> matchValue  为true时还要考虑value是否相同</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> movable     为false则在删除时，不移动其他节点，只影响红黑树</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>            返回被删除的节点，若无返回null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">final</span> Node&lt;K,V&gt; <span class="title">removeNode</span><span class="params">(<span class="keyword">int</span> hash, Object key, Object value,</span></span></span><br><span class="line"><span class="function"><span class="params">                           <span class="keyword">boolean</span> matchValue, <span class="keyword">boolean</span> movable)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 散列表数组</span></span><br><span class="line">    Node&lt;K,V&gt;[] tab;</span><br><span class="line">    <span class="comment">// 当前node节点元素</span></span><br><span class="line">    Node&lt;K,V&gt; p;</span><br><span class="line">    <span class="comment">// n：散列表数组长度</span></span><br><span class="line">    <span class="comment">// index：寻址结果</span></span><br><span class="line">    <span class="keyword">int</span> n, index;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ((tab = table) != <span class="keyword">null</span> &amp;&amp; (n = tab.length) &gt; <span class="number">0</span> &amp;&amp;</span><br><span class="line">        (p = tab[index = (n - <span class="number">1</span>) &amp; hash]) != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 执行到这说明当前桶位有数据，需要进行查找操作并删除</span></span><br><span class="line">        <span class="comment">// node：待删除元素</span></span><br><span class="line">        <span class="comment">// e：当前元素p的下一个元素</span></span><br><span class="line">        Node&lt;K,V&gt; node = <span class="keyword">null</span>, e;</span><br><span class="line">        K k;</span><br><span class="line">        V v;</span><br><span class="line">        <span class="comment">// （情况一）如果桶位第一个元素就是待删除元素，直接赋给node</span></span><br><span class="line">        <span class="keyword">if</span> (p.hash == hash &amp;&amp;</span><br><span class="line">            ((k = p.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">            node = p;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ((e = p.next) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// （情况二）如果时红黑树，则走红黑树的查找逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (p <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">                node = ((TreeNode&lt;K,V&gt;)p).getTreeNode(hash, key);</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// （情况三）否则遍历链表，找到待删元素，赋给node</span></span><br><span class="line">                <span class="comment">// 结束循环后，p是node的前一个节点</span></span><br><span class="line">                <span class="keyword">do</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                        ((k = e.key) == key || (key != <span class="keyword">null</span> &amp;&amp; key.equals(k)))) &#123;</span><br><span class="line">                        node = e;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    p = e;</span><br><span class="line">                &#125; <span class="keyword">while</span> ((e = e.next) != <span class="keyword">null</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 找到待删元素node，在matchValue为true的时候考虑value是否相等</span></span><br><span class="line">        <span class="keyword">if</span> (node != <span class="keyword">null</span> &amp;&amp; (!matchValue || (v = node.value) == value ||</span><br><span class="line">                             (value != <span class="keyword">null</span> &amp;&amp; value.equals(v)))) &#123;</span><br><span class="line">            <span class="comment">// 对应情况二，如果是红黑树，走红黑树的删除逻辑</span></span><br><span class="line">            <span class="keyword">if</span> (node <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">                ((TreeNode&lt;K,V&gt;)node).removeTreeNode(<span class="keyword">this</span>, tab, movable);</span><br><span class="line">            <span class="comment">// 对应情况一，直接把node.next放在桶位头节点</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (node == p)</span><br><span class="line">                tab[index] = node.next;</span><br><span class="line">            <span class="comment">// 对应情况三，此时p是node的前一个节点，所以直接进行以下操作</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                p.next = node.next;</span><br><span class="line">            <span class="comment">// 哈希表的结构修改次数加一，哈希表大小减一</span></span><br><span class="line">            ++modCount;</span><br><span class="line">            --size;</span><br><span class="line">            afterNodeRemoval(node);</span><br><span class="line">            <span class="keyword">return</span> node;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-8-replace方法"><a href="#2-8-replace方法" class="headerlink" title="2.8 replace方法"></a>2.8 replace方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取待替换的元素，返回旧的value</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> V <span class="title">replace</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">    Node&lt;K,V&gt; e;</span><br><span class="line">    <span class="keyword">if</span> ((e = getNode(hash(key), key)) != <span class="keyword">null</span>) &#123;</span><br><span class="line">        V oldValue = e.value;</span><br><span class="line">        e.value = value;</span><br><span class="line">        afterNodeAccess(e);</span><br><span class="line">        <span class="keyword">return</span> oldValue;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="3-相关链接"><a href="#3-相关链接" class="headerlink" title="3. 相关链接"></a>3. 相关链接</h1><ul>
-<li><a href="https://www.bilibili.com/video/BV1LJ411W7dP?p=1" target="_blank" rel="noopener">参考视频</a></li>
+<h1 id="四、相关链接"><a href="#四、相关链接" class="headerlink" title="四、相关链接"></a>四、相关链接</h1><ul>
+<li><a href="https://www.bilibili.com/video/av48144058/?p=575" target="_blank" rel="noopener">参考资料</a></li>
 </ul>
 
       
@@ -246,7 +409,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				https://p5r-chihaya.github.io/2021/09/01/【学习笔记】HashMap/
+				https://p5r-chihaya.github.io/2019/10/04/【学习笔记】Java笔记8：IO流/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -303,7 +466,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HashMap</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IO流</a>
         		</li>
       		
 		</ul>
@@ -359,7 +522,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3a0WrcQAwF0P3/n06hT4XgyZU0qls4floSe2fOBCxF0ucTX1+/rz8/P13fn/r+7Pmep9XP94wuPDw8vNbWz9s9byu///yT/AjyI8bDw8Pb4+XBoPdaz78zCSr50eDh4eG9y8u3VU3Tk53g4eHh/Y+8yTJ3t46Hh4f3L/CS4kI1VCSHkqz4l2oteHh4eDGv1wB79/N6fw8PDw+v1VXvNcMmJYmvqxceHh7eBm/e1E8wk5GsvCH3+CweHh7eAm+STFcDwCTM9AoleHh4eHd51QHTuxvtHVmhHIyHh4e3zKumrclxVJPpPDUv1Frw8PDw1njnBaoZ+hl2DjB5OaNZIcbDw8Nb41UT3FupefV7Hn+Lh4eHt8arvqx7xYJekSIPVJ/qMnh4eHhXebfS7t4YQY/6OG6Fh4eHd5WXtJQmIeRu+SMvTzyOq+Lh4eGNefnruJpq9xiT8YIfihF4eHh4V3nz/+LzYJCHmaTIW0im8fDw8K7y8i+aP3VOx8tjVeejx8PDw1vgTYYGqmn35CDyMFMeIMDDw8Nr8SYv6x64ula+z8LfAQ8PD6/Fq76+8xJGtWXVKweXay14eHh4W/39y4vl7avzFqthCQ8PD2+DV21rVUNCOa+PjzsqXuDh4eEt8/ItzkemqkXk6ip4eHh47/KSO/NUOC9wJAXcH5J4PDw8vAVenihXE9yNttZo6AoPDw/vEq86FlAtUvR4kx4WHh4e3ru8SZLdQ+YhJ2qw4eHh4S3wbs0m9UYNJs0zPDw8vHd51cJoLwBUt947iMc2GB4eHt4CLwkGeXH27s+rw1iFKjUeHh7eMq+XRvcS7l6gGgUGPDw8vDVedQyr+nLPm2pRgRgPDw9vjdcrH/QaVL2kvNlaw8PDw1vg9V7Zk6/rPZsn7uULDw8PL+X9Ar0ikpfcw1mzAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvUlEQVR42u3aQW7jMBAEwPz/09nrAhvJ3TOiY2DLJyOgRBYNkJMmv77iz/dfn6TNvy2Tv9z3eN9+9cHDw8NbDP1qiMn3tpcEcz+e+zZ4eHh4p3lXA0qW6XwQ+dBn04qHh4f3+bz7Z/Mi+37oeXmNh4eH92m8lpFEGEnkgYeHh/eZvM0//1EoEAwl2R4OZi14eHh4836/8k3it74fOd/Dw8PDW5+q58tu+1QS4D4wTjw8PLwDvHZRzgvlzeI+m5TLXvDw8PAO8J46jsqX9X0w0b4fDw8P7yneU8t9Poi2ZbJV1DsMHh4e3oKXl6p5B5sNIJ/Wohc8PDy8R3n5Y3lIsb800G5FL+5E4OHh4T3Ke+rYqV2y8wlKphUPDw/vnbxZdLsPfPN4ItmiLtvg4eHhHePN4oa2KG8j3baI/6E9Hh4e3gFee8y/wefle7451dfC8PDw8B7i5S9qA4iWOuvrxZaAh4eHd4DXFqZ5HDArf2dHaMXVKzw8PLwFb/ZPfn621gYNbaE/vHSFh4eHt+blD8yC2jaiTbKTqOjHw8PDO8zbRAyzkjrpJS++8fDw8N7D27yoDQuS+LU9tYva4+Hh4T3K28SsxVWn8oir/X0u34OHh4d3gLcJTGeXBvLjrtkFghdTjIeHh7fmbYrpdmNor1jlv8llGzw8PLwDvHOl8GaTmF1EwMPDw3sPbxO2FjlxWYLPpv6H9nh4eHgHeG1A0BbTyd+jjCTetIrfEA8PD2/E+y4/syl46v11cIyHh4d3gDdbfNujqc2BVg647x0PDw/vWV479M0x/ybSHR6V4eHh4R3jtQdXycI9W/RnIQUeHh7eZ/L216raY7Z8aoqUGg8PD++NvGQhbi9mJUX25soXHh4e3jleG9HmZXEbFg8Psa76xcPDwzvAe/aB2TlbssHkRfnB+cDDw/vfeX8AdTvkKblHKK4AAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -373,9 +536,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/10/06/【学习笔记】Java笔记9：网络编程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【学习笔记】Java笔记9：网络编程
+        
+      </div>
+    </a>
   
-    <a href="/2021/07/03/【算法】常见排序/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【算法】常见排序</div>
+  
+    <a href="/2019/09/17/【算法】负载均衡/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【算法】负载均衡</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -402,7 +574,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-介绍"><span class="toc-number">1.</span> <span class="toc-text">1. 介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-源码"><span class="toc-number">2.</span> <span class="toc-text">2. 源码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-常量"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-属性"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-构造方法"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 构造方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-put方法"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 put方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-resize扩容方法"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 resize扩容方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1-扩容时链表的处理"><span class="toc-number">2.5.1.</span> <span class="toc-text">2.5.1 扩容时链表的处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-get方法"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 get方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-remove方法"><span class="toc-number">2.7.</span> <span class="toc-text">2.7 remove方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-8-replace方法"><span class="toc-number">2.8.</span> <span class="toc-text">2.8 replace方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-相关链接"><span class="toc-number">3.</span> <span class="toc-text">3. 相关链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、File类"><span class="toc-number">1.</span> <span class="toc-text">一、File类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、创建File类实例"><span class="toc-number">1.1.</span> <span class="toc-text">1、创建File类实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、需要注意的方法"><span class="toc-number">1.2.</span> <span class="toc-text">2、需要注意的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、IO流"><span class="toc-number">2.</span> <span class="toc-text">二、IO流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、FileReader"><span class="toc-number">2.1.</span> <span class="toc-text">1、FileReader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、FileWriter"><span class="toc-number">2.2.</span> <span class="toc-text">2、FileWriter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、复制文本文件"><span class="toc-number">2.3.</span> <span class="toc-text">3、复制文本文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、FileInputStream-FileOutputStream"><span class="toc-number">2.4.</span> <span class="toc-text">4、FileInputStream/FileOutputStream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、缓冲流"><span class="toc-number">2.5.</span> <span class="toc-text">5、缓冲流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、转换流"><span class="toc-number">2.6.</span> <span class="toc-text">6、转换流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、数据流"><span class="toc-number">2.7.</span> <span class="toc-text">7、数据流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、对象流"><span class="toc-number">2.8.</span> <span class="toc-text">8、对象流</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、RandomAccessFile"><span class="toc-number">3.</span> <span class="toc-text">三、RandomAccessFile</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、相关说明"><span class="toc-number">3.1.</span> <span class="toc-text">1、相关说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、例题"><span class="toc-number">3.2.</span> <span class="toc-text">2、例题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、相关链接"><span class="toc-number">4.</span> <span class="toc-text">四、相关链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -518,15 +690,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,35 +718,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">注解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,6 +738,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
@@ -599,6 +771,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">索引堆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,15 +794,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,15 +814,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color1">八皇后问题</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">八皇后问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -654,11 +830,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">逆波兰表达式</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color2">逆波兰表达式</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://p5r-chihaya.github.io">
-  <title>【学习笔记】Java笔记九：网络编程 | P5.</title>
+  <title>【学习笔记】Java笔记6：泛型 | P5.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、相关概念1、IP 唯一标识Internet上的计算机  分类方式1：IPV4和IPV6   IPV4：4个字节组成，4个0~255，中间用小数点隔开，如192.168.0.1 IPV6：128位(16个字节)组成，8组无符号整数，中间用冒号隔开，如3ffe:3201:1401:1280:c8ff:fe4d:db39:1984    分类方式2：公网地址(万维网)和私网地址(局域网)，192.1">
-<meta name="keywords" content="Java,网络编程">
+  <meta name="description" content="一、介绍&amp;emsp;&amp;emsp;泛型可以理解为用来修饰数据类型(除了基本类型)的参数。比如一个ArrayList对象，在没有使用使用泛型时可以往里面加任意类型的数据，但这样并不安全，所以可以使用泛型来限制，如ArrayList&amp;lt;String&amp;gt;就是只能往这个集合里面加String类型的数据。 二、自定义泛型1、泛型类&amp;emsp;&amp;emsp;假设已定义了Dog和Cat类，都有一个Strin">
+<meta name="keywords" content="Java,泛型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【学习笔记】Java笔记九：网络编程">
-<meta property="og:url" content="https://p5r-chihaya.github.io/2019/10/06/【学习笔记】Java笔记九：网络编程/index.html">
+<meta property="og:title" content="【学习笔记】Java笔记6：泛型">
+<meta property="og:url" content="https://p5r-chihaya.github.io/2019/09/13/【学习笔记】Java笔记6：泛型/index.html">
 <meta property="og:site_name" content="P5.">
-<meta property="og:description" content="一、相关概念1、IP 唯一标识Internet上的计算机  分类方式1：IPV4和IPV6   IPV4：4个字节组成，4个0~255，中间用小数点隔开，如192.168.0.1 IPV6：128位(16个字节)组成，8组无符号整数，中间用冒号隔开，如3ffe:3201:1401:1280:c8ff:fe4d:db39:1984    分类方式2：公网地址(万维网)和私网地址(局域网)，192.1">
+<meta property="og:description" content="一、介绍&amp;emsp;&amp;emsp;泛型可以理解为用来修饰数据类型(除了基本类型)的参数。比如一个ArrayList对象，在没有使用使用泛型时可以往里面加任意类型的数据，但这样并不安全，所以可以使用泛型来限制，如ArrayList&amp;lt;String&amp;gt;就是只能往这个集合里面加String类型的数据。 二、自定义泛型1、泛型类&amp;emsp;&amp;emsp;假设已定义了Dog和Cat类，都有一个Strin">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-01T03:15:21.172Z">
+<meta property="og:updated_time" content="2021-09-02T03:30:57.400Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【学习笔记】Java笔记九：网络编程">
-<meta name="twitter:description" content="一、相关概念1、IP 唯一标识Internet上的计算机  分类方式1：IPV4和IPV6   IPV4：4个字节组成，4个0~255，中间用小数点隔开，如192.168.0.1 IPV6：128位(16个字节)组成，8组无符号整数，中间用冒号隔开，如3ffe:3201:1401:1280:c8ff:fe4d:db39:1984    分类方式2：公网地址(万维网)和私网地址(局域网)，192.1">
+<meta name="twitter:title" content="【学习笔记】Java笔记6：泛型">
+<meta name="twitter:description" content="一、介绍&amp;emsp;&amp;emsp;泛型可以理解为用来修饰数据类型(除了基本类型)的参数。比如一个ArrayList对象，在没有使用使用泛型时可以往里面加任意类型的数据，但这样并不安全，所以可以使用泛型来限制，如ArrayList&amp;lt;String&amp;gt;就是只能往这个集合里面加String类型的数据。 二、自定义泛型1、泛型类&amp;emsp;&amp;emsp;假设已定义了Dog和Cat类，都有一个Strin">
   
     <link rel="alternative" href="/atom.xml" title="P5." type="application/atom+xml">
   
@@ -152,96 +152,70 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-【学习笔记】Java笔记九：网络编程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-【学习笔记】Java笔记6：泛型" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      【学习笔记】Java笔记九：网络编程
+      【学习笔记】Java笔记6：泛型
     </h1>
   
 
         
-        <a href="/2019/10/06/【学习笔记】Java笔记九：网络编程/" class="archive-article-date">
-  	<time datetime="2019-10-06T02:56:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
+        <a href="/2019/09/13/【学习笔记】Java笔记6：泛型/" class="archive-article-date">
+  	<time datetime="2019-09-13T02:15:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、相关概念"><a href="#一、相关概念" class="headerlink" title="一、相关概念"></a>一、相关概念</h1><h2 id="1、IP"><a href="#1、IP" class="headerlink" title="1、IP"></a>1、IP</h2><ul>
-<li><p>唯一标识Internet上的计算机</p>
-</li>
-<li><p>分类方式1：IPV4和IPV6</p>
-<blockquote>
-<ul>
-<li>IPV4：4个字节组成，4个0~255，中间用小数点隔开，如192.168.0.1</li>
-<li>IPV6：128位(16个字节)组成，8组无符号整数，中间用冒号隔开，如3ffe:3201:1401:1280:c8ff:fe4d:db39:1984</li>
-</ul>
-</blockquote>
-</li>
-<li><p>分类方式2：公网地址(万维网)和私网地址(局域网)，192.168.开头的就是私有地址</p>
-</li>
-<li><p>在Java中对应的类是InetAddress</p>
-</li>
-<li><p>本地地址：127.0.0.1对应域名是localhost</p>
-</li>
-</ul>
+        <h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><p>&emsp;&emsp;泛型可以理解为用来修饰数据<strong>类型(除了基本类型)</strong>的参数。比如一个ArrayList对象，在没有使用使用泛型时可以往里面加任意类型的数据，但这样并不安全，所以可以使用泛型来限制，如ArrayList&lt;String&gt;就是只能往这个集合里面加String类型的数据。</p>
+<h1 id="二、自定义泛型"><a href="#二、自定义泛型" class="headerlink" title="二、自定义泛型"></a>二、自定义泛型</h1><h2 id="1、泛型类"><a href="#1、泛型类" class="headerlink" title="1、泛型类"></a>1、泛型类</h2><p>&emsp;&emsp;假设已定义了Dog和Cat类，都有一个String类型的name字段，那么泛型类可如下定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span>&lt;<span class="title">T</span>&gt; </span>&#123; <span class="comment">// 这是一个泛型类，泛型接口的定义也类似</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="comment">// 宠物的类型不确定，可能是Dog，可能是Cat，于是使用泛型</span></span><br><span class="line">    <span class="keyword">private</span> T pet;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getPet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> pet;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPet</span><span class="params">(T pet)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.pet = pet;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person&lt;Dog&gt; p = <span class="keyword">new</span> Person&lt;&gt;();</span><br><span class="line">        p.setPet(<span class="keyword">new</span> Dog(<span class="string">"路卡利欧"</span>));</span><br><span class="line">        System.out.println(p.getPet().getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<h2 id="2、端口"><a href="#2、端口" class="headerlink" title="2、端口"></a>2、端口</h2><ul>
-<li><p>标识计算机运行的进程</p>
+<h2 id="2、泛型方法"><a href="#2、泛型方法" class="headerlink" title="2、泛型方法"></a>2、泛型方法</h2><p>&emsp;&emsp;在方法中包含泛型结构，且其泛型与类的泛型没有任何关系。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyUtil</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 这是一个泛型方法，即便它的所属类不是泛型类</span></span><br><span class="line">    <span class="comment">// static后面的&lt;E&gt;起到提示作用，告诉编译器E是泛型，而不是某个具体的类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;E&gt; <span class="function">List&lt;E&gt; <span class="title">copyFromArrayToList</span><span class="params">(E[] arr)</span> </span>&#123;</span><br><span class="line">        List&lt;E&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (E e : arr) &#123;</span><br><span class="line">            list.add(e);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、通配符"><a href="#三、通配符" class="headerlink" title="三、通配符"></a>三、通配符</h1><p>&emsp;&emsp;定义三个类，Person类，Student类，XiaoMing类。Student继承于Person，XiaoMing继承于Student。</p>
+<h2 id="1、-lt-extends-Student-gt"><a href="#1、-lt-extends-Student-gt" class="headerlink" title="1、&lt;? extends Student&gt;"></a>1、&lt;? extends Student&gt;</h2><p>&emsp;&emsp;<strong>添加</strong>(add方法)时只能加null</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;? extends Student&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// list.add(new XiaoMing()); 编译不通过</span></span><br><span class="line">        <span class="comment">// list.add(123);            编译不通过</span></span><br><span class="line">        list.add(<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;<strong>获取</strong>(get方法)时只能赋给Student及其父类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;? extends Student&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        Student student = list.get(<span class="number">0</span>);</span><br><span class="line">        Person person = list.get(<span class="number">0</span>);</span><br><span class="line">        Object o = list.get(<span class="number">0</span>);</span><br><span class="line">        <span class="comment">// XiaoMing xiaoMing = list.get(0);  编译不通过</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、-lt-super-Student-gt"><a href="#2、-lt-super-Student-gt" class="headerlink" title="2、&lt;? super Student&gt;"></a>2、&lt;? super Student&gt;</h2><p>&emsp;&emsp;<strong>添加</strong>时可以加Student及其子类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;? <span class="keyword">super</span> Student&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        list.add(<span class="keyword">new</span> Student());</span><br><span class="line">        list.add(<span class="keyword">new</span> XiaoMing());</span><br><span class="line">        <span class="comment">// list.add(Person);  编译不通过</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;<strong>获取</strong>时只能赋给Object</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;? <span class="keyword">super</span> Student&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        Object object = list.get(<span class="number">0</span>);</span><br><span class="line">        <span class="comment">// Person p = list.get(0);  编译不通过</span></span><br><span class="line">        <span class="comment">// Student s = list.get(0); 编译不通过</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、注意事项"><a href="#四、注意事项" class="headerlink" title="四、注意事项"></a>四、注意事项</h1><ul>
+<li><p>如果类A是类B的父类，那么G&lt;A&gt;和G&lt;B&gt;没有父子关系，如下所示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Object&gt; list1 = <span class="keyword">null</span>;</span><br><span class="line">        List&lt;String&gt; list2 = <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">// 编译不通过</span></span><br><span class="line">        <span class="comment">// list1 = list2;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是A&lt;G&gt;是B&lt;G&gt;的父类。</p>
 </li>
-<li><p>不同的进程有不同的端口号</p>
-</li>
-<li><p>端口号是一个16位的整数，范围0~65535</p>
-</li>
-<li><p>分类如下</p>
-<blockquote>
-<ul>
-<li><p>公认端口：0~1023，被预先定义的服务通信占用。如HTTP占用80，FTP占用21</p>
-</li>
-<li><p>注册端口：1024~49151，分配给用户进程或应用程序。如Tomcat占用8080，MySQL占用3306，Oracle占用1521</p>
-</li>
-<li><p>动态/私有端口：49152~65535</p>
+<li><p>如果泛型要实现某个接口，要用extends关键字，而不是implements，如下所示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyUtil</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;E extends Serializable&gt; <span class="function">List&lt;E&gt; <span class="title">copyFromArrayToList</span><span class="params">(E[] arr)</span> </span>&#123;</span><br><span class="line">        List&lt;E&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (E e : arr) &#123;</span><br><span class="line">            list.add(e);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ul>
-</blockquote>
+<h1 id="五、相关链接"><a href="#五、相关链接" class="headerlink" title="五、相关链接"></a>五、相关链接</h1><ul>
+<li><p><a href="https://www.cnblogs.com/chenxibobo/p/9655236.html" target="_blank" rel="noopener">参考资料1</a></p>
 </li>
-<li><p>端口号与IP地址组合成一个网络套接字：Socket</p>
+<li><p><a href="https://zhidao.baidu.com/question/1543114508325510827.html" target="_blank" rel="noopener">参考资料2</a></p>
 </li>
-</ul>
-<h2 id="3、网络协议"><a href="#3、网络协议" class="headerlink" title="3、网络协议"></a>3、网络协议</h2><p>&emsp;&emsp;网络协议即网络通信中的一些约定。传输层的两个重要协议：TCP和UDP</p>
-<h3 id="1）TCP"><a href="#1）TCP" class="headerlink" title="1）TCP"></a>1）TCP</h3><ul>
-<li>使用TCP协议前，需建立TCP连接，形成数据传输通道</li>
-<li>传输前，要进行”三次握手”</li>
-<li>TCP的两个应用进程：客户端、服务端</li>
-<li>连接中可以进行大量数据的传输</li>
-<li>传输完成需要释放连接，效率低</li>
-</ul>
-<h3 id="2）UDP"><a href="#2）UDP" class="headerlink" title="2）UDP"></a>2）UDP</h3><ul>
-<li>不建立连接</li>
-<li>每个数据报限制在64K内</li>
-<li>只管发送，不管对方是否接收到</li>
-<li>可以广播发送</li>
-<li>发送结束不释放资源，速度快</li>
-</ul>
-<h1 id="二、TCP和UDP编程"><a href="#二、TCP和UDP编程" class="headerlink" title="二、TCP和UDP编程"></a>二、TCP和UDP编程</h1><h2 id="1、TCP"><a href="#1、TCP" class="headerlink" title="1、TCP"></a>1、TCP</h2><h3 id="1）例题1"><a href="#1）例题1" class="headerlink" title="1）例题1"></a>1）例题1</h3><p>&emsp;&emsp;需求：客户端向服务端发送数据，服务端打印到控制台上</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TCPTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">client</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Socket socket = <span class="keyword">null</span>;</span><br><span class="line">        OutputStream os = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            InetAddress inet = InetAddress.getByName(<span class="string">"127.0.0.1"</span>);</span><br><span class="line">            <span class="comment">// 创建Socket对象，指名服务器的ip和端口</span></span><br><span class="line">            socket = <span class="keyword">new</span> Socket(inet, <span class="number">8888</span>);</span><br><span class="line">            <span class="comment">// 获取输出流，用于向服务器输出数据</span></span><br><span class="line">            os = socket.getOutputStream();</span><br><span class="line">            os.write(<span class="string">"我是客户端"</span>.getBytes());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != os) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    os.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != socket) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    socket.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">server</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ServerSocket serverSocket = <span class="keyword">null</span>;</span><br><span class="line">        Socket socket = <span class="keyword">null</span>;</span><br><span class="line">        InputStream is = <span class="keyword">null</span>;</span><br><span class="line">        ByteArrayOutputStream baos = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 创建服务器的ServerSocket对象，指名自身的端口</span></span><br><span class="line">            serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">8888</span>);</span><br><span class="line">            <span class="comment">// 调用accept()方法接收客户端的socket</span></span><br><span class="line">            socket = serverSocket.accept();</span><br><span class="line">            <span class="comment">// 获取socket的输入流</span></span><br><span class="line">            is = socket.getInputStream();</span><br><span class="line"></span><br><span class="line">            baos = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">            <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">20</span>];</span><br><span class="line">            <span class="keyword">int</span> len;</span><br><span class="line">            <span class="keyword">while</span> (-<span class="number">1</span> != (len = is.read(buff))) &#123;</span><br><span class="line">                baos.write(buff, <span class="number">0</span>, len);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(baos.toString());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != baos) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    baos.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != is) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    is.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != socket) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    socket.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">null</span> != serverSocket) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    serverSocket.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2）例题2"><a href="#2）例题2" class="headerlink" title="2）例题2"></a>2）例题2</h3><p>&emsp;&emsp;需求：客户端向服务端发送文件，服务端把文件保存在硬盘上</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TCPTest2</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">client</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        Socket socket = <span class="keyword">new</span> Socket(InetAddress.getByName(<span class="string">"127.0.0.1"</span>), <span class="number">8888</span>);</span><br><span class="line">        OutputStream os = socket.getOutputStream();</span><br><span class="line">        FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">"E:\\JavaTest\\client\\01.jpg"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> (-<span class="number">1</span> != (len = fis.read(buff))) &#123;</span><br><span class="line">            os.write(buff, <span class="number">0</span> , len);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 这里偷懒直接把异常抛出，正常开发应该用try-catch-finally</span></span><br><span class="line">        fis.close();</span><br><span class="line">        os.close();</span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">server</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">8888</span>);</span><br><span class="line"></span><br><span class="line">        Socket socket = serverSocket.accept();</span><br><span class="line">        InputStream is = socket.getInputStream();</span><br><span class="line"></span><br><span class="line">        FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"E:\\JavaTest\\server\\01.jpg"</span>);</span><br><span class="line">        <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> (-<span class="number">1</span> != (len = is.read(buff))) &#123;</span><br><span class="line">            fos.write(buff, <span class="number">0</span>, len);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        fos.close();</span><br><span class="line">        is.close();</span><br><span class="line">        socket.close();</span><br><span class="line">        serverSocket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3）例题3"><a href="#3）例题3" class="headerlink" title="3）例题3"></a>3）例题3</h3><p>&emsp;&emsp;需求：在例题2的基础上，服务端反馈”接收完成”给客户端</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TCPTest3</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">client</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        Socket socket = <span class="keyword">new</span> Socket(InetAddress.getByName(<span class="string">"127.0.0.1"</span>), <span class="number">8888</span>);</span><br><span class="line">        OutputStream os = socket.getOutputStream();</span><br><span class="line">        FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="string">"E:\\JavaTest\\client\\01.jpg"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> (-<span class="number">1</span> != (len = fis.read(buff))) &#123;</span><br><span class="line">            os.write(buff, <span class="number">0</span> , len);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 不调用该方法会导致阻塞</span></span><br><span class="line">        socket.shutdownOutput();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 接收服务端的数据</span></span><br><span class="line">        InputStream is = socket.getInputStream();</span><br><span class="line">        InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(is);</span><br><span class="line">        <span class="keyword">char</span>[] buff2 = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">10</span>];</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder(<span class="number">100</span>);</span><br><span class="line">        <span class="keyword">int</span> len2;</span><br><span class="line">        <span class="keyword">while</span> (-<span class="number">1</span> != (len2 = isr.read(buff2))) &#123;</span><br><span class="line">            sb.append(buff2, <span class="number">0</span>, len2);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(sb.toString());</span><br><span class="line"></span><br><span class="line">        isr.close();</span><br><span class="line">        is.close();</span><br><span class="line">        fis.close();</span><br><span class="line">        os.close();</span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">server</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">8888</span>);</span><br><span class="line"></span><br><span class="line">        Socket socket = serverSocket.accept();</span><br><span class="line">        InputStream is = socket.getInputStream();</span><br><span class="line"></span><br><span class="line">        FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(<span class="string">"E:\\JavaTest\\server\\01.jpg"</span>);</span><br><span class="line">        <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> (-<span class="number">1</span> != (len = is.read(buff))) &#123;</span><br><span class="line">            fos.write(buff, <span class="number">0</span>, len);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        OutputStream os = socket.getOutputStream();</span><br><span class="line">        os.write(<span class="string">"接收完成"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">        os.close();</span><br><span class="line">        fos.close();</span><br><span class="line">        is.close();</span><br><span class="line">        socket.close();</span><br><span class="line">        serverSocket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、UDP"><a href="#2、UDP" class="headerlink" title="2、UDP"></a>2、UDP</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UDPTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sender</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        DatagramSocket socket = <span class="keyword">new</span> DatagramSocket();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">byte</span>[] data = <span class="string">"UDP传输"</span>.getBytes();</span><br><span class="line"></span><br><span class="line">        InetAddress inet = InetAddress.getByName(<span class="string">"127.0.0.1"</span>);</span><br><span class="line">        DatagramPacket packet = <span class="keyword">new</span> DatagramPacket(data, <span class="number">0</span>, data.length, inet, <span class="number">8888</span>);</span><br><span class="line"></span><br><span class="line">        socket.send(packet);</span><br><span class="line"></span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receiver</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        DatagramSocket socket = <span class="keyword">new</span> DatagramSocket(<span class="number">8888</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        DatagramPacket packet = <span class="keyword">new</span> DatagramPacket(buff, <span class="number">0</span>, buff.length);</span><br><span class="line">        socket.receive(packet);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="keyword">new</span> String(packet.getData(), <span class="number">0</span>, packet.getLength()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="三、相关链接"><a href="#三、相关链接" class="headerlink" title="三、相关链接"></a>三、相关链接</h1><ul>
-<li><a href="https://www.bilibili.com/video/av48144058/?p=618" target="_blank" rel="noopener">参考资料</a></li>
+<li><p><a href="https://www.cnblogs.com/drizzlewithwind/p/6100164.html" target="_blank" rel="noopener">参考资料3</a></p>
+</li>
 </ul>
 
       
@@ -257,7 +231,7 @@
 				
 				<br>
 				<strong>本文链接：</strong>
-				https://p5r-chihaya.github.io/2019/10/06/【学习笔记】Java笔记九：网络编程/
+				https://p5r-chihaya.github.io/2019/09/13/【学习笔记】Java笔记6：泛型/
 				<br>
 				<strong>版权声明：</strong>
 				本作品采用
@@ -314,7 +288,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络编程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">泛型</a>
         		</li>
       		
 		</ul>
@@ -370,7 +344,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADR0lEQVR42u3awY7iMBAEUP7/p2elOa20i6lqB4mYlxNCIfiZQ9PVfjzi6+f3evb+39e/7z97wvr+Z/esv/fiCxsbG/sm7J/ltWbnT17zks1tt+/F1mBjY2Mfx26/bP2EWXHKN3dd2KINxcbGxv5KdrKsNW9d3tq2Jy+02NjY2NjPFpeHR0k8lDx/VmixsbGxv4GdFIY2bMpLVxEGlWODC7I0bGxs7I9nXxXifMLrN863sbGxsT+S/XPplcdGs9AqL1Qv1omNjY19EHs2ZM2XngdJbUFqo6tH+5tgY2NjH8ROykZ+fx3ib4witgoYNjY29k3Y7fg2+cpkETsj250foFgoNjY29k3Y7Qg235rk/Vm4v1P8sLGxsc9jzwL6vGF4d5Mzm95iY2Njn8TO/+jvn3t5x1Ch3Y76KA82Njb2rdg7H37HUZudAXAxlsDGxsa+ObsN9GcFaVaW8s/WPww2Njb2QexkMNAOEvJmY+cITlsaHzMGNjY29sez88BoP6BvQ6t2GJxHYNjY2NinsvMmZAbbuf/i7cDGxsY+iD37f942BjulceeZ2NjY2N/Gno1722AoLzzJ0tttvezgDjY2NvaHsdv2I2lj9oe4s9ioOHKEjY2NfSh7FtnMltUOHnaaGWxsbOxT2fuxTh7i5NF/O05OPvtiKoKNjY19W3beDERHYYIWoh0nt6OFIszCxsbGPoKd/+lPltUGQ+3YYHac6D9rw8bGxj6I3Ybv7eGYtiC9Y8wQNSTY2NjYt2XvLGhWxvL3dzb6xdZgY2NjH8RuG4y8AWifNoz42/wsnzNgY2Nj35A9axJmg4SdhqcdTjy9ExsbG/sgdnsgpo1+1kVlNipeP6f+wbCxsbEPYrfLTRqVPE7Kn7N+crL12NjY2Key84XmRW7WriSMR3y9uB8bGxv7tuzZQHd2gCYP/XfKXlRisbGxsQ9izwpA8pXtAZo2KpoNhrGxsbFPZedF692Hb5KDQVcdOcLGxsY+jz0LmNoKOWtL8pUUKRo2Njb2F7PbQKctTrPDQPWqsLGxsb+S3cY9SduwXz6HzRI2Njb2cex2uNuOe3cCrKSAtaMLbGxs7JPYs2hmNuJtg6r2OM5sjIGNjY19W/YfGvxPAlbl3UsAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3aQW7jMAwF0Nz/0hlgtlN5+EkxzeJpFRipracCJkPy9Sqv9991uv7vOv3V8/efv3Paw4WFh4eH19p6ZaOnrT9/Pl2pb7dyn+M98fDw8NZ4z8EgBdfDTB1feRYeHh7et/FOsOe71VPn3qHg4eHhfT+vvsV6eaISWvDw8PC+jVcvyL4L6xn/jOwl3xdqLXh4eHgLXaTv+bzY38PDw8MbdNXT1/28AVYpcwS7xcPDw1vgpYlvmgRPChBpSAh+MeDh4eENeGnhIC2zpgWISpMsSL7x8PDwFniTB98dMkgT+vqx4uHh4W3w6s3+efCYjwiMCr54eHh4Y96o3b4QEtJRhjgM4OHh4Y15vY1WSgb1kJNuutI8O9aq8fDw8C7x0lZWmnZPAkY9ET9+Bw8PD+8qL31Mb9zqP0NRYaIfFJ3x8PDw1njpcMBkXDU9iHpAOgYGPDw8vI/w6i/0tNvWS6abwQMPDw9vmZeOXs0Por56IQQPDw9vm5eWU3sPTscR6gn9D5/x8PDwlnlpYOiVXHuA5jgCHh4e3hqvPigwL09UrqRh43gEeHh4eB/hpa2mXsOsckD1kYXSSeDh4eFd4qVbuVV6SGHNoSs8PDy8NV76iq+Hlldr9VL20v8NDw8P7xJvI5GdvPrrBxfsFg8PD+8Sb55Gp2GjN86Vlonx8PDwPsOrtKzSFldaPp7s4Yc74OHh4S3wJo+slIAnRY00fS8VI/Dw8PDGvHe4UlJ6pZdqH/eAh4eHt8CbvHzrW5+k4JXgNG+54eHh4aX3mQ9a9V7N6Yu+nrLj4eHhfYbXrGEMjmlvZAEPDw/ve3i97W6MajXr03h4eHi/yuuNRt1tmJWu4+Hh4a3xJsWISolh3uJqNtLw8PDwFnjNH/nll3ivSdZDXujv4eHh4T096w+iSJKXARYzigAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -384,18 +358,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/07/【学习笔记】Java笔记十：Java8新特性/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/14/【学习笔记】Java笔记7：反射/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          【学习笔记】Java笔记十：Java8新特性
+          【学习笔记】Java笔记7：反射
         
       </div>
     </a>
   
   
-    <a href="/2019/10/04/【学习笔记】Java笔记八：IO流/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">【学习笔记】Java笔记八：IO流</div>
+    <a href="/2019/09/09/【学习笔记】Java笔记5：集合/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【学习笔记】Java笔记5：集合</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -422,7 +396,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、相关概念"><span class="toc-number">1.</span> <span class="toc-text">一、相关概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、IP"><span class="toc-number">1.1.</span> <span class="toc-text">1、IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、端口"><span class="toc-number">1.2.</span> <span class="toc-text">2、端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、网络协议"><span class="toc-number">1.3.</span> <span class="toc-text">3、网络协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）TCP"><span class="toc-number">1.3.1.</span> <span class="toc-text">1）TCP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）UDP"><span class="toc-number">1.3.2.</span> <span class="toc-text">2）UDP</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、TCP和UDP编程"><span class="toc-number">2.</span> <span class="toc-text">二、TCP和UDP编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、TCP"><span class="toc-number">2.1.</span> <span class="toc-text">1、TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1）例题1"><span class="toc-number">2.1.1.</span> <span class="toc-text">1）例题1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2）例题2"><span class="toc-number">2.1.2.</span> <span class="toc-text">2）例题2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3）例题3"><span class="toc-number">2.1.3.</span> <span class="toc-text">3）例题3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、UDP"><span class="toc-number">2.2.</span> <span class="toc-text">2、UDP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、相关链接"><span class="toc-number">3.</span> <span class="toc-text">三、相关链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、介绍"><span class="toc-number">1.</span> <span class="toc-text">一、介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、自定义泛型"><span class="toc-number">2.</span> <span class="toc-text">二、自定义泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、泛型类"><span class="toc-number">2.1.</span> <span class="toc-text">1、泛型类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、泛型方法"><span class="toc-number">2.2.</span> <span class="toc-text">2、泛型方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、通配符"><span class="toc-number">3.</span> <span class="toc-text">三、通配符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、-lt-extends-Student-gt"><span class="toc-number">3.1.</span> <span class="toc-text">1、&lt;? extends Student&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、-lt-super-Student-gt"><span class="toc-number">3.2.</span> <span class="toc-text">2、&lt;? super Student&gt;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、注意事项"><span class="toc-number">4.</span> <span class="toc-text">四、注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、相关链接"><span class="toc-number">5.</span> <span class="toc-text">五、相关链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -538,15 +512,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">事务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,35 +540,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">反射</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">注解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java8新特性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,6 +560,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">泛型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IO流</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
@@ -619,6 +593,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">索引堆</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,15 +616,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -654,15 +636,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
+                <a href="javascript:void(0)" class="js-tag color1">八皇后问题</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">约瑟夫环</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">八皇后问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -674,11 +652,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">逆波兰表达式</a>
+                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">背包问题</a>
+                <a href="javascript:void(0)" class="js-tag color2">逆波兰表达式</a>
               </li>
              
               <li class="article-tag-list-item">
